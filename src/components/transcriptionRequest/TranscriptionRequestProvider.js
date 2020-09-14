@@ -6,7 +6,7 @@ export const TranscriptionRequestProvider = props => {
   const [ transcriptionRequests, setTranscriptionRequests ] = useState([]);
 
   const getTranscriptionRequests = async () => {
-    const res = await fetch('http://localhost:8088/transcriptionRequests');
+    const res = await fetch('http://localhost:8088/transcriptionRequests?_embed=transcription');
     const _transcriptionRequests = await res.json();
     setTranscriptionRequests(_transcriptionRequests);
   };
