@@ -2,10 +2,11 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import ApplicationViews from './ApplicationViews';
-import UnauthorizedUserLandingPage from './auth/UnauthorizedUserLandingPage/UnauthorizedUserLandingPage';
+import UnauthorizedUserLandingPage from './unauthorizedUserLandingPage/UnauthorizedUserLandingPage';
 import Header from './header/Header';
 import NavBar from './navbar/NavBar';
 import { UserProvider } from './user/UserProvider';
+import { LanguageProvider } from './language/LanguageProvider';
 
 const UhhhWut = () => (
   <>
@@ -22,7 +23,9 @@ const UhhhWut = () => (
       else {
         return (
           <UserProvider>
-            <UnauthorizedUserLandingPage {...props} />
+            <LanguageProvider>
+              <UnauthorizedUserLandingPage {...props} />
+            </LanguageProvider>
           </UserProvider>
         );
       }
