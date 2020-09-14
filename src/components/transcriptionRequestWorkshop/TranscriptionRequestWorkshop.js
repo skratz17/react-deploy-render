@@ -25,12 +25,6 @@ const TranscriptionRequestWorkshop = () => {
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
 
-  const handleYouTubeStateChange = e => {
-    if(e.data === YouTube.PlayerState.CUED) {
-      setPlayer(e.target);
-    }
-  };
-
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
     setStartTime(null);
@@ -57,7 +51,7 @@ const TranscriptionRequestWorkshop = () => {
   return (
     <section className="workshop">
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
-      <YouTube videoId={videoId} onStateChange={handleYouTubeStateChange} />
+      <YouTube videoId={videoId} onReady={e => setPlayer(e.target)} />
 
       <TranscriptionRequestControl isRequesting={!!startTime} onClick={handleTranscriptionRequestControlClick} />
 
