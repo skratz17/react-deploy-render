@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import TranscriptionRequestWorkshop from './transcriptionRequestWorkshop/TranscriptionRequestWorkshop';
 
 const ApplicationViews = props => (
   <>
@@ -8,7 +9,7 @@ const ApplicationViews = props => (
       localStorage.removeItem('current_user');
       return <Redirect to="/" />;
     }} />
-    <Route path="/workshop" render={() => <div>workshop</div>} />
+    <Route path="/workshop" component={TranscriptionRequestWorkshop} />
   </>
 );
 
