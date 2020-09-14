@@ -45,6 +45,7 @@ const Form = props => {
           isTouched={isTouched}
           isValid={isValid} />;
       })}
+      { props.children }
     </form>
   );
 };

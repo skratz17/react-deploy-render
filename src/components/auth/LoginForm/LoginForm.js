@@ -37,7 +37,9 @@ const LoginForm = props => {
   };
 
   return (
-    <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit} />
+    <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
+      <button type="submit">Log In</button>
+    </Form>
   );
 };
 
