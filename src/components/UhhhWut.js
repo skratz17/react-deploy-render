@@ -3,10 +3,11 @@ import { Route } from 'react-router-dom';
 
 import ApplicationViews from './ApplicationViews';
 import UnauthorizedUserLandingPage from './auth/UnauthorizedUserLandingPage/UnauthorizedUserLandingPage';
+import { UserProvider } from './user/UserProvider';
 
 const UhhhWut = () => (
   <>
-    <Route render={() => {
+    <Route render={props => {
       if(localStorage.getItem('current_user')) {
         return (
           <>
@@ -18,7 +19,9 @@ const UhhhWut = () => (
       }
       else {
         return (
-          <UnauthorizedUserLandingPage />
+          <UserProvider>
+            <UnauthorizedUserLandingPage {...props} />
+          </UserProvider>
         );
       }
     }} />
