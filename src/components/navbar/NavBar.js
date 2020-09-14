@@ -16,7 +16,7 @@ const NavBar = props => {
     <nav className="navBar">
       <ul className="navBar__links">
         { linksConfig.map(l => (
-          <li className={`navBar__linksListItem ${l.to === location.pathname ? 'current' : ''}`}>
+          <li key={l.to} className={`navBar__linksListItem ${l.to === location.pathname ? 'current' : ''}`}>
             <Link className="navBar__link" to={l.to}>{l.text}</Link>
           </li>
         ))}
