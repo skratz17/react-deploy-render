@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import ApplicationViews from './ApplicationViews';
 import UnauthorizedUserLandingPage from './auth/UnauthorizedUserLandingPage/UnauthorizedUserLandingPage';
+import Header from './header/Header';
 import { UserProvider } from './user/UserProvider';
 
 const UhhhWut = () => (
@@ -11,7 +12,7 @@ const UhhhWut = () => (
       if(localStorage.getItem('current_user')) {
         return (
           <>
-            <h1>website</h1>
+            <Header />
             <nav>navigation</nav>
             <ApplicationViews />
           </>
