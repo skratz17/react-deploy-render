@@ -44,8 +44,8 @@ const TranscriptionRequestWorkshop = () => {
     else {
       const transcriptionRequestData = {
         videoId,
-        startTime,
-        endTime: timeClicked
+        startTime: Math.floor(startTime),
+        endTime: Math.ceil(timeClicked)
       };
 
       await saveTranscriptionRequest(transcriptionRequestData);
