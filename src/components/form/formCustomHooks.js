@@ -14,3 +14,24 @@ export const useIsFormValid = formConfig => {
 
   return isFormValid;
 };
+
+export const useFormConfig = initialFormConfig => {
+  const [ formConfig, setFormConfig ] = useState(initialFormConfig);
+
+  const handleChange = changeData => {
+    const { name, value, isValid, isTouched } = changeData;
+
+    const updatedFormConfig = { ...formConfig };
+    const updatedFormElement = { 
+      ...updatedFormConfig[name], 
+      value,
+      isValid,
+      isTouched
+    };
+    updatedFormConfig[name] = updatedFormElement;
+
+    setFormConfig(updatedFormConfig);
+  };
+
+  return [ formConfig, handleChange ];
+};
