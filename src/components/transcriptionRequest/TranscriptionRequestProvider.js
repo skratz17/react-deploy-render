@@ -13,6 +13,8 @@ export const TranscriptionRequestProvider = props => {
 
   const saveTranscriptionRequest = async transcriptionRequest => {
     transcriptionRequest.userId = parseInt(localStorage.getItem('current_user'));
+    transcriptionRequest.isActivated = false;
+
     await fetch('http://localhost:8088/transcriptionRequests', {
       method: 'POST',
       headers: {
