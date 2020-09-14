@@ -4,7 +4,13 @@ const YouTubeSearchBar = props => {
   const { value, onChange } = props;
 
   const handleChange = e => {
-    onChange(e.target.value);
+    try {
+      const youtubeURL = new URL(e.target.value);
+      onChange(youtubeURL.searchParams.get('v'));
+    }
+    catch {
+      onChange(e.target.value);
+    }
   };
 
   return (
