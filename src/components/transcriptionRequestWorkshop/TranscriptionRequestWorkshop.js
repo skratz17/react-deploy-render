@@ -15,6 +15,11 @@ const TranscriptionRequestWorkshop = () => {
     }
   };
 
+  const handleYouTubeSearchBarChange = videoId => {
+    setVideoId(videoId);
+    setStartTime(null);
+  };
+
   const handleTranscriptionRequestControlClick = () => {
     const timeClicked = player.getCurrentTime();
 
@@ -36,7 +41,7 @@ const TranscriptionRequestWorkshop = () => {
 
   return (
     <section className="workshop">
-      <YouTubeSearchBar value={videoId} onChange={setVideoId} />
+      <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
       <YouTube videoId={videoId} onStateChange={handleYouTubeStateChange} />
 
       <TranscriptionRequestControl isRequesting={!!startTime} onClick={handleTranscriptionRequestControlClick} />
