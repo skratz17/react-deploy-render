@@ -10,7 +10,7 @@ export const useIsFormValid = formConfig => {
     if(_isFormValid !== isFormValid) {
       setIsFormValid(_isFormValid);
     }
-  }, [ formConfig ]);
+  }, [ formConfig, isFormValid ]);
 
   return isFormValid;
 };
@@ -33,5 +33,5 @@ export const useFormConfig = initialFormConfig => {
     setFormConfig(updatedFormConfig);
   };
 
-  return [ formConfig, handleChange ];
+  return [ formConfig, handleChange, setFormConfig ];
 };
