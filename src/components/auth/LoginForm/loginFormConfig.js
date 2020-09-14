@@ -8,7 +8,7 @@ export default {
     },
     value: '',
     validation: {
-      required: true
+      isRequired: true
     },
     isTouched: false,
     isValid: false
@@ -23,7 +23,7 @@ export default {
     },
     value: '',
     validation: {
-      required: true
+      isRequired: true
     },
     isTouched: false,
     isValid: false

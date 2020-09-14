@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react';
 
 import { UserContext } from '../../user/UserProvider';
 import Form from '../../form/Form';
+import { useIsFormValid } from '../../form/formCustomHooks';
 import loginFormConfig from './loginFormConfig';
 
 const LoginForm = props => {
   const [ formConfig, setFormConfig ] = useState(loginFormConfig);
   const [ didLoginFail, setDidLoginFail ] = useState(false);
+
+  const isFormValid = useIsFormValid(formConfig);
 
   const { getUserByEmail } = useContext(UserContext);
 
@@ -22,6 +25,7 @@ const LoginForm = props => {
     };
     updatedFormConfig[name] = updatedFormElement;
 
+    setDidLoginFail(false);
     setFormConfig(updatedFormConfig);
   };
 
@@ -32,14 +36,17 @@ const LoginForm = props => {
       props.history.push('/');
     }
     else {
-      alert('A user with those credentials was not found.');
+      setDidLoginFail(true);
     }
   };
 
   return (
-    <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
-      <button type="submit">Log In</button>
-    </Form>
+    <div className="loginFormWrapper">
+      { didLoginFail && <p className="text--warning">A user with the supplied credentials was not found. Please try again.</p> }
+      <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
+        <button disabled={!isFormValid} type="submit">Log In</button>
+      </Form>
+    </div>
   );
 };
 
