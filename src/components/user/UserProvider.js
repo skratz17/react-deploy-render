@@ -9,9 +9,21 @@ export const UserProvider = props => {
     return users.length ? users[0] : false;
   };
 
+  const saveUser = async userData => {
+    const res = await fetch('http://localhost:8088/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+    const newUser = await res.json();
+    return newUser;
+  };
+
   return (
     <UserContext.Provider value={{
-      getUserByEmail
+      getUserByEmail, saveUser
     }}>
       {props.children}
     </UserContext.Provider>

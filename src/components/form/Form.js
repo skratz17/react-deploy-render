@@ -27,6 +27,10 @@ const Form = props => {
     if(validation.isRequired) {
       if(!value.trim()) return false;
     }
+
+    if(validation.mustMatch) {
+      if(value !== formConfig[validation.mustMatch].value) return false;
+    }
     
     return true;
   };
@@ -37,8 +41,9 @@ const Form = props => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       { formConfigArray.map(inputConfig => {
-        const { name, inputType, elementConfig, value, onChange, isTouched, isValid } = inputConfig;
-        return <Input inputType={inputType}
+        const { name, inputType, elementConfig, value, isTouched, isValid } = inputConfig;
+        return <Input key={name}
+          inputType={inputType}
           elementConfig={elementConfig}
           value={value}
           onChange={handleChange}
