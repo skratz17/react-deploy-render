@@ -1,0 +1,32 @@
+.navBar {
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+}
+
+.navBar__links {
+  list-style-type: none;
+  display: flex;
+}
+
+.navBar__linksListItem {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.navBar__linksListItem:last-child {
+  margin-left: auto;
+}
+
+.navBar__link {
+  color: #000;
+  text-decoration: none;
+}
+
+.navBar__linksListItem.current {
+  background-color: #000;
+}
+
+.navBar__linksListItem.current .navBar__link {
+  background-color: #000;
+  color: #fff;
+}
