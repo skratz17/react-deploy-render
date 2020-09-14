@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import ApplicationViews from './ApplicationViews';
 import UnauthorizedUserLandingPage from './auth/UnauthorizedUserLandingPage/UnauthorizedUserLandingPage';
+import { UserProvider } from './user/UserProvider';
 
 const UhhhWut = () => (
   <>
@@ -18,7 +19,9 @@ const UhhhWut = () => (
       }
       else {
         return (
-          <UnauthorizedUserLandingPage />
+          <UserProvider>
+            <UnauthorizedUserLandingPage />
+          </UserProvider>
         );
       }
     }} />
