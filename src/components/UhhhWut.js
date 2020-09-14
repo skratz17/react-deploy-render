@@ -7,7 +7,7 @@ import { UserProvider } from './user/UserProvider';
 
 const UhhhWut = () => (
   <>
-    <Route render={() => {
+    <Route render={props => {
       if(localStorage.getItem('current_user')) {
         return (
           <>
@@ -20,7 +20,7 @@ const UhhhWut = () => (
       else {
         return (
           <UserProvider>
-            <UnauthorizedUserLandingPage />
+            <UnauthorizedUserLandingPage {...props} />
           </UserProvider>
         );
       }

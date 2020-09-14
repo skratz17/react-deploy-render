@@ -1,7 +1,11 @@
 import React from 'react';
 
+import LoginForm from '../LoginForm/LoginForm';
+
 const UnauthorizedUserLandingPage = props => (
-  <div>請登入或註冊</div>
+  <div>
+    <LoginForm {...props} />
+  </div>
 );
 
 export default UnauthorizedUserLandingPage;
