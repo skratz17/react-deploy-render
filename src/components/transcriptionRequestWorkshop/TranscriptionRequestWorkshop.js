@@ -4,6 +4,7 @@ import { TranscriptionRequestContext } from '../transcriptionRequest/Transcripti
 
 import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
+import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 
 const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
@@ -60,7 +61,7 @@ const TranscriptionRequestWorkshop = () => {
 
       <TranscriptionRequestControl isRequesting={!!startTime} onClick={handleTranscriptionRequestControlClick} />
 
-      { transcriptionRequestsForVideo.map(tR => <p>{tR.id}</p>) }
+      <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForVideo} shouldHideVideoPreview={true} />
     </section>
   );
 };
