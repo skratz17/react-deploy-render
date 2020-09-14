@@ -73,5 +73,20 @@ export default {
     },
     isTouched: false,
     isValid: false
+  },
+
+  nativeLanguageId: {
+    inputType: 'select',
+    elementConfig: {
+      name: 'nativeLanguageId',
+      placeholder: 'Select your native language'
+    },
+    value: '',
+    items: [],
+    validation: {
+      isRequired: true
+    },
+    isTouched: false,
+    isValid: false
   }
 };

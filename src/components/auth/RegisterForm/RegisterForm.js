@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { UserContext } from '../../user/UserProvider';
+import { LanguageContext } from '../../language/LanguageProvider';
 import Form from '../../form/Form';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 import registerFormConfig from './registerFormConfig';
@@ -8,10 +9,25 @@ import registerFormConfig from './registerFormConfig';
 const RegisterForm = props => {
   const [ didRegisterFail, setDidRegisterFail ] = useState(false);
 
-  const [ formConfig, handleFormChange ] = useFormConfig(registerFormConfig);
+  const [ formConfig, handleFormChange, setFormConfig ] = useFormConfig(registerFormConfig);
   const isFormValid = useIsFormValid(formConfig);
 
   const { getUserByEmail, saveUser } = useContext(UserContext);
+  const { getLanguages, languages } = useContext(LanguageContext);
+
+  useEffect(() => {
+    getLanguages();
+  }, []);
+
+  useEffect(() => {
+    if(languages.length && !formConfig.nativeLanguageId.items.length) {
+      const updatedFormConfig = { ...formConfig };
+      const updatedFormElement = { ...updatedFormConfig.nativeLanguageId };
+      updatedFormElement.items = languages.map(l => ({ value: l.id, displayName: l.name }));
+      updatedFormConfig.nativeLanguageId = updatedFormElement;
+      setFormConfig(updatedFormConfig);
+    }
+  }, [ languages, formConfig, setFormConfig ]);
 
   const handleChange = changeData => {
     setDidRegisterFail(false);
@@ -28,7 +44,8 @@ const RegisterForm = props => {
         firstName: formConfig.firstName.value,
         lastName: formConfig.lastName.value,
         email: formConfig.email.value,
-        password: formConfig.password.value
+        password: formConfig.password.value,
+        nativeLanguageId: parseInt(formConfig.nativeLanguageId.value)
       };
 
       const newUser = await saveUser(newUserData);

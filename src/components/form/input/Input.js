@@ -6,7 +6,7 @@ const Input = props => {
   const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items } = props;
 
   let inputElement;
-  switch(props.inputType) {
+  switch(inputType) {
     case 'input':
       inputElement = <input {...elementConfig}
         value={value}
@@ -19,6 +19,8 @@ const Input = props => {
       break;
     case 'select':
       inputElement = <Select {...elementConfig}
+        value={value}
+        onChange={onChange}
         items={items} />;
       break;
     default:
