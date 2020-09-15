@@ -17,6 +17,12 @@ export const TranscriptionRequestProvider = props => {
     return transcriptionRequest;
   };
 
+  const getTranscriptionRequestToFulfillForLanguage = async languageId => {
+    const res = await fetch(`http://localhost:8088/transcriptionRequests?_embed=transcription&languageId=${languageId}&userId_ne${localStorage.getItem('current_user')}&sort=timestamp&isActivated_ne=false`);
+    const candidates = await res.json();
+    return candidates.find(tR => tR.transcription.length === 0) || false;
+  };
+
   const saveTranscriptionRequest = async transcriptionRequest => {
     transcriptionRequest.userId = parseInt(localStorage.getItem('current_user'));
     transcriptionRequest.isActivated = false;
@@ -42,9 +48,18 @@ export const TranscriptionRequestProvider = props => {
     await getTranscriptionRequests();
   };
 
+  const activateTranscriptionRequest = async id => {
+    const transcriptionRequestData = {
+      isActivated: true,
+      timestamp: Date.now()
+    };
+
+    await updateTranscriptionRequest(id, transcriptionRequestData);
+  };
+
   return (
     <TranscriptionRequestContext.Provider value={{
-      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById, updateTranscriptionRequest
+      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById, updateTranscriptionRequest, getTranscriptionRequestToFulfillForLanguage, activateTranscriptionRequest
     }}>{props.children}</TranscriptionRequestContext.Provider>
   );
 };

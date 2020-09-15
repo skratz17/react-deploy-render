@@ -9,6 +9,12 @@ export const UserProvider = props => {
     return users.length ? users[0] : false;
   };
 
+  const getUserById = async id => {
+    const res = await fetch(`http://localhost:8088/users/${id}`);
+    const user = await res.json();
+    return user;
+  };
+
   const saveUser = async userData => {
     const res = await fetch('http://localhost:8088/users', {
       method: 'POST',
@@ -23,7 +29,7 @@ export const UserProvider = props => {
 
   return (
     <UserContext.Provider value={{
-      getUserByEmail, saveUser
+      getUserByEmail, getUserById, saveUser
     }}>
       {props.children}
     </UserContext.Provider>
