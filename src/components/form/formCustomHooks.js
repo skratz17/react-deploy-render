@@ -33,5 +33,13 @@ export const useFormConfig = initialFormConfig => {
     setFormConfig(updatedFormConfig);
   };
 
-  return [ formConfig, handleChange, setFormConfig ];
+  const updateFormConfig = (formFieldName, newValue, propertyToUpdate = 'value') => {
+    const updatedFormConfig = { ...formConfig };
+    const updatedFormElement = { ...updatedFormConfig[formFieldName] };
+    updatedFormElement[propertyToUpdate] = newValue;
+    updatedFormConfig[formFieldName] = updatedFormElement;
+    setFormConfig(updatedFormConfig);
+  };
+
+  return [ formConfig, handleChange, updateFormConfig ];
 };
