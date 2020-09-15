@@ -11,6 +11,12 @@ export const TranscriptionRequestProvider = props => {
     setTranscriptionRequests(_transcriptionRequests);
   };
 
+  const getTranscriptionRequestById = async id => {
+    const res = await fetch(`http://localhost:8088/transcriptionRequests/${id}`);
+    const transcriptionRequest = await res.json();
+    return transcriptionRequest;
+  };
+
   const saveTranscriptionRequest = async transcriptionRequest => {
     transcriptionRequest.userId = parseInt(localStorage.getItem('current_user'));
     transcriptionRequest.isActivated = false;
@@ -27,7 +33,7 @@ export const TranscriptionRequestProvider = props => {
 
   return (
     <TranscriptionRequestContext.Provider value={{
-      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest
+      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById
     }}>{props.children}</TranscriptionRequestContext.Provider>
   );
 };
