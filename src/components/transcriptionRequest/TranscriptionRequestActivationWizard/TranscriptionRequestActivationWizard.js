@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import TranscriptionRequestConfirm from './TranscriptionRequestConfirm/TranscriptionRequestConfirm';
+
+const WIZARD_STATES = {
+  0: TranscriptionRequestConfirm
+};
+
 const TranscriptionRequestActivationWizard = props => {
   const { transcriptionRequestId, isShowing } = props;
 
