@@ -121,7 +121,7 @@ const TranscriptionRequestActivationWizard = props => {
             onChange={handleTranscriptionChange} />
           <div className="wizardActionsWrapper">
             <button onClick={() => setCurrentStep(currentStep => currentStep - 1)}>Back</button>
-            <button onClick={submitTranscription} disabled={!isTranscriptionFormValid}>Activate Transcription Request</button>
+            <button onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>Activate Transcription Request</button>
           </div>
       </>;
       break;

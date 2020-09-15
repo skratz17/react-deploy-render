@@ -7,14 +7,14 @@ const TranscriptionRequestCard = props => {
   const { transcriptionRequest, onActivate, shouldHideVideoPreview } = props;
 
   let transcriptionRequestActionContent;
-  if(!transcriptionRequest.isActive) {
+  if(!transcriptionRequest.isActivated) {
     transcriptionRequestActionContent = <button onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
   }
-  else if(!transcriptionRequest.transcription) {
+  else if(!transcriptionRequest.transcriptions.length) {
     transcriptionRequestActionContent = <p>Activated - awaiting transcription.</p>;
   }
   else {
-    transcriptionRequestActionContent = <Link to={`/transcriptions/${transcriptionRequest.transcription.id}`}>View Transcription</Link>;
+    transcriptionRequestActionContent = <Link to={`/transcriptions/${transcriptionRequest.transcriptions[0].id}`}>View Transcription</Link>;
   }
 
   return (
