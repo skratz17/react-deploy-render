@@ -2,8 +2,11 @@ import React, { useState, useContext, useEffect } from 'react';
 
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
+import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
 
 const TranscriptionRequestDashboard = () => {
+  const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
+
   const { transcriptionRequests, getTranscriptionRequests } = useContext(TranscriptionRequestContext);
 
   useEffect(() => {
@@ -21,12 +24,17 @@ const TranscriptionRequestDashboard = () => {
     <div className="transcriptionRequestDashboardWrapper">
       {
         dashboardConfig.map(({ header, filterFunction }) => (
-          <div className="transcriptionRequestDashboard__listWrapper">
+          <div key={header} className="transcriptionRequestDashboard__listWrapper">
             <h3 className="transcriptionRequestDashboard__listHeader">{header}</h3>
-            <TranscriptionRequestList transcriptionRequests={transcriptionRequests.filter(filterFunction)} />
+            <TranscriptionRequestList transcriptionRequests={transcriptionRequests.filter(filterFunction)} 
+              onActivate={setActivatingTranscriptionRequestId} />
           </div>
         ))
       }
+
+      <TranscriptionRequestActivationWizard 
+        isShowing={activatingTranscriptionRequestId !== null}
+        transcriptionRequestId={activatingTranscriptionRequestId} />
     </div>
   )
 };

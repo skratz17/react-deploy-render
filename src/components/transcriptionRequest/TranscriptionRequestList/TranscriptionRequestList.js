@@ -9,7 +9,7 @@ const TranscriptionRequestList = props => {
   return (
     <div className="transcriptionRequestList">
       { transcriptionRequests.map(tR => (
-        <TranscriptionRequestCard transcriptionRequest={tR} shouldHideVideoPreview={shouldHideVideoPreview} onActivate={onActivate} />
+        <TranscriptionRequestCard key={tR.id} transcriptionRequest={tR} shouldHideVideoPreview={shouldHideVideoPreview} onActivate={onActivate} />
       ))}
     </div>
   );
