@@ -4,6 +4,7 @@ import { LanguageProvider } from './language/LanguageProvider';
 import { TranscriptionProvider } from './transcription/TranscriptionProvider';
 import { TranscriptionRequestProvider } from './transcriptionRequest/TranscriptionRequestProvider';
 import TranscriptionRequestWorkshop from './transcriptionRequestWorkshop/TranscriptionRequestWorkshop';
+import TranscriptionRequestDashboard from './transcriptionRequestDashboard/TranscriptionRequestDashboard';
 
 const ApplicationViews = props => (
   <>
@@ -17,6 +18,8 @@ const ApplicationViews = props => (
       <TranscriptionProvider>
         <LanguageProvider>
           <Route path="/workshop" component={TranscriptionRequestWorkshop} />
+
+          <Route path="/dashboard" component={TranscriptionRequestDashboard} />
         </LanguageProvider>
       </TranscriptionProvider>
     </TranscriptionRequestProvider>
