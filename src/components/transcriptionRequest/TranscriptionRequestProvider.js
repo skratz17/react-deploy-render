@@ -31,9 +31,20 @@ export const TranscriptionRequestProvider = props => {
     await getTranscriptionRequests();
   };
 
+  const updateTranscriptionRequest = async (id, transcriptionRequestData) => {
+    await fetch(`http://localhost:8088/transcriptionRequests/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(transcriptionRequestData)
+    });
+    await getTranscriptionRequests();
+  };
+
   return (
     <TranscriptionRequestContext.Provider value={{
-      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById
+      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById, updateTranscriptionRequest
     }}>{props.children}</TranscriptionRequestContext.Provider>
   );
 };

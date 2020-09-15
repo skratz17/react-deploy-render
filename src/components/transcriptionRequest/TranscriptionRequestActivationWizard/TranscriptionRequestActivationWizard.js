@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { TranscriptionRequestContext } from '../TranscriptionRequestProvider';
 import { LanguageContext } from '../../language/LanguageProvider';
 import TranscriptionRequestConfirm from './TranscriptionRequestConfirm/TranscriptionRequestConfirm';
-import transcriptionRequestConfirmFormConfig from './TranscriptionRequestConfirm/transcriptionRequestConfirmConfig';
+import initialTranscriptionRequestFormConfig from './TranscriptionRequestConfirm/transcriptionRequestConfirmConfig';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 
 const WIZARD_STATES = {
@@ -15,12 +15,12 @@ const WIZARD_STATES = {
 const TranscriptionRequestActivationWizard = props => {
   const { transcriptionRequestId, isShowing } = props;
 
-  const { getTranscriptionRequestById } = useContext(TranscriptionRequestContext);
+  const { getTranscriptionRequestById, updateTranscriptionRequest } = useContext(TranscriptionRequestContext);
   const { languages, getLanguages } = useContext(LanguageContext);
 
   const [ currentStep, setCurrentStep ] = useState(0);
   const [ transcriptionRequestToConfirm, setTranscriptionRequestToConfirm ] = useState(null);
-  const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig, resetTranscriptionRequestFormConfig ] = useFormConfig(transcriptionRequestConfirmFormConfig);
+  const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig, resetTranscriptionRequestFormConfig ] = useFormConfig(initialTranscriptionRequestFormConfig);
   const isTranscriptionRequestFormValid = useIsFormValid(transciptionRequestFormConfig);
 
   useEffect(() => {
@@ -60,6 +60,17 @@ const TranscriptionRequestActivationWizard = props => {
     return null;
   }
 
+  const updateAndConfirmTranscriptionRequest = async () => {
+    const transcriptionRequestData = {
+      startTime: parseInt(transciptionRequestFormConfig.startTime.value),
+      endTime: parseInt(transciptionRequestFormConfig.endTime.value),
+      languageId: parseInt(transciptionRequestFormConfig.languageId.value)
+    };
+
+    await updateTranscriptionRequest(transcriptionRequestToConfirm.id, transcriptionRequestData);
+    setCurrentStep(currentStepVal => currentStepVal + 1);
+  };
+
   let transcriptionRequestActivationWizardBody;
   switch(currentStep) {
     case WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM:
@@ -68,7 +79,7 @@ const TranscriptionRequestActivationWizard = props => {
           formConfig={transciptionRequestFormConfig}
           onChange={handleTranscriptionRequestChange} />
         <div className="wizardActionsWrapper">
-          <button onClick={() => setCurrentStep(currentStep => currentStep + 1)} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
+          <button onClick={updateAndConfirmTranscriptionRequest} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
         </div>
       </>;
       break;
