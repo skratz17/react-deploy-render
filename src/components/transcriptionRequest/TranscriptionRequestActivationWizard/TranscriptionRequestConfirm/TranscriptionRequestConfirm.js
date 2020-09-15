@@ -8,14 +8,14 @@ const TranscriptionRequestConfirm = props => {
   const { videoId, formConfig, onChange } = props;
 
   const [ playerVars, setPlayerVars ] = useState({
-    start: props.formConfig.startTime.value,
-    end: props.formConfig.endTime.value
+    start: formConfig.startTime.value,
+    end: formConfig.endTime.value
   });
 
   useEffect(() => {
     const _playerVars = {
-      start: props.formConfig.startTime.value,
-      end: props.formConfig.endTime.value
+      start: formConfig.startTime.value,
+      end: formConfig.endTime.value
     };
     setPlayerVars(_playerVars);
   }, [ formConfig ]);

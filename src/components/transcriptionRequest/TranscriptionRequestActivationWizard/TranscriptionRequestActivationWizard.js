@@ -5,10 +5,11 @@ import { TranscriptionRequestContext } from '../TranscriptionRequestProvider';
 import { LanguageContext } from '../../language/LanguageProvider';
 import TranscriptionRequestConfirm from './TranscriptionRequestConfirm/TranscriptionRequestConfirm';
 import transcriptionRequestConfirmFormConfig from './TranscriptionRequestConfirm/transcriptionRequestConfirmConfig';
-import { useFormConfig } from '../../form/formCustomHooks';
+import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 
 const WIZARD_STATES = {
-  0: TranscriptionRequestConfirm
+  TRANSCRIPTION_REQUEST_CONFIRM: 0,
+  TRANSCRIPTION_CREATION: 1
 };
 
 const TranscriptionRequestActivationWizard = props => {
@@ -20,9 +21,10 @@ const TranscriptionRequestActivationWizard = props => {
   const [ currentStep, setCurrentStep ] = useState(0);
   const [ transcriptionRequestToConfirm, setTranscriptionRequestToConfirm ] = useState(null);
   const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig ] = useFormConfig(transcriptionRequestConfirmFormConfig);
+  const isTranscriptionRequestFormValid = useIsFormValid(transciptionRequestFormConfig);
 
   useEffect(() => {
-    // react yells at you if your useEffect callback is async so it recommends you do this
+    // react yells at you if your useEffect callback is async so it recommends you do this, that's the only reason this function exists otherwise i'd just do that async operation directly in the useEffect callback
     const _getTranscriptionRequestById = async id => {
       const _transcriptionRequestToConfirm = await getTranscriptionRequestById(id);
       setTranscriptionRequestToConfirm(_transcriptionRequestToConfirm);
@@ -45,10 +47,11 @@ const TranscriptionRequestActivationWizard = props => {
   // populate startTime and endTime inputs in form with loaded transcriptionRequest data
   useEffect(() => {
     if(transcriptionRequestToConfirm) {
-      const { startTime, endTime } = transcriptionRequestToConfirm;
+      const { startTime, endTime, languageId } = transcriptionRequestToConfirm;
 
-      updateTranscriptionRequestFormConfig('startTime', startTime);
-      updateTranscriptionRequestFormConfig('endTime', endTime);
+      updateTranscriptionRequestFormConfig('startTime', startTime + '');
+      updateTranscriptionRequestFormConfig('endTime', endTime + '');
+      updateTranscriptionRequestFormConfig('languageId', languageId ? languageId + '' : '');
     }
   }, [ transcriptionRequestToConfirm ]);
 
@@ -56,13 +59,30 @@ const TranscriptionRequestActivationWizard = props => {
     return null;
   }
 
-  return (
-    <div className="transcriptionRequestActivationWizardWrapper">
-      {transcriptionRequestToConfirm && 
-        <TranscriptionRequestConfirm videoId={transcriptionRequestToConfirm.videoId}
+  let transcriptionRequestActivationWizardBody;
+  switch(currentStep) {
+    case WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM:
+      transcriptionRequestActivationWizardBody =  <>
+        <TranscriptionRequestConfirm videoId={transcriptionRequestToConfirm ? transcriptionRequestToConfirm.videoId : ''}
           formConfig={transciptionRequestFormConfig}
           onChange={handleTranscriptionRequestChange} />
-      }
+        <div className="wizardActionsWrapper">
+          <button onClick={() => setCurrentStep(currentStep => currentStep + 1)} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
+        </div>
+      </>;
+      break;
+    case WIZARD_STATES.TRANSCRIPTION_CREATION:
+      transcriptionRequestActivationWizardBody = (
+        <div>create a transcription lmao</div>
+      )
+      break;
+    default:
+      throw new Error('Invalid state in TranscriptionRequestActivationWizard');
+  }
+
+  return (
+    <div className="transcriptionRequestActivationWizardWrapper">
+      { transcriptionRequestActivationWizardBody }
     </div>
   );
 };

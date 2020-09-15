@@ -11,7 +11,7 @@ export default {
       isRequired: true
     },
     isTouched: false,
-    isValid: true
+    isValid: false
   },
 
   endTime: {
@@ -27,7 +27,7 @@ export default {
       mustBeGreaterThan: 'startTime'
     },
     isTouched: false,
-    isValid: true
+    isValid: false
   },
 
   languageId: {
@@ -42,6 +42,6 @@ export default {
       isRequired: true
     },
     isTouched: false,
-    isValid: true
+    isValid: false
   }
 };
