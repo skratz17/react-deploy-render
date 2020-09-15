@@ -1,8 +1,14 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 
 export const TranscriptionContext = createContext();
 
 export const TranscriptionProvider = props => {
+  const getTranscriptionById = async id => {
+    const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest`);
+    const transcription = await res.json();
+    return transcription;
+  };
+
   const saveTranscription = async transcriptionData => {
     transcriptionData.timestamp = Date.now();
     transcriptionData.isAccepted = false;
@@ -20,7 +26,7 @@ export const TranscriptionProvider = props => {
 
   return (
     <TranscriptionContext.Provider value={{
-      saveTranscription
+      getTranscriptionById, saveTranscription
     }}>{props.children}</TranscriptionContext.Provider>
   );
 };
