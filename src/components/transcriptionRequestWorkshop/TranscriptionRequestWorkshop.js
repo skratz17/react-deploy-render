@@ -5,12 +5,14 @@ import { TranscriptionRequestContext } from '../transcriptionRequest/Transcripti
 import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
+import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
 
 const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
   const [ videoId, setVideoId ] = useState('');
   const [ startTime, setStartTime ] = useState(null);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
+  const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
   const { transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest } = useContext(TranscriptionRequestContext);
 
@@ -53,9 +55,16 @@ const TranscriptionRequestWorkshop = () => {
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
       <YouTube videoId={videoId} onReady={e => setPlayer(e.target)} />
 
-      <TranscriptionRequestControl isRequesting={!!startTime} onClick={handleTranscriptionRequestControlClick} />
+      <TranscriptionRequestControl isRequesting={startTime !== null} onClick={handleTranscriptionRequestControlClick} />
 
-      <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForVideo} shouldHideVideoPreview={true} />
+      <TranscriptionRequestList 
+        onActivate={setActivatingTranscriptionRequestId}
+        transcriptionRequests={transcriptionRequestsForVideo} 
+        shouldHideVideoPreview={true} />
+
+      <TranscriptionRequestActivationWizard 
+        isShowing={activatingTranscriptionRequestId !== null}
+        transcriptionRequestId={activatingTranscriptionRequestId} />
     </section>
   );
 };
