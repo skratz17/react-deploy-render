@@ -8,7 +8,8 @@ export default {
     },
     value: '',
     validation: {
-      isRequired: true
+      isRequired: true,
+      mustBeLessThan: 'endTime'
     },
     isTouched: false,
     isValid: false

@@ -45,6 +45,14 @@ const Form = props => {
     if(validation.mustMatch) {
       if(value !== formConfig[validation.mustMatch].value) return false;
     }
+
+    if(validation.mustBeLessThan) {
+      if(parseFloat(value) >= parseFloat(formConfig[validation.mustBeLessThan].value)) return false;
+    }
+
+    if(validation.mustBeGreaterThan) {
+      if(parseFloat(value) <= parseFloat(formConfig[validation.mustBeGreaterThan].value)) return false;
+    }
     
     return true;
   };
