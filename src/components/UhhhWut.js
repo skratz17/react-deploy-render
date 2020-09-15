@@ -16,7 +16,9 @@ const UhhhWut = () => (
           <>
             <Header />
             <NavBar />
-            <ApplicationViews />
+            <UserProvider>
+              <ApplicationViews />
+            </UserProvider>
           </>
         );
       }
