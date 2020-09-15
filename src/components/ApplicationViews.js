@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { LanguageProvider } from './language/LanguageProvider';
 import { TranscriptionRequestProvider } from './transcriptionRequest/TranscriptionRequestProvider';
 import TranscriptionRequestWorkshop from './transcriptionRequestWorkshop/TranscriptionRequestWorkshop';
 
@@ -12,7 +13,9 @@ const ApplicationViews = props => (
     }} />
 
     <TranscriptionRequestProvider>
-      <Route path="/workshop" component={TranscriptionRequestWorkshop} />
+      <LanguageProvider>
+        <Route path="/workshop" component={TranscriptionRequestWorkshop} />
+      </LanguageProvider>
     </TranscriptionRequestProvider>
   </>
 );

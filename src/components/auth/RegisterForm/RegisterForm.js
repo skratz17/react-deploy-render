@@ -9,7 +9,7 @@ import registerFormConfig from './registerFormConfig';
 const RegisterForm = props => {
   const [ didRegisterFail, setDidRegisterFail ] = useState(false);
 
-  const [ formConfig, handleFormChange, setFormConfig ] = useFormConfig(registerFormConfig);
+  const [ formConfig, handleFormChange, updateFormConfig ] = useFormConfig(registerFormConfig);
   const isFormValid = useIsFormValid(formConfig);
 
   const { getUserByEmail, saveUser } = useContext(UserContext);
@@ -21,13 +21,10 @@ const RegisterForm = props => {
 
   useEffect(() => {
     if(languages.length && !formConfig.nativeLanguageId.items.length) {
-      const updatedFormConfig = { ...formConfig };
-      const updatedFormElement = { ...updatedFormConfig.nativeLanguageId };
-      updatedFormElement.items = languages.map(l => ({ value: l.id, displayName: l.name }));
-      updatedFormConfig.nativeLanguageId = updatedFormElement;
-      setFormConfig(updatedFormConfig);
+      const items = languages.map(l => ({ value: l.id, displayName: l.name }));
+      updateFormConfig('nativeLanguageId', items, 'items');
     }
-  }, [ languages, formConfig, setFormConfig ]);
+  }, [ languages, formConfig, updateFormConfig ]);
 
   const handleChange = changeData => {
     setDidRegisterFail(false);
