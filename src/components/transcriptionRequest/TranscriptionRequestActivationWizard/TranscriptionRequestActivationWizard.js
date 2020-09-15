@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { TranscriptionRequestContext } from '../TranscriptionRequestProvider';
-import { LanguageContext, LangugageContext } from '../../language/LanguageProvider';
+import { LanguageContext } from '../../language/LanguageProvider';
 import TranscriptionRequestConfirm from './TranscriptionRequestConfirm/TranscriptionRequestConfirm';
 import transcriptionRequestConfirmFormConfig from './TranscriptionRequestConfirm/transcriptionRequestConfirmConfig';
 import { useFormConfig } from '../../form/formCustomHooks';
@@ -34,6 +34,7 @@ const TranscriptionRequestActivationWizard = props => {
     }
   }, [ transcriptionRequestId ]);
 
+  // populate language dropdown in form with loaded languages data
   useEffect(() => {
     if(languages.length && !transciptionRequestFormConfig.languageId.items.length) {
       const items = languages.map(l => ({ value: l.id, displayName: l.name }));
@@ -41,6 +42,7 @@ const TranscriptionRequestActivationWizard = props => {
     }
   }, [ languages, transciptionRequestFormConfig, updateTranscriptionRequestFormConfig ]);
 
+  // populate startTime and endTime inputs in form with loaded transcriptionRequest data
   useEffect(() => {
     if(transcriptionRequestToConfirm) {
       const { startTime, endTime } = transcriptionRequestToConfirm;
