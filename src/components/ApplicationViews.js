@@ -7,7 +7,7 @@ import TranscriptionRequestWorkshop from './transcriptionRequestWorkshop/Transcr
 import TranscriptionRequestDashboard from './transcriptionRequestDashboard/TranscriptionRequestDashboard';
 import Transcription from './transcription/Transcription/Transcription';
 
-const ApplicationViews = props => (
+const ApplicationViews = () => (
   <>
     <Route exact path="/" render={() => <Redirect to="/workshop" />} />
     <Route path="/logout" render={() => {

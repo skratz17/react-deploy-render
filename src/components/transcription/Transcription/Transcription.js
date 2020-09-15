@@ -7,7 +7,7 @@ const Transcription = props => {
   const [ transcription, setTranscription ] = useState(null);
   const [ playerVars, setPlayerVars ] = useState({});
 
-  const { getTranscriptionById } = useContext(TranscriptionContext);
+  const { getTranscriptionById, acceptTranscription, deleteTranscription } = useContext(TranscriptionContext);
 
   useEffect(() => {
     const _getTranscriptionById = async id => {
@@ -33,6 +33,16 @@ const Transcription = props => {
     }
   }, [ transcription ]);
 
+  const handleRejectTranscription = async () => {
+    await deleteTranscription(transcription.id);
+    props.history.push('/dashboard');
+  };
+
+  const handleAcceptTranscription = async () => {
+    const _transcription = await acceptTranscription(transcription.id);
+    setTranscription(_transcription);
+  };
+
   if(transcription === false) {
     return (
       <div className="transcriptionWrapper">
@@ -51,8 +61,8 @@ const Transcription = props => {
   if(!transcription.isAccepted) {
     actionButtons = (
       <div className="transcription__actionButtonsWrapper">
-        <button className="transcription__actionButton">Reject Transcription</button>
-        <button className="transcription__actionButton">Accept Transcription</button>
+        <button className="transcription__actionButton" onClick={handleRejectTranscription}>Reject Transcription</button>
+        <button className="transcription__actionButton" onClick={handleAcceptTranscription}>Accept Transcription</button>
       </div>
     );
   }

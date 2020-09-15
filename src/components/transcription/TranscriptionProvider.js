@@ -24,9 +24,26 @@ export const TranscriptionProvider = props => {
     return transcription;
   };
 
+  const acceptTranscription = async id => {
+    await fetch(`http://localhost:8088/transcriptions/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ isAccepted: true })
+    });
+    return await getTranscriptionById(id);
+  };
+
+  const deleteTranscription = async id => {
+    return await fetch(`http://localhost:8088/transcriptions/${id}`, {
+      method: 'DELETE'
+    });
+  };
+
   return (
     <TranscriptionContext.Provider value={{
-      getTranscriptionById, saveTranscription
+      getTranscriptionById, saveTranscription, acceptTranscription, deleteTranscription
     }}>{props.children}</TranscriptionContext.Provider>
   );
 };
