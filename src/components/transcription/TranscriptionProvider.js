@@ -1,8 +1,14 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 
 export const TranscriptionContext = createContext();
 
 export const TranscriptionProvider = props => {
+  const getTranscriptionById = async id => {
+    const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest`);
+    const transcription = await res.json();
+    return transcription;
+  };
+
   const saveTranscription = async transcriptionData => {
     transcriptionData.timestamp = Date.now();
     transcriptionData.isAccepted = false;
@@ -18,9 +24,26 @@ export const TranscriptionProvider = props => {
     return transcription;
   };
 
+  const acceptTranscription = async id => {
+    await fetch(`http://localhost:8088/transcriptions/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ isAccepted: true })
+    });
+    return await getTranscriptionById(id);
+  };
+
+  const deleteTranscription = async id => {
+    return await fetch(`http://localhost:8088/transcriptions/${id}`, {
+      method: 'DELETE'
+    });
+  };
+
   return (
     <TranscriptionContext.Provider value={{
-      saveTranscription
+      getTranscriptionById, saveTranscription, acceptTranscription, deleteTranscription
     }}>{props.children}</TranscriptionContext.Provider>
   );
 };
