@@ -43,5 +43,9 @@ export const useFormConfig = initialFormConfig => {
     });
   };
 
-  return [ formConfig, handleChange, updateFormConfig ];
+  const resetFormConfig = () => {
+    setFormConfig({ ...initialFormConfig });
+  };
+
+  return [ formConfig, handleChange, updateFormConfig, resetFormConfig ];
 };

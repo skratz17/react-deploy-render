@@ -20,7 +20,7 @@ const TranscriptionRequestActivationWizard = props => {
 
   const [ currentStep, setCurrentStep ] = useState(0);
   const [ transcriptionRequestToConfirm, setTranscriptionRequestToConfirm ] = useState(null);
-  const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig ] = useFormConfig(transcriptionRequestConfirmFormConfig);
+  const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig, resetTranscriptionRequestFormConfig ] = useFormConfig(transcriptionRequestConfirmFormConfig);
   const isTranscriptionRequestFormValid = useIsFormValid(transciptionRequestFormConfig);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const TranscriptionRequestActivationWizard = props => {
     }
 
     if(transcriptionRequestId) {
+      resetTranscriptionRequestFormConfig();
       getLanguages();
       _getTranscriptionRequestById(transcriptionRequestId);
     }
@@ -73,7 +74,10 @@ const TranscriptionRequestActivationWizard = props => {
       break;
     case WIZARD_STATES.TRANSCRIPTION_CREATION:
       transcriptionRequestActivationWizardBody = (
-        <div>create a transcription lmao</div>
+        <>
+          <div>create a transcription lmao</div>
+          <button onClick={() => setCurrentStep(currentStep => currentStep - 1)}>Back</button>
+        </>
       )
       break;
     default:
