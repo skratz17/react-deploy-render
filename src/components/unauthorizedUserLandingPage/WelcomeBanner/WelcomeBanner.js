@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import './WelcomeBanner.css';
 
+// The welcome messages to animate between for the component.
 const WELCOME_MESSAGES = [
   'Welcome to UHHHWUT',
   'Bienvenue à UHHHWUT',
@@ -29,39 +30,47 @@ const WelcomeBanner = () => {
 
   const welcomeHeader = useRef(null);
 
+  // start the animation on initial render of WelcomeBanner component
   useEffect(() => {
-    let start;
-    let prev;
     let animationId;
+    let start = null;
     let hasResetWelcomeMessage = false;
 
+    const calculateOpacity = elapsed => {
+      if(elapsed <= FADE_IN_POINT) {
+        return 1 - ((elapsed - FADE_OUT_POINT) / (FADE_IN_POINT - FADE_OUT_POINT));
+      }
+      else {
+        return (elapsed - FADE_IN_POINT) / (ANIMATION_DURATION - FADE_IN_POINT);
+      }
+    };
+
+    const restartAnimationCycle = () => {
+      start = null;
+      hasResetWelcomeMessage = false;
+    };
+
     const animationCallback = timestamp => {
-      if(start === undefined) start = timestamp;
-      if(prev === undefined) prev = 0;
+      if(!start) start = timestamp;
       const elapsed = timestamp - start;
 
+      // if the current point in the animation cycle indicates we should be either fading out or back in, update the opacity of the welcome banner header 
       if(elapsed >= FADE_OUT_POINT && elapsed <= ANIMATION_DURATION) {
-        let opacity;
-        prev = elapsed;
-        if(elapsed <= FADE_IN_POINT) {
-          opacity = 1 - ((elapsed - FADE_OUT_POINT) / (FADE_IN_POINT - FADE_OUT_POINT));
+        welcomeHeader.current.style.opacity = calculateOpacity(elapsed);
+
+        // if we have faded out but not yet updated the header to be the next item in WELCOME_MESSAGES array, do that now
+        if(!hasResetWelcomeMessage && elapsed >= FADE_IN_POINT) {
+          setWelcomeMessageIndex(prevIndex => prevIndex + 1 >= WELCOME_MESSAGES.length ? 0 : prevIndex + 1);
+          hasResetWelcomeMessage = true;
         }
-        else {
-          if(!hasResetWelcomeMessage) {
-            setWelcomeMessageIndex(prevIndex => prevIndex + 1 >= WELCOME_MESSAGES.length ? 0 : prevIndex + 1);
-            hasResetWelcomeMessage = true;
-          }
-          opacity = (elapsed - FADE_IN_POINT) / (ANIMATION_DURATION - FADE_IN_POINT);
-        }
-        welcomeHeader.current.style.opacity = opacity;
       }
 
-      if(elapsed > ANIMATION_DURATION) {
-        start = undefined;
-        hasResetWelcomeMessage = false;
+      else if(elapsed > ANIMATION_DURATION) {
+        restartAnimationCycle();
       }
+
       animationId = requestAnimationFrame(animationCallback);
-    }
+    };
 
     animationId = requestAnimationFrame(animationCallback);
 
