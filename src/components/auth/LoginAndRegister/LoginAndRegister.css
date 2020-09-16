@@ -3,7 +3,7 @@
   border: 1px solid #0006;
   padding: 2rem;
   background-color: #ddd;
-  transition: all 1s;
+  transition: height 1s;
 }
 
 .loginAndRegister.loginMode {
@@ -15,11 +15,10 @@
 }
 
 .loginAndRegister__loginModeToggleButton {
-  margin: 0 auto;
   position: absolute;
+  left: 50%;
   transform: translateX(-50%);
   transition: all 1s;
-  left: 50%;
 }
 
 .loginAndRegister.loginMode .loginAndRegister__loginModeToggleButton {
@@ -35,21 +34,21 @@
   transition: all 1s;
 }
 
-.registerFormWrapper {
+.loginAndRegister.registerMode .registerFormWrapper {
   margin-top: 60px;
 }
 
-.loginFormWrapper.hidden,
-.registerFormWrapper.hidden {
+.loginAndRegister.registerMode .loginFormWrapper,
+.loginAndRegister.loginMode .registerFormWrapper {
   opacity: 0;
   height: 0;
-  margin: 0;
+  visibility: hidden;
 }
 
-.loginFormWrapper.hidden {
+.loginAndRegister.registerMode .loginFormWrapper {
   transform: translateY(-200px);
 }
 
-.registerFormWrapper.hidden {
-  transform: translateY(400px);
+.loginAndRegister.loginMode .registerFormWrapper {
+  transform: translateY(200px);
 }
