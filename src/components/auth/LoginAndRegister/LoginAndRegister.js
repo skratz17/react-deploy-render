@@ -12,7 +12,6 @@ const LoginAndRegister = props => {
       <div className={`loginFormWrapper ${isLoginMode ? '' : 'hidden'}`}>
         <LoginForm {...props} />
       </div>
-      {/* { isLoginMode && <LoginForm {...props} /> } */}
       <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--back'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
         { isLoginMode ? 'Create Account' : 'Back to Login' }
       </button>
@@ -20,7 +19,6 @@ const LoginAndRegister = props => {
       <div className={`registerFormWrapper ${isLoginMode ? 'hidden' : ''}`}>
         <RegisterForm {...props} />
       </div>
-      {/* { !isLoginMode && <RegisterForm {...props} /> } */}
     </div>
   );
 };

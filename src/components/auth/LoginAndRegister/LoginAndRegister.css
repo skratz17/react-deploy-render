@@ -1,4 +1,5 @@
 .loginAndRegister {
+  position: relative;
   border: 1px solid #0006;
   padding: 2rem;
   background-color: #ddd;
@@ -15,6 +16,18 @@
 
 .loginAndRegister__loginModeToggleButton {
   margin: 0 auto;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: all 1s;
+  left: 50%;
+}
+
+.loginAndRegister.loginMode .loginAndRegister__loginModeToggleButton {
+  bottom: 2rem;
+}
+
+.loginAndRegister.registerMode .loginAndRegister__loginModeToggleButton {
+  bottom: 510px;
 }
 
 .loginFormWrapper,
@@ -22,11 +35,15 @@
   transition: all 1s;
 }
 
+.registerFormWrapper {
+  margin-top: 60px;
+}
+
 .loginFormWrapper.hidden,
 .registerFormWrapper.hidden {
   opacity: 0;
-  visibility: hidden;
   height: 0;
+  margin: 0;
 }
 
 .loginFormWrapper.hidden {
