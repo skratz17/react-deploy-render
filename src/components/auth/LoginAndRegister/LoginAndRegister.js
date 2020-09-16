@@ -8,12 +8,18 @@ const LoginAndRegister = props => {
   const [ isLoginMode, setIsLoginMode ] = useState(true);
 
   return (
-    <div className="loginAndRegister">
-      { isLoginMode && <LoginForm {...props} /> }
+    <div className={`loginAndRegister ${isLoginMode ? 'loginMode' : 'registerMode'}`}>
+      <div className="loginFormWrapper">
+        <LoginForm {...props} />
+      </div>
+
       <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--back'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
         { isLoginMode ? 'Create Account' : 'Back to Login' }
       </button>
-      { !isLoginMode && <RegisterForm {...props} /> }
+      
+      <div className="registerFormWrapper">
+        <RegisterForm {...props} />
+      </div>
     </div>
   );
 };

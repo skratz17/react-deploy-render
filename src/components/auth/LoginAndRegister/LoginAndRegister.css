@@ -1,9 +1,54 @@
 .loginAndRegister {
+  position: relative;
   border: 1px solid #0006;
   padding: 2rem;
   background-color: #ddd;
+  transition: height 1s;
+}
+
+.loginAndRegister.loginMode {
+  height: 315px;
+}
+
+.loginAndRegister.registerMode {
+  height: 575px;
 }
 
 .loginAndRegister__loginModeToggleButton {
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 1s;
+}
+
+.loginAndRegister.loginMode .loginAndRegister__loginModeToggleButton {
+  bottom: 2rem;
+}
+
+.loginAndRegister.registerMode .loginAndRegister__loginModeToggleButton {
+  bottom: 510px;
+}
+
+.loginFormWrapper,
+.registerFormWrapper {
+  transition: all 1s;
+}
+
+.loginAndRegister.registerMode .registerFormWrapper {
+  margin-top: 60px;
+}
+
+.loginAndRegister.registerMode .loginFormWrapper,
+.loginAndRegister.loginMode .registerFormWrapper {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.loginAndRegister.registerMode .loginFormWrapper {
+  transform: translateY(-200px);
+}
+
+.loginAndRegister.loginMode .registerFormWrapper {
+  transform: translateY(200px);
 }
