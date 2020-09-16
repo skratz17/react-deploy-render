@@ -100,7 +100,7 @@ const TranscriptionRequestActivationWizard = props => {
     }
 
     await activateTranscriptionRequest(transcriptionRequestToConfirm.id);
-    // onComplete();
+    onClose();
   };
 
   let transcriptionRequestActivationWizardBody;

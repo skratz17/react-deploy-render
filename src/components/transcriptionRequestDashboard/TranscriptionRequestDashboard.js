@@ -38,7 +38,9 @@ const TranscriptionRequestDashboard = () => {
         ))
       }
 
-      <TranscriptionRequestActivationWizard transcriptionRequestId={activatingTranscriptionRequestId} />
+      <TranscriptionRequestActivationWizard 
+        transcriptionRequestId={activatingTranscriptionRequestId} 
+        onClose={() => setActivatingTranscriptionRequestId(null)} />
     </div>
   )
 };
