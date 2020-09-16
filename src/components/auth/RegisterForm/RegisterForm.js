@@ -53,7 +53,7 @@ const RegisterForm = props => {
 
   return (
     <div className="registerFormWrapper">
-      <h2>Register</h2>
+      <h2 className="registerForm__header">Register</h2>
       { didRegisterFail && <p className="text--warning">A user with that email already exists.</p> }
       <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
         <button disabled={!isFormValid} type="submit">Register</button>
