@@ -5,6 +5,7 @@ import { LanguageContext } from '../../language/LanguageProvider';
 import Form from '../../form/Form';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 import registerFormConfig from './registerFormConfig';
+import './RegisterForm.css';
 
 const RegisterForm = props => {
   const [ didRegisterFail, setDidRegisterFail ] = useState(false);
@@ -51,15 +52,15 @@ const RegisterForm = props => {
     }
   };
 
-  return (
-    <div className="registerFormWrapper">
-      <h2 className="registerForm__header">Register</h2>
-      { didRegisterFail && <p className="text--warning">A user with that email already exists.</p> }
+  return <>
+    <div className="line line--75"></div>
+    <div className="registerForm">
+      { didRegisterFail && <p className="registerForm__duplicateEmailWarning text--warning">A user with that email already exists. Please provide a different email address.</p> }
       <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
-        <button disabled={!isFormValid} type="submit">Register</button>
+        <button className="registerForm__registerButton btn btn--create" disabled={!isFormValid} type="submit">Register</button>
       </Form>
     </div>
-  );
+  </>;
 };
 
 export default RegisterForm;

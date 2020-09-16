@@ -1,0 +1,9 @@
+.loginAndRegister {
+  border: 1px solid #0006;
+  padding: 2rem;
+  background-color: #ddd;
+}
+
+.loginAndRegister__loginModeToggleButton {
+  margin: 0 auto;
+}
