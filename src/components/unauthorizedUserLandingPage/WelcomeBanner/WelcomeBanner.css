@@ -5,10 +5,11 @@
 
 .welcomeBanner__header {
   font-size: 3rem;
+  height: 8rem;
 }
 
 .welcomeBanner__text {
   width: 70%;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
