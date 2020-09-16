@@ -5,9 +5,9 @@
 }
 
 .unauthorizedUserLandingPage > *:first-child {
-  flex: 2;
+  flex: 3;
 }
 
 .unauthorizedUserLandingPage > *:last-child {
-  flex: 3;
+  flex: 2;
 }
