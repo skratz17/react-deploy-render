@@ -1,0 +1,14 @@
+.welcomeBanner {
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcomeBanner__header {
+  font-size: 3rem;
+}
+
+.welcomeBanner__text {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}

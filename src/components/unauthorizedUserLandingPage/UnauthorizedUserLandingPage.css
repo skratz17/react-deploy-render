@@ -1,6 +1,6 @@
 .unauthorizedUserLandingPage {
   display: flex;
-  min-height: 100vh;
+  min-height: 80vh;
   align-items: center;
 }
 

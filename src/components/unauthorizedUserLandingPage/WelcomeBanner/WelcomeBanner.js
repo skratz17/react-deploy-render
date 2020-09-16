@@ -6,8 +6,8 @@ import './WelcomeBanner.css';
 const WELCOME_MESSAGES = [
   'Welcome to UHHHWUT',
   'Bienvenue à UHHHWUT',
-  'UHHHWUTへようこそ',
-  '歡迎來到UHHHWUT'
+  'UHHHWUT へようこそ',
+  '歡迎來到 UHHHWUT'
 ];
 
 /*
