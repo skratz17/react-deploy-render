@@ -31,7 +31,7 @@ const LoginForm = props => {
 
   return (
     <div className="loginFormWrapper">
-      <h2>Login</h2>
+      <h2 className="loginForm__header">Login</h2>
       { didLoginFail && <p className="text--warning">A user with the supplied credentials was not found. Please try again.</p> }
       <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
         <button disabled={!isFormValid} type="submit">Log In</button>
