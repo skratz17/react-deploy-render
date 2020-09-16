@@ -2,8 +2,37 @@
   border: 1px solid #0006;
   padding: 2rem;
   background-color: #ddd;
+  transition: all 1s;
+}
+
+.loginAndRegister.loginMode {
+  height: 315px;
+}
+
+.loginAndRegister.registerMode {
+  height: 575px;
 }
 
 .loginAndRegister__loginModeToggleButton {
   margin: 0 auto;
+}
+
+.loginFormWrapper,
+.registerFormWrapper {
+  transition: all 1s;
+}
+
+.loginFormWrapper.hidden,
+.registerFormWrapper.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.loginFormWrapper.hidden {
+  transform: translateY(-200px);
+}
+
+.registerFormWrapper.hidden {
+  transform: translateY(400px);
 }
