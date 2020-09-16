@@ -62,9 +62,7 @@ const TranscriptionRequestWorkshop = () => {
         transcriptionRequests={transcriptionRequestsForVideo} 
         shouldHideVideoPreview={true} />
 
-      <TranscriptionRequestActivationWizard 
-        isShowing={activatingTranscriptionRequestId !== null}
-        transcriptionRequestId={activatingTranscriptionRequestId} />
+      <TranscriptionRequestActivationWizard transcriptionRequestId={activatingTranscriptionRequestId} />
     </section>
   );
 };

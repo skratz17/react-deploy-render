@@ -38,9 +38,7 @@ const TranscriptionRequestDashboard = () => {
         ))
       }
 
-      <TranscriptionRequestActivationWizard 
-        isShowing={activatingTranscriptionRequestId !== null}
-        transcriptionRequestId={activatingTranscriptionRequestId} />
+      <TranscriptionRequestActivationWizard transcriptionRequestId={activatingTranscriptionRequestId} />
     </div>
   )
 };

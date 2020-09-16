@@ -10,6 +10,7 @@ import initialTranscriptionRequestFormConfig from './TranscriptionRequestConfirm
 import TranscriptionCreator from './TranscriptionCreator/TranscriptionCreator';
 import initialTranscriptionFormConfig from './TranscriptionCreator/transcriptionCreatorFormConfig';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
+import Modal from '../../modal/Modal';
 
 const WIZARD_STATES = {
   TRANSCRIPTION_REQUEST_CONFIRM: 0,
@@ -17,7 +18,7 @@ const WIZARD_STATES = {
 };
 
 const TranscriptionRequestActivationWizard = props => {
-  const { transcriptionRequestId, isShowing } = props;
+  const { transcriptionRequestId, onClose } = props;
 
   const { getTranscriptionRequestById, updateTranscriptionRequest, getTranscriptionRequestToFulfillForLanguage, activateTranscriptionRequest } = useContext(TranscriptionRequestContext);
   const { languages, getLanguages } = useContext(LanguageContext);
@@ -134,15 +135,17 @@ const TranscriptionRequestActivationWizard = props => {
   }
 
   return (
-    <div className="transcriptionRequestActivationWizardWrapper">
-      { transcriptionRequestActivationWizardBody }
-    </div>
+    <Modal isShowing={transcriptionRequestId !== null} onClose={onClose}>
+      <div className="transcriptionRequestActivationWizardWrapper">
+        { transcriptionRequestActivationWizardBody }
+      </div>
+    </Modal>
   );
 };
 
 TranscriptionRequestActivationWizard.propTypes = {
   transcriptionRequestId: PropTypes.number,
-  isShowing: PropTypes.bool
+  onClose: PropTypes.func
 };
 
 export default TranscriptionRequestActivationWizard;
