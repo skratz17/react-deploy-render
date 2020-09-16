@@ -1,0 +1,10 @@
+.loginForm__loginButton {
+  margin: 0 auto;
+}
+
+.loginForm__invalidCredentialsWarning {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}

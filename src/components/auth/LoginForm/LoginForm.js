@@ -4,6 +4,7 @@ import { UserContext } from '../../user/UserProvider';
 import Form from '../../form/Form';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 import loginFormConfig from './loginFormConfig';
+import './LoginForm.css';
 
 const LoginForm = props => {
   const [ didLoginFail, setDidLoginFail ] = useState(false);
@@ -29,15 +30,15 @@ const LoginForm = props => {
     }
   };
 
-  return (
-    <div className="loginFormWrapper">
-      <h2 className="loginForm__header">Login</h2>
-      { didLoginFail && <p className="text--warning">A user with the supplied credentials was not found. Please try again.</p> }
+  return <>
+    <div className="loginForm">
+      { didLoginFail && <p className="loginForm__invalidCredentialsWarning text--warning">A user with the supplied credentials was not found. Please try again.</p> }
       <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
-        <button disabled={!isFormValid} type="submit">Log In</button>
+        <button disabled={!isFormValid} type="submit" className="loginForm__loginButton btn btn--action">Log In</button>
       </Form>
     </div>
-  );
+    <div className="line line--75"></div>
+  </>;
 };
 
 export default LoginForm;

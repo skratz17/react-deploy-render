@@ -2,12 +2,13 @@
   display: flex;
   min-height: 80vh;
   align-items: center;
+  padding: 3rem;
 }
 
 .unauthorizedUserLandingPage > *:first-child {
-  flex: 2;
+  flex: 3;
 }
 
 .unauthorizedUserLandingPage > *:last-child {
-  flex: 3;
+  flex: 2;
 }
