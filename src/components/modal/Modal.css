@@ -1,0 +1,17 @@
+.modal {
+  transition: all 1s ease-in-out;
+  opacity: 0;
+  transform: translateX(-100vw);
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  padding: 1rem;
+  border: 1px solid #0002;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.modal.showing {
+  opacity: 1;
+  transform: translateX(0);
+}

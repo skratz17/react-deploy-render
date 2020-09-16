@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Backdrop.css';
+
 const Backdrop = props => {
   const { isShowing, onClick } = props;
 

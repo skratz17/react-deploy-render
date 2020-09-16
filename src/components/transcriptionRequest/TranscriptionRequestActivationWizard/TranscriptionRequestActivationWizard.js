@@ -130,10 +130,6 @@ const TranscriptionRequestActivationWizard = props => {
       throw new Error('Invalid state in TranscriptionRequestActivationWizard');
   }
 
-  if(transcriptionRequestId === null) {
-    return null;
-  }
-
   return (
     <Modal isShowing={transcriptionRequestId !== null} onClose={onClose}>
       <div className="transcriptionRequestActivationWizardWrapper">
