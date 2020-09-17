@@ -1,0 +1,17 @@
+.transcriptionRequest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ccc;
+  padding: 1rem;
+}
+
+.transcriptionRequest > * {
+  margin: 0.25rem 0;
+}
+
+.transcriptionRequest__timeInformationWrapper {
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+}

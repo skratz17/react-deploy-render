@@ -6,6 +6,7 @@ import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
+import './TranscriptionRequestWorkshop.css';
 
 const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
@@ -31,9 +32,11 @@ const TranscriptionRequestWorkshop = () => {
   }, [ hasEndTimeError ]);
 
   useEffect(() => {
-    const _transcriptionRequestsForVideo = transcriptionRequests.filter(tR => 
-      tR.videoId === videoId && tR.userId === parseInt(localStorage.getItem('current_user'))
-    );
+    const _transcriptionRequestsForVideo = transcriptionRequests
+      .filter(tR => 
+        tR.videoId === videoId && tR.userId === parseInt(localStorage.getItem('current_user'))
+      )
+      .sort((a, b) => a.startTime - b.startTime);
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
 
@@ -71,10 +74,14 @@ const TranscriptionRequestWorkshop = () => {
     setHasEndTimeError(false);
   };
 
-  return (
+  return <>
     <section className="workshop">
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
-      <YouTube videoId={videoId} onReady={e => setPlayer(e.target)} />
+
+      <YouTube videoId={videoId} 
+        onReady={e => setPlayer(e.target)} 
+        opts={{ height: '390', width: '640' }}
+        />
 
       { hasEndTimeError && <p className="text--warning">Your segment's end time must be after the your selected start time.</p> }
 
@@ -86,13 +93,14 @@ const TranscriptionRequestWorkshop = () => {
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
         transcriptionRequests={transcriptionRequestsForVideo} 
+        columns={1}
         shouldHideVideoPreview={true} />
-
-      <TranscriptionRequestActivationWizard 
-        transcriptionRequestId={activatingTranscriptionRequestId} 
-        onClose={() => setActivatingTranscriptionRequestId(null)} />
     </section>
-  );
+
+    <TranscriptionRequestActivationWizard 
+      transcriptionRequestId={activatingTranscriptionRequestId} 
+      onClose={() => setActivatingTranscriptionRequestId(null)} />
+  </>;
 };
 
 export default TranscriptionRequestWorkshop;

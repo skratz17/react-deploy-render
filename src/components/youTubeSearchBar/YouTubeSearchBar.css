@@ -1,0 +1,11 @@
+.youTubeSearchBar {
+  width: 640px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-color: #fff;
+  border: none;
+  background-image: url('../../assets/magnifyingGlass.png');
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 2rem;
+}
