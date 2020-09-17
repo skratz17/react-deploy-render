@@ -11,6 +11,7 @@ const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
   const [ videoId, setVideoId ] = useState('');
   const [ startTime, setStartTime ] = useState(null);
+  const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
@@ -19,6 +20,15 @@ const TranscriptionRequestWorkshop = () => {
   useEffect(() => {
     getTranscriptionRequests();
   }, []);
+
+  useEffect(() => {
+    let timeoutId;
+    if(hasEndTimeError) {
+      timeoutId = setTimeout(() => setHasEndTimeError(false), 5000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [ hasEndTimeError ]);
 
   useEffect(() => {
     const _transcriptionRequestsForVideo = transcriptionRequests.filter(tR => 
@@ -36,12 +46,17 @@ const TranscriptionRequestWorkshop = () => {
     const timeClicked = player.getCurrentTime();
 
     if(startTime === null) {
-      setStartTime(timeClicked);
+      setStartTime(Math.floor(timeClicked));
+    }
+    else if(Math.ceil(timeClicked) <= startTime) {
+      setHasEndTimeError(true);
     }
     else {
+      setHasEndTimeError(false);
+
       const transcriptionRequestData = {
         videoId,
-        startTime: Math.floor(startTime),
+        startTime: startTime,
         endTime: Math.ceil(timeClicked)
       };
 
@@ -50,12 +65,22 @@ const TranscriptionRequestWorkshop = () => {
     }
   };
 
+  const handleTranscriptionRequestControlCancel = () => {
+    setStartTime(null);
+    setHasEndTimeError(false);
+  };
+
   return (
     <section className="workshop">
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
       <YouTube videoId={videoId} onReady={e => setPlayer(e.target)} />
 
-      <TranscriptionRequestControl isRequesting={startTime !== null} onClick={handleTranscriptionRequestControlClick} />
+      { hasEndTimeError && <p className="text--warning">Your segment's end time must be after the your selected start time.</p> }
+
+      <TranscriptionRequestControl 
+        isRequesting={startTime !== null} 
+        onCancel={handleTranscriptionRequestControlCancel}
+        onClick={handleTranscriptionRequestControlClick} />
 
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
