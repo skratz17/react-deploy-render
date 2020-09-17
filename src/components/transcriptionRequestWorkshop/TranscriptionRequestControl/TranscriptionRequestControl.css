@@ -1,0 +1,46 @@
+.transcriptionRequestControlWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transcriptionRequestControl {
+  display: block;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: none;
+  background-color: #ddd;
+  box-shadow: 1px 1px 5px #000;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.transcriptionRequestControl__buttonsWrapper {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transcriptionRequestControl__prompt {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.transcriptionRequestControl__icon {
+  width: 100px;
+  height: 100px;
+}
+
+.transcriptionRequestCancel__prompt {
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.transcriptionRequestCancel {
+  background-color: #ddd !important;
+  margin: 0 auto;
+}
