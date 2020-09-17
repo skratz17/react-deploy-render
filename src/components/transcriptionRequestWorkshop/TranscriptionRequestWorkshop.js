@@ -74,14 +74,21 @@ const TranscriptionRequestWorkshop = () => {
     setHasEndTimeError(false);
   };
 
+  const youtubePlayerOpts = { 
+    height: '390',
+    width: '640'
+  };
+
   return <>
     <section className="workshop">
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
 
-      <YouTube videoId={videoId} 
-        onReady={e => setPlayer(e.target)} 
-        opts={{ height: '390', width: '640' }}
-        />
+      <div style={{ height: youtubePlayerOpts.height + 'px', width: youtubePlayerOpts.width + 'px' }}>
+        <YouTube videoId={videoId} 
+          onReady={e => setPlayer(e.target)} 
+          opts={youtubePlayerOpts}
+          />
+      </div>
 
       { hasEndTimeError && <p className="text--warning">Your segment's end time must be after the your selected start time.</p> }
 

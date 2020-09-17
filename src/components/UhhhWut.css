@@ -31,8 +31,16 @@
   background-color: #eee;
 }
 
+.btn--delete {
+  background-color: #f00;
+}
+
+.btn--delete:disabled {
+  background-color: #ff6868;
+}
+
 .text--warning {
-  color: red;
+  color: #f00;
 }
 
 .line::after {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import YouTube from 'react-youtube';
 
 import { TranscriptionContext } from '../TranscriptionProvider';
+import './Transcription.css';
 
 const Transcription = props => {
   const [ transcription, setTranscription ] = useState(null);
@@ -61,15 +62,22 @@ const Transcription = props => {
   if(!transcription.isAccepted) {
     actionButtons = (
       <div className="transcription__actionButtonsWrapper">
-        <button className="transcription__actionButton" onClick={handleRejectTranscription}>Reject Transcription</button>
-        <button className="transcription__actionButton" onClick={handleAcceptTranscription}>Accept Transcription</button>
+        <button className="btn btn--delete transcription__actionButton" onClick={handleRejectTranscription}>Reject Transcription</button>
+        <button className="btn btn--create transcription__actionButton" onClick={handleAcceptTranscription}>Accept Transcription</button>
       </div>
     );
   }
 
+  const youTubePlayerOpts = {
+    height: '390',
+    width: '640'
+  };
+
   return (
-    <div className="transcriptionWrapper">
-      <YouTube videoId={transcription.transcriptionRequest.videoId} opts={{ playerVars }} />
+    <div className="transcription">
+      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
+        <YouTube videoId={transcription.transcriptionRequest.videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
+      </div>
       <h2 className="transcription__header">Transcription</h2>
       <p className="transcription__text">{transcription.transcription}</p>
       { actionButtons }
