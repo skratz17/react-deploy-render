@@ -44,11 +44,12 @@ const TranscriptionRequestWorkshop = () => {
 
   const handleTranscriptionRequestControlClick = async () => {
     const timeClicked = player.getCurrentTime();
+    const roundedTime = startTime === null ? Math.floor(timeClicked) : Math.ceil(timeClicked);
 
     if(startTime === null) {
-      setStartTime(Math.floor(timeClicked));
+      setStartTime(roundedTime);
     }
-    else if(Math.ceil(timeClicked) <= startTime) {
+    else if(roundedTime <= startTime) {
       setHasEndTimeError(true);
     }
     else {
@@ -57,7 +58,7 @@ const TranscriptionRequestWorkshop = () => {
       const transcriptionRequestData = {
         videoId,
         startTime: startTime,
-        endTime: Math.ceil(timeClicked)
+        endTime: roundedTime
       };
 
       await saveTranscriptionRequest(transcriptionRequestData);
