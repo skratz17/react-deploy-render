@@ -11,8 +11,8 @@ const TranscriptionRequestCard = props => {
   const { videoId, startTime, endTime } = transcriptionRequest;
 
   const opts = {
-    width: '350',
-    height: '213',
+    width: '300',
+    height: '183',
     playerVars: {
       start: startTime,
       end: endTime
