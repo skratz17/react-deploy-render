@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './YouTubeSearchBar.css';
+
 const YouTubeSearchBar = props => {
   const { value, onChange } = props;
 
@@ -15,9 +17,9 @@ const YouTubeSearchBar = props => {
   };
 
   return (
-    <div className="youtubeSearchBarWrapper">
+    <div className="youTubeSearchBarWrapper">
       <input type="text" 
-        className="youtubeSearchBar"
+        className="youTubeSearchBar"
         placeholder="Enter a YouTube video URL or video ID"
         value={value}
         onChange={handleChange} />
