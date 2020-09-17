@@ -23,7 +23,7 @@ const TranscriptionCreator = props => {
 
   return (
     <div className="transcriptionCreator">
-      <YouTube videoId={transcriptionRequest.videoId} opts={{ playerVars }} />
+      <YouTube videoId={transcriptionRequest.videoId} opts={{ height: '304', width: '500', playerVars }} />
       <Form formConfig={formConfig} onChange={onChange} />
     </div>
   );

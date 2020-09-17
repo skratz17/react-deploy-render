@@ -12,6 +12,8 @@ import initialTranscriptionFormConfig from './TranscriptionCreator/transcription
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 import Modal from '../../modal/Modal';
 
+import './TranscriptionRequestActivationWizard.css';
+
 const WIZARD_STATES = {
   TRANSCRIPTION_REQUEST_CONFIRM: 0,
   TRANSCRIPTION_CREATION: 1
@@ -111,7 +113,7 @@ const TranscriptionRequestActivationWizard = props => {
           formConfig={transciptionRequestFormConfig}
           onChange={handleTranscriptionRequestChange} />
         <div className="wizardActionsWrapper">
-          <button onClick={updateAndConfirmTranscriptionRequest} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
+          <button className="btn btn--action" onClick={updateAndConfirmTranscriptionRequest} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
         </div>
       </>;
       break;
@@ -121,8 +123,8 @@ const TranscriptionRequestActivationWizard = props => {
             formConfig={transcriptionFormConfig}
             onChange={handleTranscriptionChange} />
           <div className="wizardActionsWrapper">
-            <button onClick={() => setCurrentStep(currentStep => currentStep - 1)}>Back</button>
-            <button onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>Activate Transcription Request</button>
+            <button className="btn btn--back" onClick={() => setCurrentStep(currentStep => currentStep - 1)}>Back</button>
+            <button className="btn btn--create" onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>Activate Transcription Request</button>
           </div>
       </>;
       break;
@@ -132,7 +134,11 @@ const TranscriptionRequestActivationWizard = props => {
 
   return (
     <Modal isShowing={transcriptionRequestId !== null} onClose={onClose}>
-      <div className="transcriptionRequestActivationWizardWrapper">
+      <div className="transcriptionRequestActivationWizard">
+        <div className="transcriptionRequestActivationWizard__headerWrapper">
+          <h2 className="transcriptionRequestActivationWizard__header">Activate Transcription Request</h2>
+          <p className="transcriptionRequestActivationWizard__stepIndicator">(step {currentStep + 1} of {Object.keys(WIZARD_STATES).length})</p>
+        </div>
         { transcriptionRequestActivationWizardBody }
       </div>
     </Modal>

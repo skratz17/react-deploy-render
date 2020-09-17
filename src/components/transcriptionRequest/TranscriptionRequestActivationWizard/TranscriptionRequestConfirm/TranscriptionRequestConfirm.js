@@ -23,7 +23,7 @@ const TranscriptionRequestConfirm = props => {
 
   return (
     <div className="transcriptionRequestConfirm">
-      <YouTube videoId={videoId} opts={{ playerVars }} />
+      <YouTube videoId={videoId} opts={{ height: '304', width: '500', playerVars }} />
       <Form formConfig={formConfig} onChange={onChange} />
     </div>
   );
