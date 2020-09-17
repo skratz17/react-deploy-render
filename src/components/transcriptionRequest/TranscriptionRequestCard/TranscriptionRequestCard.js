@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
+import './TranscriptionRequestCard.css';
+
 const TranscriptionRequestCard = props => {
   const { transcriptionRequest, onActivate, shouldHideVideoPreview } = props;
 
   let transcriptionRequestActionContent;
   if(!transcriptionRequest.isActivated) {
-    transcriptionRequestActionContent = <button onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
+    transcriptionRequestActionContent = <button className="btn btn--action" onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
   }
   else if(!transcriptionRequest.transcriptions.length) {
     transcriptionRequestActionContent = <p>Activated - awaiting transcription.</p>;
@@ -20,9 +22,9 @@ const TranscriptionRequestCard = props => {
   return (
     <div className="transcriptionRequest">
       { !shouldHideVideoPreview && <div>youtube player goes here</div> }
-      <div className="transcriptionRequest__TimeInformationWrapper">
-        <p className="transcriptionRequest__startTime">Start: {transcriptionRequest.startTime}</p>
-        <p className="transcriptionRequest__endTime">End: {transcriptionRequest.endTime}</p>
+      <div className="transcriptionRequest__timeInformationWrapper">
+        <p className="transcriptionRequest__startTime">Start Time: {transcriptionRequest.startTime}</p>
+        <p className="transcriptionRequest__endTime">End Time: {transcriptionRequest.endTime}</p>
       </div>
       <div className="transcriptionRequest__actionWrapper">
         { transcriptionRequestActionContent }
