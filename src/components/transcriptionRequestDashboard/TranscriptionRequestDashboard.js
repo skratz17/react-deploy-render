@@ -3,6 +3,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
+import './TranscriptionRequestDashboard.css';
 
 const TranscriptionRequestDashboard = () => {
   const [ transcriptionRequestsForUser, setTranscriptionRequestsForUser ] = useState([]);
@@ -24,15 +25,16 @@ const TranscriptionRequestDashboard = () => {
     { header: 'Unactivated Transcription Requests', filterFunction: tR => !tR.isActivated },
     { header: 'Transcription Requests Awaiting Transcription', filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 },
     { header: 'All Fulfilled Transcription Requests', filterFunction: tR => tR.transcriptions.length }
-  ]
+  ];
 
   return <>
-    <div className="transcriptionRequestDashboardWrapper">
+    <div className="transcriptionRequestDashboard">
       {
         dashboardConfig.map(({ header, filterFunction }) => (
           <div key={header} className="transcriptionRequestDashboard__listWrapper">
-            <h3 className="transcriptionRequestDashboard__listHeader">{header}</h3>
+            <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
             <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
+              columns={3}
               onActivate={setActivatingTranscriptionRequestId} />
           </div>
         ))
