@@ -21,13 +21,13 @@ const TranscriptionRequestCard = props => {
 
   let transcriptionRequestActionContent;
   if(!transcriptionRequest.isActivated) {
-    transcriptionRequestActionContent = <button className="btn btn--action" onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
+    transcriptionRequestActionContent = <button className="btn btn--create" onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
   }
   else if(!transcriptionRequest.transcriptions.length) {
     transcriptionRequestActionContent = <p>Activated - awaiting transcription.</p>;
   }
   else {
-    transcriptionRequestActionContent = <Link to={`/transcriptions/${transcriptionRequest.transcriptions[0].id}`}>View Transcription</Link>;
+    transcriptionRequestActionContent = <Link className="btn btn--action" to={`/transcriptions/${transcriptionRequest.transcriptions[0].id}`}>View Transcription</Link>;
   }
 
   return (

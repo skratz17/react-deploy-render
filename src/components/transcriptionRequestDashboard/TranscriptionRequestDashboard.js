@@ -25,7 +25,7 @@ const TranscriptionRequestDashboard = () => {
     { header: 'Unactivated Transcription Requests', filterFunction: tR => !tR.isActivated },
     { header: 'Transcription Requests Awaiting Transcription', filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 },
     { header: 'All Fulfilled Transcription Requests', filterFunction: tR => tR.transcriptions.length }
-  ]
+  ];
 
   return <>
     <div className="transcriptionRequestDashboard">
