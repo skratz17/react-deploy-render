@@ -8,4 +8,9 @@
   text-align: center;
   width: 75%;
   margin: 1rem auto;
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  transform: translateX(-50%);
+  background-color: #000
 }
