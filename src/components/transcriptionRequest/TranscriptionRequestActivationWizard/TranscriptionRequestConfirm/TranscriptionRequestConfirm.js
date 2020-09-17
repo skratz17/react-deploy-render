@@ -21,9 +21,16 @@ const TranscriptionRequestConfirm = props => {
     setPlayerVars(_playerVars);
   }, [ formConfig ]);
 
+  const youTubePlayerOpts = {
+    height: '304',
+    width: '500'
+  };
+
   return (
     <div className="transcriptionRequestConfirm">
-      <YouTube videoId={videoId} opts={{ height: '304', width: '500', playerVars }} />
+      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
+        <YouTube videoId={videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
+      </div>
       <Form formConfig={formConfig} onChange={onChange} />
     </div>
   );

@@ -15,14 +15,20 @@ const TranscriptionCreator = props => {
     );
   }
 
-  const playerVars = {
-    start: transcriptionRequest.startTime,
-    end: transcriptionRequest.endTime
+  const youTubePlayerOpts = {
+    height: '304',
+    width: '500', 
+    playerVars: {
+      start: transcriptionRequest.startTime,
+      end: transcriptionRequest.endTime
+    }
   };
 
   return (
     <div className="transcriptionCreator">
-      <YouTube videoId={transcriptionRequest.videoId} opts={{ height: '304', width: '500', playerVars }} />
+      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
+        <YouTube videoId={transcriptionRequest.videoId} opts={youTubePlayerOpts} />
+      </div>
       <Form formConfig={formConfig} onChange={onChange} />
     </div>
   );

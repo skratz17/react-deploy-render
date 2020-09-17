@@ -10,7 +10,7 @@ const TranscriptionRequestCard = props => {
 
   const { videoId, startTime, endTime } = transcriptionRequest;
 
-  const opts = {
+  const youTubePlayerOpts = {
     width: '300',
     height: '183',
     playerVars: {
@@ -32,7 +32,11 @@ const TranscriptionRequestCard = props => {
 
   return (
     <div className="transcriptionRequest">
-      { !shouldHideVideoPreview && <YouTube videoId={videoId} opts={opts} /> }
+      { !shouldHideVideoPreview && 
+        <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
+          <YouTube videoId={videoId} opts={youTubePlayerOpts} /> 
+        </div>
+      }
       <div className="transcriptionRequest__timeInformationWrapper">
         <p className="transcriptionRequest__startTime">Start Time: {transcriptionRequest.startTime}</p>
         <p className="transcriptionRequest__endTime">End Time: {transcriptionRequest.endTime}</p>
