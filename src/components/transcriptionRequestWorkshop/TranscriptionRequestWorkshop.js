@@ -32,9 +32,11 @@ const TranscriptionRequestWorkshop = () => {
   }, [ hasEndTimeError ]);
 
   useEffect(() => {
-    const _transcriptionRequestsForVideo = transcriptionRequests.filter(tR => 
-      tR.videoId === videoId && tR.userId === parseInt(localStorage.getItem('current_user'))
-    );
+    const _transcriptionRequestsForVideo = transcriptionRequests
+      .filter(tR => 
+        tR.videoId === videoId && tR.userId === parseInt(localStorage.getItem('current_user'))
+      )
+      .sort((a, b) => a.startTime - b.startTime);
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
 
@@ -91,6 +93,7 @@ const TranscriptionRequestWorkshop = () => {
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
         transcriptionRequests={transcriptionRequestsForVideo} 
+        columns={1}
         shouldHideVideoPreview={true} />
     </section>
 
