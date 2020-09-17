@@ -18,7 +18,7 @@ export const TranscriptionRequestProvider = props => {
   };
 
   const getTranscriptionRequestToFulfillForLanguage = async languageId => {
-    const res = await fetch(`http://localhost:8088/transcriptionRequests?_embed=transcriptions&languageId=${languageId}&userId_ne${localStorage.getItem('current_user')}&_sort=timestamp&isActivated_ne=false`);
+    const res = await fetch(`http://localhost:8088/transcriptionRequests?_embed=transcriptions&languageId=${languageId}&userId_ne=${localStorage.getItem('current_user')}&_sort=timestamp&isActivated_ne=false`);
     const candidates = await res.json();
     return candidates.find(tR => tR.transcriptions.length === 0) || false;
   };
