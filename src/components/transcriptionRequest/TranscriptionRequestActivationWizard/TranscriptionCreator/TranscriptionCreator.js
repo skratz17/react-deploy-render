@@ -9,7 +9,7 @@ const TranscriptionCreator = props => {
 
   if(transcriptionRequest === false) {
     return (
-      <div className="transcriptionCreatorWrapper">
+      <div className="transcriptionCreator">
         No transcription request was found for you to transcribe... you're set to go ahead and activate your transcription request!
       </div>
     );
@@ -21,8 +21,8 @@ const TranscriptionCreator = props => {
   };
 
   return (
-    <div className="transcriptionCreatorWrapper">
-      <YouTube videoId={transcriptionRequest.videoId} opts={{ playerVars }} />
+    <div className="transcriptionCreator">
+      <YouTube videoId={transcriptionRequest.videoId} opts={{ height: '304', width: '500', playerVars }} />
       <Form formConfig={formConfig} onChange={onChange} />
     </div>
   );
