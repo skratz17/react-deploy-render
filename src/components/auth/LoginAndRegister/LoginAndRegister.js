@@ -10,7 +10,7 @@ const LoginAndRegister = props => {
   return (
     <div className={`loginAndRegister ${isLoginMode ? 'loginMode' : 'registerMode'}`}>
       <div className="loginFormWrapper">
-        <LoginForm {...props} />
+        { isLoginMode && <LoginForm {...props} /> }
       </div>
 
       <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--back'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
@@ -18,7 +18,7 @@ const LoginAndRegister = props => {
       </button>
       
       <div className="registerFormWrapper">
-        <RegisterForm {...props} />
+        { !isLoginMode && <RegisterForm {...props} /> }
       </div>
     </div>
   );
