@@ -1,6 +1,7 @@
 .navBar {
-  padding: 1rem;
+  padding: 1rem 3rem;
   border-bottom: 1px solid #000;
+  font-size: 1.1rem;
 }
 
 .navBar__links {
@@ -10,7 +11,8 @@
 
 .navBar__linksListItem {
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: 2rem;
+  padding: 0.5rem;
 }
 
 .navBar__linksListItem:last-child {
@@ -22,11 +24,10 @@
   text-decoration: none;
 }
 
-.navBar__linksListItem.current {
-  background-color: #000;
+.navBar__link:hover {
+  color: #333;
 }
 
-.navBar__linksListItem.current .navBar__link {
-  background-color: #000;
-  color: #fff;
+.navBar__linksListItem.current {
+  text-decoration: underline;
 }
