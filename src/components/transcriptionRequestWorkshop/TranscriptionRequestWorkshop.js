@@ -11,6 +11,7 @@ const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
   const [ videoId, setVideoId ] = useState('');
   const [ startTime, setStartTime ] = useState(null);
+  const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
@@ -19,6 +20,15 @@ const TranscriptionRequestWorkshop = () => {
   useEffect(() => {
     getTranscriptionRequests();
   }, []);
+
+  useEffect(() => {
+    let timeoutId;
+    if(hasEndTimeError) {
+      timeoutId = setTimeout(() => setHasEndTimeError(false), 5000);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [ hasEndTimeError ]);
 
   useEffect(() => {
     const _transcriptionRequestsForVideo = transcriptionRequests.filter(tR => 
@@ -34,15 +44,21 @@ const TranscriptionRequestWorkshop = () => {
 
   const handleTranscriptionRequestControlClick = async () => {
     const timeClicked = player.getCurrentTime();
+    const roundedTime = startTime === null ? Math.floor(timeClicked) : Math.ceil(timeClicked);
 
     if(startTime === null) {
-      setStartTime(timeClicked);
+      setStartTime(roundedTime);
+    }
+    else if(roundedTime <= startTime) {
+      setHasEndTimeError(true);
     }
     else {
+      setHasEndTimeError(false);
+
       const transcriptionRequestData = {
         videoId,
-        startTime: Math.floor(startTime),
-        endTime: Math.ceil(timeClicked)
+        startTime: startTime,
+        endTime: roundedTime
       };
 
       await saveTranscriptionRequest(transcriptionRequestData);
@@ -50,12 +66,22 @@ const TranscriptionRequestWorkshop = () => {
     }
   };
 
+  const handleTranscriptionRequestControlCancel = () => {
+    setStartTime(null);
+    setHasEndTimeError(false);
+  };
+
   return (
     <section className="workshop">
       <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
       <YouTube videoId={videoId} onReady={e => setPlayer(e.target)} />
 
-      <TranscriptionRequestControl isRequesting={startTime !== null} onClick={handleTranscriptionRequestControlClick} />
+      { hasEndTimeError && <p className="text--warning">Your segment's end time must be after the your selected start time.</p> }
+
+      <TranscriptionRequestControl 
+        isRequesting={startTime !== null} 
+        onCancel={handleTranscriptionRequestControlCancel}
+        onClick={handleTranscriptionRequestControlClick} />
 
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
