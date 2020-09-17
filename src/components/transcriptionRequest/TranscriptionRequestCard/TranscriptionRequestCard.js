@@ -8,6 +8,17 @@ import './TranscriptionRequestCard.css';
 const TranscriptionRequestCard = props => {
   const { transcriptionRequest, onActivate, shouldHideVideoPreview } = props;
 
+  const { videoId, startTime, endTime } = transcriptionRequest;
+
+  const opts = {
+    width: '350',
+    height: '213',
+    playerVars: {
+      start: startTime,
+      end: endTime
+    }
+  };
+
   let transcriptionRequestActionContent;
   if(!transcriptionRequest.isActivated) {
     transcriptionRequestActionContent = <button className="btn btn--action" onClick={() => onActivate(transcriptionRequest.id)}>Activate Now</button>;
@@ -21,7 +32,7 @@ const TranscriptionRequestCard = props => {
 
   return (
     <div className="transcriptionRequest">
-      { !shouldHideVideoPreview && <div>youtube player goes here</div> }
+      { !shouldHideVideoPreview && <YouTube videoId={videoId} opts={opts} /> }
       <div className="transcriptionRequest__timeInformationWrapper">
         <p className="transcriptionRequest__startTime">Start Time: {transcriptionRequest.startTime}</p>
         <p className="transcriptionRequest__endTime">End Time: {transcriptionRequest.endTime}</p>
