@@ -7,4 +7,9 @@
   width: 75%;
   margin: 0 auto;
   margin-bottom: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  background-color: #000;
 }
