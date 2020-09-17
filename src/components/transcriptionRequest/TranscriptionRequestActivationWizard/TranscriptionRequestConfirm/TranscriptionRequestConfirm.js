@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
 import Form from '../../../form/Form';
+import './TranscriptionRequestConfirm.css';
 
 const TranscriptionRequestConfirm = props => {
   const { videoId, formConfig, onChange } = props;
@@ -21,7 +22,7 @@ const TranscriptionRequestConfirm = props => {
   }, [ formConfig ]);
 
   return (
-    <div className="transcriptionRequestConfirmWrapper">
+    <div className="transcriptionRequestConfirm">
       <YouTube videoId={videoId} opts={{ playerVars }} />
       <Form formConfig={formConfig} onChange={onChange} />
     </div>

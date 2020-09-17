@@ -1,0 +1,19 @@
+.transcriptionRequestConfirm .form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+}
+
+.transcriptionRequestConfirm .form .formGroup {
+  display: block;
+}
+
+.transcriptionRequestConfirm .form .formGroup:last-child {
+  grid-column: 1 / -1;
+}
+
+
+.transcriptionRequestConfirm .form .formGroup input,
+.transcriptionRequestConfirm .form .formGroup select {
+  margin-top: 0.2rem;
+}
