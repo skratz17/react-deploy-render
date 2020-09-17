@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
 import Form from '../../../form/Form';
+import './TranscriptionCreator.css';
 
 const TranscriptionCreator = props => {
   const { transcriptionRequest, formConfig, onChange } = props;
