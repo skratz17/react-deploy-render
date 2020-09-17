@@ -26,7 +26,7 @@ const TranscriptionRequestDashboard = () => {
     { header: 'All Fulfilled Transcription Requests', filterFunction: tR => tR.transcriptions.length }
   ]
 
-  return (
+  return <>
     <div className="transcriptionRequestDashboardWrapper">
       {
         dashboardConfig.map(({ header, filterFunction }) => (
@@ -38,11 +38,11 @@ const TranscriptionRequestDashboard = () => {
         ))
       }
 
-      <TranscriptionRequestActivationWizard 
-        transcriptionRequestId={activatingTranscriptionRequestId} 
-        onClose={() => setActivatingTranscriptionRequestId(null)} />
     </div>
-  )
+    <TranscriptionRequestActivationWizard 
+      transcriptionRequestId={activatingTranscriptionRequestId} 
+      onClose={() => setActivatingTranscriptionRequestId(null)} />
+  </>;
 };
 
 export default TranscriptionRequestDashboard;

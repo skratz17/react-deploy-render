@@ -63,8 +63,9 @@ const Form = props => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       { formConfigArray.map(inputConfig => {
-        const { name, inputType, elementConfig, value, isTouched, isValid, items } = inputConfig;
+        const { name, label, inputType, elementConfig, value, isTouched, isValid, items } = inputConfig;
         return <Input key={name}
+          label={label}
           inputType={inputType}
           elementConfig={elementConfig}
           value={value}

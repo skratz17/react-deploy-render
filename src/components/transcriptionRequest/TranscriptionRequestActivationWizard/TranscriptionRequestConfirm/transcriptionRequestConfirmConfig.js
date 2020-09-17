@@ -1,6 +1,7 @@
 export default {
   startTime: {
     inputType: 'input',
+    label: 'Start Time',
     elementConfig: {
       type: 'text',
       name: 'startTime',
@@ -17,6 +18,7 @@ export default {
 
   endTime: {
     inputType: 'input',
+    label: 'End Time',
     elementConfig: {
       type: 'text',
       name: 'endTime',
@@ -33,6 +35,7 @@ export default {
 
   languageId: {
     inputType: 'select',
+    label: 'Language',
     elementConfig: {
       name: 'languageId',
       placeholder: 'What Language Is This Segment In?'
