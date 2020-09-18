@@ -11,6 +11,7 @@ import './TranscriptionRequestWorkshop.css';
 const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
   const [ videoId, setVideoId ] = useState('');
+  const [ isVideoPlaying, setIsVideoPlaying ] = useState(false);
   const [ startTime, setStartTime ] = useState(null);
   const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
@@ -43,6 +44,9 @@ const TranscriptionRequestWorkshop = () => {
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
     setStartTime(null);
+  };
+
+  const handleYouTubePlayerStateChange = e => {
   };
 
   const handleTranscriptionRequestControlClick = async () => {
@@ -86,6 +90,7 @@ const TranscriptionRequestWorkshop = () => {
       <div style={{ height: youtubePlayerOpts.height + 'px', width: youtubePlayerOpts.width + 'px' }}>
         <YouTube videoId={videoId} 
           onReady={e => setPlayer(e.target)} 
+          onStateChange={e => setIsVideoPlaying(e.data === YouTube.PlayerState.PLAYING)}
           opts={youtubePlayerOpts}
           />
       </div>
@@ -94,6 +99,7 @@ const TranscriptionRequestWorkshop = () => {
 
       <TranscriptionRequestControl 
         isRequesting={startTime !== null} 
+        disabled={!isVideoPlaying}
         onCancel={handleTranscriptionRequestControlCancel}
         onClick={handleTranscriptionRequestControlClick} />
 
