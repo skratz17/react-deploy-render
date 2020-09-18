@@ -53,7 +53,9 @@ export default {
     },
     value: '',
     validation: {
-      isRequired: true
+      isRequired: true,
+      mustMatch: 'confirmPassword',
+      doesNotCausePairedTouch: true
     },
     isTouched: false,
     isValid: false
