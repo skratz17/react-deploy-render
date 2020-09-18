@@ -29,6 +29,7 @@ export const useFormConfig = initialFormConfig => {
     const pairedElement = formConfig[name].validation.mustBeLessThan || formConfig[name].validation.mustBeGreaterThan || formConfig[name].validation.mustMatch;
     if(pairedElement) {
       updateFormConfig(pairedElement, isValid, 'isValid');
+      updateFormConfig(pairedElement, isTouched, 'isTouched');
     }
   };
 
