@@ -58,13 +58,13 @@ const RegisterForm = props => {
     <div className="registerForm">
       { didRegisterFail && 
         <p className="registerForm__duplicateEmailWarning text--warning">
-          <FormattedMessage id="registerForm.duplicateEmailWarning"
+          <FormattedMessage id={`registrationForm.duplicateEmailWarning`}
             defaultMessage="A user with that email already exists. Please provide a different email address." />
         </p> 
       }
       <Form id={FORM_ID} formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
         <button className="registerForm__registerButton btn btn--create" disabled={!isFormValid} type="submit">
-          <FormattedMessage id="registerForm.registerButton" defaultMessage="Register" />
+          <FormattedMessage id={`registrationForm.registerButton`} defaultMessage="Register" />
         </button>
       </Form>
     </div>
