@@ -47,11 +47,11 @@ const Form = props => {
     }
 
     if(validation.mustBeLessThan) {
-      if(parseFloat(value) >= parseFloat(formConfig[validation.mustBeLessThan].value)) return false;
+      if(isNaN(value) || isNaN(formConfig[validation.mustBeLessThan].value) || parseFloat(value) >= parseFloat(formConfig[validation.mustBeLessThan].value)) return false;
     }
 
     if(validation.mustBeGreaterThan) {
-      if(parseFloat(value) <= parseFloat(formConfig[validation.mustBeGreaterThan].value)) return false;
+      if(isNaN(value) || isNaN(formConfig[validation.mustBeGreaterThan].value) || parseFloat(value) <= parseFloat(formConfig[validation.mustBeGreaterThan].value)) return false;
     }
     
     return true;

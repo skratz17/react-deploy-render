@@ -21,16 +21,16 @@ export const useFormConfig = initialFormConfig => {
   const handleChange = changeData => {
     const { name, value, isValid, isTouched } = changeData;
 
-    const updatedFormConfig = { ...formConfig };
-    const updatedFormElement = { 
-      ...updatedFormConfig[name], 
-      value,
-      isValid,
-      isTouched
-    };
-    updatedFormConfig[name] = updatedFormElement;
+    updateFormConfig(name, value, 'value');
+    updateFormConfig(name, isValid, 'isValid');
+    updateFormConfig(name, isTouched, 'isTouched');
 
-    setFormConfig(updatedFormConfig);
+    // update validation for a "paired" field as well, if the field being updated currently is part of a pair wherein the validity of one of the pair implies the validity of the other
+    const pairedElement = formConfig[name].validation.mustBeLessThan || formConfig[name].validation.mustBeGreaterThan || formConfig[name].validation.mustMatch;
+    if(pairedElement) {
+      updateFormConfig(pairedElement, isValid, 'isValid');
+      updateFormConfig(pairedElement, isTouched, 'isTouched');
+    }
   };
 
   const updateFormConfig = (formFieldName, newValue, propertyToUpdate = 'value') => {

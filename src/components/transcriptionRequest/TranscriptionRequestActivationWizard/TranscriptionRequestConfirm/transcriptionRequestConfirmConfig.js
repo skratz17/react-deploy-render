@@ -1,6 +1,6 @@
 export default {
   startTime: {
-    inputType: 'input',
+    inputType: 'time',
     label: 'Start Time',
     elementConfig: {
       type: 'text',
@@ -10,6 +10,7 @@ export default {
     value: '',
     validation: {
       isRequired: true,
+      mustBeNumeric: true,
       mustBeLessThan: 'endTime'
     },
     isTouched: false,
@@ -17,7 +18,7 @@ export default {
   },
 
   endTime: {
-    inputType: 'input',
+    inputType: 'time',
     label: 'End Time',
     elementConfig: {
       type: 'text',
@@ -27,6 +28,7 @@ export default {
     value: '',
     validation: {
       isRequired: true,
+      mustBeNumeric: true,
       mustBeGreaterThan: 'startTime'
     },
     isTouched: false,
