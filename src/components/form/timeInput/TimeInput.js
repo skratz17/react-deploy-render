@@ -37,7 +37,6 @@ const TimeInput = props => {
 
   const handleChange = e => {
     e.target.value = convertTimeStringToSeconds(e.target.value);
-    console.log(e.target.value);
     onChange(e);
   };
 

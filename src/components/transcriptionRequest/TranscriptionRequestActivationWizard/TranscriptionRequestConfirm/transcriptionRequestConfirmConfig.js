@@ -10,6 +10,7 @@ export default {
     value: '',
     validation: {
       isRequired: true,
+      mustBeNumeric: true,
       mustBeLessThan: 'endTime'
     },
     isTouched: false,
@@ -27,6 +28,7 @@ export default {
     value: '',
     validation: {
       isRequired: true,
+      mustBeNumeric: true,
       mustBeGreaterThan: 'startTime'
     },
     isTouched: false,
