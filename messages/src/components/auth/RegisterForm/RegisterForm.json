@@ -1,0 +1,10 @@
+[
+  {
+    "id": "registerForm.duplicateEmailWarning",
+    "defaultMessage": "A user with that email already exists. Please provide a different email address."
+  },
+  {
+    "id": "registerForm.registerButton",
+    "defaultMessage": "Register"
+  }
+]

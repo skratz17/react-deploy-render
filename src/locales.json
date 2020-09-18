@@ -1,5 +1,13 @@
 {
   "en": {
+    "loginAndRegister.createAccountButton": "Create Account",
+    "loginAndRegister.backToLoginButton": "Back to Login",
+    "loginForm.invalidCredentialsWarning": "A user with the supplied credentials was not found. Please try again.",
+    "loginForm.logInButton": "Log In",
+    "loginForm.emailPlaceholder": "Email",
+    "loginForm.passwordPlaceholder": "Password",
+    "registerForm.duplicateEmailWarning": "A user with that email already exists. Please provide a different email address.",
+    "registerForm.registerButton": "Register",
     "navBar.workshopLink": "Workshop",
     "navBar.dashboardLink": "Dashboard",
     "navBar.logoutLink": "Logout"
@@ -7,6 +15,14 @@
   "zh": {
     "navBar.workshopLink": "工作坊",
     "navBar.dashboardLink": "資料主頁",
-    "navBar.logoutLink": "登出"
+    "navBar.logoutLink": "登出",
+    "loginAndRegister.createAccountButton": "註冊",
+    "loginAndRegister.backToLoginButton": "登入",
+    "loginForm.invalidCredentialsWarning": "沒找到任何用戶。 請再試一次。",
+    "loginForm.logInButton": "登入",
+    "loginForm.emailPlaceholder": "郵箱",
+    "loginForm.passwordPlaceholder": "密碼",
+    "registerForm.duplicateEmailWarning": "已經有另外一個用戶用著這個郵箱。請再試一次。",
+    "registerForm.registerButton": "註冊"
   }
 }

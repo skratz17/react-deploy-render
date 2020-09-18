@@ -1,0 +1,10 @@
+[
+  {
+    "id": "loginForm.invalidCredentialsWarning",
+    "defaultMessage": "A user with the supplied credentials was not found. Please try again."
+  },
+  {
+    "id": "loginForm.logInButton",
+    "defaultMessage": "Log In"
+  }
+]

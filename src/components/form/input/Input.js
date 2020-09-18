@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
 import Select from '../select/Select';
 import './Input.css';
@@ -13,6 +14,7 @@ const Input = props => {
   switch(inputType) {
     case 'input':
       inputElement = <input {...elementConfig}
+        placeholder={props.intl.formatMessage({ id: `loginForm.${elementConfig.name}Placeholder`})}
         value={value}
         className={className}
         onChange={onChange} />;
@@ -59,4 +61,4 @@ Input.propTypes = {
   elementConfig: PropTypes.object 
 };
 
-export default Input;
+export default injectIntl(Input);
