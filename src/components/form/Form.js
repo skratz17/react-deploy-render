@@ -27,6 +27,8 @@ const Form = props => {
 
   const handleChange = e => {
     const isValid = validate(e.target.name, e.target.value);
+    console.log('form change', e.target.name, e.target.value);
+    console.log(isValid);
     onChange({
       name: e.target.name,
       value: e.target.value,
@@ -50,9 +52,9 @@ const Form = props => {
       if(parseFloat(value) >= parseFloat(formConfig[validation.mustBeLessThan].value)) return false;
     }
 
-    if(validation.mustBeGreaterThan) {
-      if(parseFloat(value) <= parseFloat(formConfig[validation.mustBeGreaterThan].value)) return false;
-    }
+    // if(validation.mustBeGreaterThan) {
+      // if(parseFloat(value) <= parseFloat(formConfig[validation.mustBeGreaterThan].value)) return false;
+    // }
     
     return true;
   };

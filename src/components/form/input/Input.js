@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Select from '../select/Select';
 import './Input.css';
+import TimeInput from '../timeInput/TimeInput';
 
 const Input = props => {
   const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items } = props;
@@ -28,6 +29,12 @@ const Input = props => {
         onChange={onChange}
         className={className}
         items={items} />;
+      break;
+    case 'time':
+      inputElement = <TimeInput {...elementConfig}
+        value={value}
+        onChange={onChange}
+        className={className} />;
       break;
     default:
       throw new Error('You must provide a valid inputType.');

@@ -1,6 +1,6 @@
 export default {
   startTime: {
-    inputType: 'input',
+    inputType: 'time',
     label: 'Start Time',
     elementConfig: {
       type: 'text',
@@ -17,7 +17,7 @@ export default {
   },
 
   endTime: {
-    inputType: 'input',
+    inputType: 'time',
     label: 'End Time',
     elementConfig: {
       type: 'text',
