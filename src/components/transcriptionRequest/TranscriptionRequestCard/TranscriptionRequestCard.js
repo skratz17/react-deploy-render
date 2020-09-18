@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
+import { convertSecondsToTimeString } from '../../../utils/timeFormatters';
 import './TranscriptionRequestCard.css';
 
 const TranscriptionRequestCard = props => {
@@ -38,8 +39,8 @@ const TranscriptionRequestCard = props => {
         </div>
       }
       <div className="transcriptionRequest__timeInformationWrapper">
-        <p className="transcriptionRequest__startTime">Start Time: {transcriptionRequest.startTime}</p>
-        <p className="transcriptionRequest__endTime">End Time: {transcriptionRequest.endTime}</p>
+        <p className="transcriptionRequest__startTime">Start Time: {convertSecondsToTimeString(transcriptionRequest.startTime)}</p>
+        <p className="transcriptionRequest__endTime">End Time: {convertSecondsToTimeString(transcriptionRequest.endTime)}</p>
       </div>
       <div className="transcriptionRequest__actionWrapper">
         { transcriptionRequestActionContent }
