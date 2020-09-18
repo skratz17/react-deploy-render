@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { convertTimeStringToSeconds, convertSecondsToTimeString } from '../../../utils/timeFormatters';
+import { formatToMSSTimeString, convertTimeStringToSeconds, convertSecondsToTimeString } from '../../../utils/timeFormatters';
 
 const TimeInput = props => {
   const { onChange, value } = props;
 
   const handleChange = e => {
-    e.target.value = convertTimeStringToSeconds(e.target.value);
+    const timeString = formatToMSSTimeString(e.target.value);
+    e.target.value = convertTimeStringToSeconds(timeString);
     onChange(e);
   };
 
