@@ -1,0 +1,12 @@
+{
+  "en": {
+    "navBar.workshopLink": "Workshop",
+    "navBar.dashboardLink": "Dashboard",
+    "navBar.logoutLink": "Logout"
+  },
+  "zh": {
+    "navBar.workshopLink": "工作坊",
+    "navBar.dashboardLink": "資料主頁",
+    "navBar.logoutLink": "登出"
+  }
+}
