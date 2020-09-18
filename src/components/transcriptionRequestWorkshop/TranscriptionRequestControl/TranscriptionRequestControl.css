@@ -16,6 +16,12 @@
   box-shadow: 1px 1px 5px #000;
   cursor: pointer;
   margin-top: 1rem;
+  transition: opacity 0.25s;
+}
+
+.transcriptionRequestControl:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .transcriptionRequestControl__buttonsWrapper {

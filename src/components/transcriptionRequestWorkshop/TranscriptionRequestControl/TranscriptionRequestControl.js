@@ -6,13 +6,13 @@ import stopImage from '../../../assets/stop.svg';
 import './TranscriptionRequestControl.css';
 
 const TranscriptionRequestControl = props => {
-  const { isRequesting, onClick, onCancel } = props;
+  const { isRequesting, disabled, onClick, onCancel } = props;
 
   return (
     <div className="transcriptionRequestControlWrapper">
       <p className="transcriptionRequestControl__prompt">{isRequesting ? 'Stop Transcription Request' : 'Start Transcription Request'}</p>
       <div className="transcriptionRequestControl__buttonsWrapper">
-        <button className="transcriptionRequestControl" onClick={onClick}>
+        <button className="transcriptionRequestControl" disabled={disabled} onClick={onClick}>
           <img className="transcriptionRequestControl__icon" src={isRequesting ? stopImage : recordImage} alt={isRequesting ? 'Stop Request' : 'Start Request'}/>
         </button>
         { isRequesting && 
@@ -30,6 +30,7 @@ const TranscriptionRequestControl = props => {
 
 TranscriptionRequestControl.propTypes = {
   isRequesting: PropTypes.bool,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
   onCancel: PropTypes.func
 };
