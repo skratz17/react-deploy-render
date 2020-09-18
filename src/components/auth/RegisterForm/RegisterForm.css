@@ -14,3 +14,8 @@
   transform: translateX(-50%);
   background-color: #000
 }
+
+.registerForm input[name="password"].invalid {
+  outline: none;
+  border: none;
+}
