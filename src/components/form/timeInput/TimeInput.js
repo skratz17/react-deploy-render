@@ -23,11 +23,12 @@ const TimeInput = props => {
 
     if(timeStringParts[1].length > 2) {
       timeStringParts[0] += timeStringParts[1].substring(0, timeStringParts[1].length - 2);
+      if(parseInt(timeStringParts[0]) === 0) timeStringParts[0] = '0';
       timeStringParts[1] = timeStringParts[1].substring(timeStringParts[1].length - 2);
     }
     else if(timeStringParts[1].length === 1 && timeStringParts[0]) {
       timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1) + timeStringParts[1];
-      timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1);
+      timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1) || '0';
     }
 
     if(parseInt(timeStringParts[1]) >= 60) return timeStringParts.join(':');
