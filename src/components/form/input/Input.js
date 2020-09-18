@@ -7,26 +7,28 @@ import './Input.css';
 import TimeInput from '../timeInput/TimeInput';
 
 const Input = props => {
-  const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items } = props;
+  const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items, formId } = props;
   const className = (isTouched && !isValid) ? 'invalid' : '';
 
   let inputElement;
   switch(inputType) {
     case 'input':
       inputElement = <input {...elementConfig}
-        placeholder={props.intl.formatMessage({ id: `loginForm.${elementConfig.name}Placeholder`})}
+        placeholder={props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`})}
         value={value}
         className={className}
         onChange={onChange} />;
       break;
     case 'textarea':
       inputElement = <textarea {...elementConfig}
+        placeholder={props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`})}
         value={value}
         className={className}
         onChange={onChange} />;
       break;
     case 'select':
       inputElement = <Select {...elementConfig}
+        formId={formId}
         value={value}
         onChange={onChange}
         className={className}
@@ -52,6 +54,7 @@ const Input = props => {
 
 Input.propTypes = {
   inputType: PropTypes.oneOf([ 'input', 'select', 'textarea' ]),
+  formId: PropTypes.string,
   isTouched: PropTypes.bool,
   isValid: PropTypes.bool,
   label: PropTypes.string,

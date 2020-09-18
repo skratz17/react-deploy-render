@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from './input/Input';
 
 const Form = props => {
-  const { formConfig, onChange, onSubmit } = props;
+  const { formConfig, onChange, onSubmit, id } = props;
 
   // for forms that can be pre-populated, we need to first manually trigger validation... this will run validation on any untouched field in a form when its data changes (an untouched change means the change is not coming from the user, but from some controlled data initially being set e.g. inital values for a field being populated by values of an object loaded from database)
   useEffect(() => {
@@ -65,6 +65,7 @@ const Form = props => {
       { formConfigArray.map(inputConfig => {
         const { name, label, inputType, elementConfig, value, isTouched, isValid, items } = inputConfig;
         return <Input key={name}
+          formId={id}
           label={label}
           inputType={inputType}
           elementConfig={elementConfig}
@@ -80,6 +81,7 @@ const Form = props => {
 };
 
 Form.propTypes = {
+  id: PropTypes.string,
   formConfig: PropTypes.object,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func

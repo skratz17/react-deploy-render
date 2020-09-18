@@ -5,7 +5,7 @@ import { UserContext } from '../../user/UserProvider';
 import { LanguageContext } from '../../language/LanguageProvider';
 import Form from '../../form/Form';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
-import registerFormConfig from './registerFormConfig';
+import registerFormConfig, { FORM_ID } from './registerFormConfig';
 import './RegisterForm.css';
 
 const RegisterForm = props => {
@@ -62,7 +62,7 @@ const RegisterForm = props => {
             defaultMessage="A user with that email already exists. Please provide a different email address." />
         </p> 
       }
-      <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
+      <Form id={FORM_ID} formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
         <button className="registerForm__registerButton btn btn--create" disabled={!isFormValid} type="submit">
           <FormattedMessage id="registerForm.registerButton" defaultMessage="Register" />
         </button>

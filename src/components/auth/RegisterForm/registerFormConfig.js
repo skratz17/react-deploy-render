@@ -1,10 +1,41 @@
+import { defineMessages } from 'react-intl';
+
+export const FORM_ID = 'registrationForm';
+
+const messages = defineMessages({
+  firstName: {
+    id: `${FORM_ID}.firstNamePlaceholder`,
+    defaultMessage: 'First Name'
+  },
+  lastName: {
+    id: `${FORM_ID}.lastNamePlaceholder`,
+    defaultMessage: 'Last Name'
+  },
+  email: {
+    id: `${FORM_ID}.emailPlaceholder`,
+    defaultMessage: 'Email'
+  },
+  password: {
+    id: `${FORM_ID}.passwordPlaceholder`,
+    defaultMessage: 'Password'
+  },
+  confirmPassword: {
+    id: `${FORM_ID}.confirmPasswordPlaceholder`,
+    defaultMessage: 'Confirm Password'
+  },
+  nativeLanguageId: {
+    id: `${FORM_ID}.nativeLanguageIdPlaceholder`,
+    defaultMessage: 'Select your native language'
+  }
+});
+
 export default {
   firstName: {
     inputType: 'input',
     elementConfig: {
       name: 'firstName',
       type: 'text',
-      placeholder: 'First Name'
+      placeholder: messages.firstName
     },
     value: '',
     validation: {
@@ -19,7 +50,7 @@ export default {
     elementConfig: {
       name: 'lastName',
       type: 'text',
-      placeholder: 'Last Name'
+      placeholder: messages.lastName
     },
     value: '',
     validation: {
@@ -34,7 +65,7 @@ export default {
     elementConfig: {
       name: 'email',
       type: 'text',
-      placeholder: 'Email'
+      placeholder: messages.email
     },
     value: '',
     validation: {
@@ -49,7 +80,7 @@ export default {
     elementConfig: {
       name: 'password',
       type: 'password',
-      placeholder: 'Password'
+      placeholder: messages.password
     },
     value: '',
     validation: {
@@ -66,7 +97,7 @@ export default {
     elementConfig: {
       name: 'confirmPassword',
       type: 'password',
-      placeholder: 'Confirm Password'
+      placeholder: messages.confirmPassword
     },
     value: '',
     validation: {
@@ -81,7 +112,7 @@ export default {
     inputType: 'select',
     elementConfig: {
       name: 'nativeLanguageId',
-      placeholder: 'Select your native language'
+      placeholder: messages.nativeLanguageId
     },
     value: '',
     items: [],

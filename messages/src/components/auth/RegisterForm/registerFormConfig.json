@@ -1,0 +1,26 @@
+[
+  {
+    "id": "registrationForm.firstNamePlaceholder",
+    "defaultMessage": "First Name"
+  },
+  {
+    "id": "registrationForm.lastNamePlaceholder",
+    "defaultMessage": "Last Name"
+  },
+  {
+    "id": "registrationForm.emailPlaceholder",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "registrationForm.passwordPlaceholder",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "registrationForm.confirmPasswordPlaceholder",
+    "defaultMessage": "Confirm Password"
+  },
+  {
+    "id": "registrationForm.nativeLanguageIdPlaceholder",
+    "defaultMessage": "Select your native language"
+  }
+]

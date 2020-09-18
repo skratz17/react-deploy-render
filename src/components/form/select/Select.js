@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
 const Select = props => {
-  const { placeholder, items } = props;
+  const { items, formId } = props;
 
   return (
     <select {...props}>
-      <option value="" disabled>{placeholder}</option>
+      <option value="" disabled>{props.intl.formatMessage({ id: `${formId}.${props.name}Placeholder`})}</option>
       { items.map(i => <option key={i.value} value={i.value}>{i.displayName}</option>) }
     </select>
   );
 };
 
 Select.propTypes = {
-  items: PropTypes.array,
-  placeholder: PropTypes.string
+  formId: PropTypes.string,
+  items: PropTypes.array
 };
 
-export default Select;
+export default injectIntl(Select);

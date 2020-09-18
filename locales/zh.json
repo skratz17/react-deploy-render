@@ -9,5 +9,11 @@
   "loginForm.emailPlaceholder": "郵箱",
   "loginForm.passwordPlaceholder": "密碼",
   "registerForm.duplicateEmailWarning": "已經有另外一個用戶用著這個郵箱。請再試一次。",
-  "registerForm.registerButton": "註冊"
+  "registerForm.registerButton": "註冊",
+  "registrationForm.firstNamePlaceholder": "名",
+  "registrationForm.lastNamePlaceholder": "姓",
+  "registrationForm.emailPlaceholder": "郵箱",
+  "registrationForm.passwordPlaceholder": "密碼",
+  "registrationForm.confirmPasswordPlaceholder": "確定密碼",
+  "registrationForm.nativeLanguageIdPlaceholder": "選母語"
 }
