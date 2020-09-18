@@ -8,9 +8,9 @@ const NavBar = props => {
   const location = useLocation();
 
   const linksConfig = [
-    { text: 'Workshop', id: 'workshopLink', to: '/workshop' },
-    { text: 'Dashboard', id: 'dashboardLink', to: '/dashboard' },
-    { text: 'Logout', id: 'logoutLink', to: '/logout' }
+    { text: <FormattedMessage id="navBar.workshopLink" defaultMessage="Workshop" />, to: '/workshop' },
+    { text: <FormattedMessage id="navBar.dashboardLink" defaultMessage="Dashboard" />, to: '/dashboard' },
+    { text: <FormattedMessage id="navBar.logoutLink" defaultMessage="Logout" />, to: '/logout' }
   ];
 
   return (
@@ -19,8 +19,7 @@ const NavBar = props => {
         { linksConfig.map(l => (
           <li key={l.to} className={`navBar__linksListItem ${l.to === location.pathname ? 'current' : ''}`}>
             <Link className="navBar__link" to={l.to}>
-              <FormattedMessage id={`navBar.${l.id}`}
-                defaultMessage={l.text} />
+              {l.text}
             </Link>
           </li>
         ))}

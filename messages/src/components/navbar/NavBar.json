@@ -1,0 +1,14 @@
+[
+  {
+    "id": "navBar.workshopLink",
+    "defaultMessage": "Workshop"
+  },
+  {
+    "id": "navBar.dashboardLink",
+    "defaultMessage": "Dashboard"
+  },
+  {
+    "id": "navBar.logoutLink",
+    "defaultMessage": "Logout"
+  }
+]
