@@ -42,7 +42,10 @@ const TranscriptionRequestControl = props => {
         </button>
         { isRequesting && 
           <>
-            <p className="transcriptionRequestCancel__prompt">OR</p>
+            <p className="transcriptionRequestCancel__prompt">
+              <FormattedMessage id="transcriptionRequestControl.orText"
+                defaultMessage="OR" />
+            </p>
             <button className="btn btn--back transcriptionRequestCancel" onClick={onCancel}>
               <FormattedMessage id="transcriptionRequestControl.cancelTranscriptionRequestButton"
                 defaultMessage="Cancel" />

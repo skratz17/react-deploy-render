@@ -83,7 +83,7 @@ const WelcomeBanner = () => {
       <h2 className="welcomeBanner__header" ref={welcomeHeader} style={{ opacity: 1 }}>{WELCOME_MESSAGES[welcomeMessageIndex]}</h2>
       <p className="welcomeBanner__text">
         <FormattedMessage id="welcomeBanner.text"
-          defaultMessage="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloribus unde reprehenderit voluptates eveniet aliquam sapiente, quos quisquam expedita ipsum nemo repudiandae autem sed quidem, nam iste? Maxime, alias commodi!" />
+          defaultMessage="Welcome to UHHH WUT (Unselfish Humans Helping Humans with Unlimited Transcriptions). Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!" />
       </p>
     </div>
   );
