@@ -10,25 +10,27 @@ const Input = props => {
   const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items, formId } = props;
   const className = (isTouched && !isValid) ? 'invalid' : '';
 
+  const placeholderText = props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`});
+
   let inputElement;
   switch(inputType) {
     case 'input':
       inputElement = <input {...elementConfig}
-        placeholder={props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`})}
+        placeholder={placeholderText}
         value={value}
         className={className}
         onChange={onChange} />;
       break;
     case 'textarea':
       inputElement = <textarea {...elementConfig}
-        placeholder={props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`})}
+        placeholder={placeholderText}
         value={value}
         className={className}
         onChange={onChange} />;
       break;
     case 'select':
       inputElement = <Select {...elementConfig}
-        formId={formId}
+        placeholder={placeholderText}
         value={value}
         onChange={onChange}
         className={className}
@@ -53,7 +55,7 @@ const Input = props => {
 }; 
 
 Input.propTypes = {
-  inputType: PropTypes.oneOf([ 'input', 'select', 'textarea' ]),
+  inputType: PropTypes.oneOf([ 'input', 'select', 'textarea', 'time' ]),
   formId: PropTypes.string,
   isTouched: PropTypes.bool,
   isValid: PropTypes.bool,
