@@ -1,0 +1,22 @@
+[
+  {
+    "id": "transcriptionRequestControl.startRequestAltText",
+    "defaultMessage": "Start Request"
+  },
+  {
+    "id": "transcriptionRequestControl.stopRequestAltText",
+    "defaultMessage": "Stop Request"
+  },
+  {
+    "id": "transcriptionRequestControl.stopTranscriptionRequestPrompt",
+    "defaultMessage": "Stop Transcription Request"
+  },
+  {
+    "id": "transcriptionRequestControl.startTranscriptionRequestPrompt",
+    "defaultMessage": "Start Transcription Request"
+  },
+  {
+    "id": "transcriptionRequestControl.cancelTranscriptionRequestButton",
+    "defaultMessage": "Cancel"
+  }
+]
