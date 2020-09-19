@@ -18,7 +18,6 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'text',
-      name: 'email',
       placeholder: placeholderMessages.email
     },
     value: '',
@@ -33,7 +32,6 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'password',
-      name: 'password',
       placeholder: placeholderMessages.password
     },
     value: '',

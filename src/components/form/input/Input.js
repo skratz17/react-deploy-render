@@ -7,29 +7,42 @@ import './Input.css';
 import TimeInput from '../timeInput/TimeInput';
 
 const Input = props => {
-  const { inputType, isTouched, isValid, label, elementConfig, value, onChange, items, formId } = props;
+  const { name, inputType, isTouched, isValid, label, elementConfig, value, onChange, items, formId } = props;
   const className = (isTouched && !isValid) ? 'invalid' : '';
+  debugger;
 
-  const placeholderText = props.intl.formatMessage({ id: `${formId}.${elementConfig.name}Placeholder`});
+  let placeholderText = '';
+  if(elementConfig.placeholder) {
+    placeholderText = props.intl.formatMessage({ id: `${formId}.${name}Placeholder`}) || '';
+  }
+
+  let labelText = '';
+  if(label) {
+    labelText = props.intl.formatMessage({ id: `${formId}.${name}Label`}) || label;
+  }
 
   let inputElement;
   switch(inputType) {
     case 'input':
-      inputElement = <input {...elementConfig}
+      inputElement = <input {...elementConfig} 
+        name={name}
         placeholder={placeholderText}
         value={value}
         className={className}
-        onChange={onChange} />;
+        onChange={onChange} 
+        />;
       break;
     case 'textarea':
-      inputElement = <textarea {...elementConfig}
+      inputElement = <textarea {...elementConfig} 
+        name={name}
         placeholder={placeholderText}
         value={value}
         className={className}
         onChange={onChange} />;
       break;
     case 'select':
-      inputElement = <Select {...elementConfig}
+      inputElement = <Select {...elementConfig} 
+        name={name}
         placeholder={placeholderText}
         value={value}
         onChange={onChange}
@@ -37,7 +50,8 @@ const Input = props => {
         items={items} />;
       break;
     case 'time':
-      inputElement = <TimeInput {...elementConfig}
+      inputElement = <TimeInput {...elementConfig} 
+        name={name}
         value={value}
         onChange={onChange}
         className={className} />;
@@ -48,7 +62,7 @@ const Input = props => {
 
   return (
     <fieldset className="formGroup">
-      {label && <label className="formGroup__label">{label}</label>}
+      {label && <label className="formGroup__label">{labelText}</label>}
       { inputElement }
     </fieldset>
   );
@@ -56,6 +70,7 @@ const Input = props => {
 
 Input.propTypes = {
   inputType: PropTypes.oneOf([ 'input', 'select', 'textarea', 'time' ]),
+  name: PropTypes.string,
   formId: PropTypes.string,
   isTouched: PropTypes.bool,
   isValid: PropTypes.bool,

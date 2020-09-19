@@ -33,7 +33,6 @@ export default {
   firstName: {
     inputType: 'input',
     elementConfig: {
-      name: 'firstName',
       type: 'text',
       placeholder: messages.firstName
     },
@@ -48,7 +47,6 @@ export default {
   lastName: {
     inputType: 'input',
     elementConfig: {
-      name: 'lastName',
       type: 'text',
       placeholder: messages.lastName
     },
@@ -63,7 +61,6 @@ export default {
   email: {
     inputType: 'input',
     elementConfig: {
-      name: 'email',
       type: 'text',
       placeholder: messages.email
     },
@@ -78,7 +75,6 @@ export default {
   password: {
     inputType: 'input',
     elementConfig: {
-      name: 'password',
       type: 'password',
       placeholder: messages.password
     },
@@ -95,7 +91,6 @@ export default {
   confirmPassword: {
     inputType: 'input',
     elementConfig: {
-      name: 'confirmPassword',
       type: 'password',
       placeholder: messages.confirmPassword
     },
@@ -111,7 +106,6 @@ export default {
   nativeLanguageId: {
     inputType: 'select',
     elementConfig: {
-      name: 'nativeLanguageId',
       placeholder: messages.nativeLanguageId
     },
     value: '',

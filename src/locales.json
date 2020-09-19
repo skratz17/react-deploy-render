@@ -16,7 +16,14 @@
     "registrationForm.nativeLanguageIdPlaceholder": "Select your native language",
     "navBar.workshopLink": "Workshop",
     "navBar.dashboardLink": "Dashboard",
-    "navBar.logoutLink": "Logout"
+    "navBar.logoutLink": "Logout",
+    "transcriptionCreatorForm.transcriptionPlaceholder": "Write transcription here...",
+    "transcriptionRequestConfirmForm.startTimePlaceholder": "Start Time",
+    "transcriptionRequestConfirmForm.startTimeLabel": "Start Time",
+    "transcriptionRequestConfirmForm.endTimePlaceholder": "End Time",
+    "transcriptionRequestConfirmForm.endTimeLabel": "End Time",
+    "transcriptionRequestConfirmForm.languageIdPlaceholder": "What Language Is This Segment In?",
+    "transcriptionRequestConfirmForm.languageIdLabel": "Language"
   },
   "zh": {
     "navBar.workshopLink": "工作坊",

@@ -65,6 +65,7 @@ const Form = props => {
       { formConfigArray.map(inputConfig => {
         const { name, label, inputType, elementConfig, value, isTouched, isValid, items } = inputConfig;
         return <Input key={name}
+          name={name}
           formId={id}
           label={label}
           inputType={inputType}

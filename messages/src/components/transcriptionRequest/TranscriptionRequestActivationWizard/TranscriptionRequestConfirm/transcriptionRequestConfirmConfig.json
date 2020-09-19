@@ -1,0 +1,26 @@
+[
+  {
+    "id": "transcriptionRequestConfirmForm.startTimePlaceholder",
+    "defaultMessage": "Start Time"
+  },
+  {
+    "id": "transcriptionRequestConfirmForm.startTimeLabel",
+    "defaultMessage": "Start Time"
+  },
+  {
+    "id": "transcriptionRequestConfirmForm.endTimePlaceholder",
+    "defaultMessage": "End Time"
+  },
+  {
+    "id": "transcriptionRequestConfirmForm.endTimeLabel",
+    "defaultMessage": "End Time"
+  },
+  {
+    "id": "transcriptionRequestConfirmForm.languageIdPlaceholder",
+    "defaultMessage": "What Language Is This Segment In?"
+  },
+  {
+    "id": "transcriptionRequestConfirmForm.languageIdLabel",
+    "defaultMessage": "Language"
+  }
+]

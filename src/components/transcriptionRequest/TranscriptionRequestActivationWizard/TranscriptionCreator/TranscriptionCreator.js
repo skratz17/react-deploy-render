@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
 import Form from '../../../form/Form';
+import { FORM_ID } from './transcriptionCreatorFormConfig';
 import './TranscriptionCreator.css';
 
 const TranscriptionCreator = props => {
@@ -30,7 +31,7 @@ const TranscriptionCreator = props => {
       <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
         <YouTube videoId={transcriptionRequest.videoId} opts={youTubePlayerOpts} />
       </div>
-      <Form formConfig={formConfig} onChange={onChange} />
+      <Form id={FORM_ID} formConfig={formConfig} onChange={onChange} />
     </div>
   );
 };

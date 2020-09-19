@@ -1,11 +1,41 @@
+import { defineMessages } from 'react-intl';
+
+export const FORM_ID = 'transcriptionRequestConfirmForm';
+
+const messages = defineMessages({
+  startTimePlaceholder: {
+    id: `${FORM_ID}.startTimePlaceholder`,
+    defaultMessage: 'Start Time'
+  },
+  startTimeLabel: {
+    id: `${FORM_ID}.startTimeLabel`,
+    defaultMessage: 'Start Time'
+  },
+  endTimePlaceholder: {
+    id: `${FORM_ID}.endTimePlaceholder`,
+    defaultMessage: 'End Time'
+  },
+  endTimeLabel: {
+    id: `${FORM_ID}.endTimeLabel`,
+    defaultMessage: 'End Time'
+  },
+  languageIdPlaceholder: {
+    id: `${FORM_ID}.languageIdPlaceholder`,
+    defaultMessage: 'What Language Is This Segment In?'
+  },
+  languageIdLabel: {
+    id: `${FORM_ID}.languageIdLabel`,
+    defaultMessage: 'Language'
+  }
+});
+
 export default {
   startTime: {
     inputType: 'time',
-    label: 'Start Time',
+    label: messages.startTimeLabel,
     elementConfig: {
       type: 'text',
-      name: 'startTime',
-      placeholder: 'Start Time'
+      placeholder: messages.startTimePlaceholder
     },
     value: '',
     validation: {
@@ -19,11 +49,10 @@ export default {
 
   endTime: {
     inputType: 'time',
-    label: 'End Time',
+    label: messages.endTimeLabel,
     elementConfig: {
       type: 'text',
-      name: 'endTime',
-      placeholder: 'End Time'
+      placeholder: messages.endTimePlaceholder
     },
     value: '',
     validation: {
@@ -37,10 +66,9 @@ export default {
 
   languageId: {
     inputType: 'select',
-    label: 'Language',
+    label: messages.languageIdLabel,
     elementConfig: {
-      name: 'languageId',
-      placeholder: 'What Language Is This Segment In?'
+      placeholder: messages.languageIdPlaceholder
     },
     value: '',
     items: [],
