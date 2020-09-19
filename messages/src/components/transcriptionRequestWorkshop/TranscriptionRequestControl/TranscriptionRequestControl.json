@@ -16,6 +16,10 @@
     "defaultMessage": "Start Transcription Request"
   },
   {
+    "id": "transcriptionRequestControl.orText",
+    "defaultMessage": "OR"
+  },
+  {
     "id": "transcriptionRequestControl.cancelTranscriptionRequestButton",
     "defaultMessage": "Cancel"
   }
