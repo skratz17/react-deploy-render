@@ -1,0 +1,10 @@
+[
+  {
+    "id": "loginAndRegister.createAccountButton",
+    "defaultMessage": "Create Account"
+  },
+  {
+    "id": "loginAndRegister.backToLoginButton",
+    "defaultMessage": "Back to Login"
+  }
+]

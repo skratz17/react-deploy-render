@@ -1,10 +1,24 @@
+import { defineMessages } from 'react-intl';
+
+export const FORM_ID = 'loginForm';
+
+const placeholderMessages = defineMessages({
+  email: {
+    id: `${FORM_ID}.emailPlaceholder`,
+    defaultMessage: 'Email'
+  },
+  password: {
+    id: `${FORM_ID}.passwordPlaceholder`,
+    defaultMessage: 'Password'
+  }
+});
+
 export default {
   email: {
     inputType: 'input',
     elementConfig: {
       type: 'text',
-      name: 'email',
-      placeholder: 'Email'
+      placeholder: placeholderMessages.email
     },
     value: '',
     validation: {
@@ -18,8 +32,7 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'password',
-      name: 'password',
-      placeholder: 'Password'
+      placeholder: placeholderMessages.password
     },
     value: '',
     validation: {

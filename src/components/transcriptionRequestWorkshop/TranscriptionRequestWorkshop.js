@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import YouTube from 'react-youtube';
-import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
+import { FormattedMessage } from 'react-intl';
 
+import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
 import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
@@ -44,9 +45,6 @@ const TranscriptionRequestWorkshop = () => {
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
     setStartTime(null);
-  };
-
-  const handleYouTubePlayerStateChange = e => {
   };
 
   const handleTranscriptionRequestControlClick = async () => {
@@ -95,7 +93,11 @@ const TranscriptionRequestWorkshop = () => {
           />
       </div>
 
-      { hasEndTimeError && <p className="text--warning">Your segment's end time must be after the your selected start time.</p> }
+      { hasEndTimeError && 
+        <p className="text--warning">
+          <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
+            defaultMessage="Your segment's end time must be after the your selected start time." />
+        </p> }
 
       <TranscriptionRequestControl 
         isRequesting={startTime !== null} 

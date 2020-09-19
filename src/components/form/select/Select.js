@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
 const Select = props => {
-  const { placeholder, items } = props;
+  const { items, placeholder } = props;
 
   return (
     <select {...props}>
@@ -13,8 +14,8 @@ const Select = props => {
 };
 
 Select.propTypes = {
-  items: PropTypes.array,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  items: PropTypes.array
 };
 
-export default Select;
+export default injectIntl(Select);

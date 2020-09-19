@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import { TranscriptionRequestContext } from '../TranscriptionRequestProvider';
 import { LanguageContext } from '../../language/LanguageProvider';
@@ -11,7 +12,6 @@ import TranscriptionCreator from './TranscriptionCreator/TranscriptionCreator';
 import initialTranscriptionFormConfig from './TranscriptionCreator/transcriptionCreatorFormConfig';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
 import Modal from '../../modal/Modal';
-
 import './TranscriptionRequestActivationWizard.css';
 
 const WIZARD_STATES = {
@@ -113,7 +113,10 @@ const TranscriptionRequestActivationWizard = props => {
           formConfig={transciptionRequestFormConfig}
           onChange={handleTranscriptionRequestChange} />
         <div className="wizardActionsWrapper">
-          <button className="btn btn--action" onClick={updateAndConfirmTranscriptionRequest} disabled={!isTranscriptionRequestFormValid}>Save and Confirm</button>
+          <button className="btn btn--action" onClick={updateAndConfirmTranscriptionRequest} disabled={!isTranscriptionRequestFormValid}>
+            <FormattedMessage id="transcriptionRequestActivationWizard.saveAndConfirmButton"
+              defaultMessage="Save and Confirm" />
+          </button>
         </div>
       </>;
       break;
@@ -123,8 +126,14 @@ const TranscriptionRequestActivationWizard = props => {
             formConfig={transcriptionFormConfig}
             onChange={handleTranscriptionChange} />
           <div className="wizardActionsWrapper">
-            <button className="btn btn--back" onClick={() => setCurrentStep(currentStep => currentStep - 1)}>Back</button>
-            <button className="btn btn--create" onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>Activate Transcription Request</button>
+            <button className="btn btn--back" onClick={() => setCurrentStep(currentStep => currentStep - 1)}>
+              <FormattedMessage id="transcriptionRequestActivationWizard.backButton"
+                defaultMessage="Back" />
+            </button>
+            <button className="btn btn--create" onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>
+              <FormattedMessage id="transcriptionRequestActivationWizard.activateTranscriptionRequestButton"
+                defaultMessage="Activate Transcription Request" />
+            </button>
           </div>
       </>;
       break;
@@ -136,8 +145,10 @@ const TranscriptionRequestActivationWizard = props => {
     <Modal isShowing={transcriptionRequestId !== null} onClose={onClose}>
       <div className="transcriptionRequestActivationWizard">
         <div className="transcriptionRequestActivationWizard__headerWrapper">
-          <h2 className="transcriptionRequestActivationWizard__header">Activate Transcription Request</h2>
-          <p className="transcriptionRequestActivationWizard__stepIndicator">(step {currentStep + 1} of {Object.keys(WIZARD_STATES).length})</p>
+          <h2 className="transcriptionRequestActivationWizard__header">
+            <FormattedMessage id="transcriptionRequestActivationWizard.header"
+              defaultMessage="Activate Transcription Request" />
+          </h2>
         </div>
         { transcriptionRequestActivationWizardBody }
       </div>

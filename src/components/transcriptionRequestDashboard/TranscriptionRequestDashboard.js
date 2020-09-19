@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
@@ -21,17 +22,29 @@ const TranscriptionRequestDashboard = () => {
   }, [ transcriptionRequests ]);
 
   const dashboardConfig = [
-    { header: 'New Transcriptions', filterFunction: tR => tR.transcriptions.length && tR.transcriptions.every(t => !t.isAccepted) },
-    { header: 'Unactivated Transcription Requests', filterFunction: tR => !tR.isActivated },
-    { header: 'Transcription Requests Awaiting Transcription', filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 },
-    { header: 'All Fulfilled Transcription Requests', filterFunction: tR => tR.transcriptions.length }
+    { 
+      header: <FormattedMessage id="transcriptionRequestDashboard.newTranscriptionsHeader" defaultMessage="New Transcriptions" />, 
+      filterFunction: tR => tR.transcriptions.length && tR.transcriptions.every(t => !t.isAccepted) 
+    },
+    { 
+      header: <FormattedMessage id="transcriptionRequestDashboard.unactivatedTranscriptionRequestsHeader" defaultMessage="Unactivated Transcription Requests" />, 
+      filterFunction: tR => !tR.isActivated 
+    },
+    { 
+      header: <FormattedMessage id="transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader" defaultMessage="Transcription Requests Awaiting Transcription" />, 
+      filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 
+    },
+    { 
+      header: <FormattedMessage id="transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader" defaultMessage="All Fulfilled Transcription Requests" />, 
+      filterFunction: tR => tR.transcriptions.length 
+    }
   ];
 
   return <>
     <div className="transcriptionRequestDashboard">
       {
-        dashboardConfig.map(({ header, filterFunction }) => (
-          <div key={header} className="transcriptionRequestDashboard__listWrapper">
+        dashboardConfig.map(({ header, filterFunction }, index) => (
+          <div key={index} className="transcriptionRequestDashboard__listWrapper">
             <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
             <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
               columns={3}

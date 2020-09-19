@@ -1,5 +1,19 @@
 {
   "navBar.workshopLink": "工作坊",
   "navBar.dashboardLink": "資料主頁",
-  "navBar.logoutLink": "登出"
+  "navBar.logoutLink": "登出",
+  "loginAndRegister.createAccountButton": "註冊",
+  "loginAndRegister.backToLoginButton": "登入",
+  "loginForm.invalidCredentialsWarning": "沒找到任何用戶。 請再試一次。",
+  "loginForm.logInButton": "登入",
+  "loginForm.emailPlaceholder": "郵箱",
+  "loginForm.passwordPlaceholder": "密碼",
+  "registrationForm.duplicateEmailWarning": "已經有另外一個用戶用著這個郵箱。請再試一次。",
+  "registrationForm.registerButton": "註冊",
+  "registrationForm.firstNamePlaceholder": "名",
+  "registrationForm.lastNamePlaceholder": "姓",
+  "registrationForm.emailPlaceholder": "郵箱",
+  "registrationForm.passwordPlaceholder": "密碼",
+  "registrationForm.confirmPasswordPlaceholder": "確定密碼",
+  "registrationForm.nativeLanguageIdPlaceholder": "選母語"
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "transcriptionRequestDashboard.newTranscriptionsHeader",
+    "defaultMessage": "New Transcriptions"
+  },
+  {
+    "id": "transcriptionRequestDashboard.unactivatedTranscriptionRequestsHeader",
+    "defaultMessage": "Unactivated Transcription Requests"
+  },
+  {
+    "id": "transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader",
+    "defaultMessage": "Transcription Requests Awaiting Transcription"
+  },
+  {
+    "id": "transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader",
+    "defaultMessage": "All Fulfilled Transcription Requests"
+  }
+]

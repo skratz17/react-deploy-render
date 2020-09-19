@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { FormattedMessage } from 'react-intl';
 import YouTube from 'react-youtube';
 
 import { TranscriptionContext } from '../TranscriptionProvider';
@@ -47,14 +48,18 @@ const Transcription = props => {
   if(transcription === false) {
     return (
       <div className="transcriptionWrapper">
-        Nuh uh you shouldn't be looking at that it belongs to another user 
+        <FormattedMessage id="transcription.invalidUserWarning"
+          defaultMessage="Nuh uh you shouldn't be looking at that it belongs to another user" />
       </div>
     );
   }
 
   if(transcription === null) {
     return (
-      <div className="transcriptionWrapper">Loading...</div>
+      <div className="transcriptionWrapper">
+        <FormattedMessage id="transcription.loadingMessage"
+          defaultMessage="Loading..." />
+      </div>
     );
   }
 
@@ -62,8 +67,14 @@ const Transcription = props => {
   if(!transcription.isAccepted) {
     actionButtons = (
       <div className="transcription__actionButtonsWrapper">
-        <button className="btn btn--delete transcription__actionButton" onClick={handleRejectTranscription}>Reject Transcription</button>
-        <button className="btn btn--create transcription__actionButton" onClick={handleAcceptTranscription}>Accept Transcription</button>
+        <button className="btn btn--delete transcription__actionButton" onClick={handleRejectTranscription}>
+          <FormattedMessage id="transcription.rejectTranscriptionButton"
+            defaultMessage="Reject Transcription" />
+        </button>
+        <button className="btn btn--create transcription__actionButton" onClick={handleAcceptTranscription}>
+          <FormattedMessage id="transcription.acceptTranscriptionButton"
+            defaultMessage="Accept Transcription" />
+        </button>
       </div>
     );
   }
@@ -78,7 +89,10 @@ const Transcription = props => {
       <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
         <YouTube videoId={transcription.transcriptionRequest.videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
       </div>
-      <h2 className="transcription__header">Transcription</h2>
+      <h2 className="transcription__header">
+        <FormattedMessage id="transcription.header"
+          defaultMessage="Transcription" />
+      </h2>
       <p className="transcription__text">{transcription.transcription}</p>
       { actionButtons }
     </div>

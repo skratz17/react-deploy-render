@@ -1,0 +1,6 @@
+[
+  {
+    "id": "transcriptionRequestWorkshop.invalidEndTimeWarning",
+    "defaultMessage": "Your segment's end time must be after the your selected start time."
+  }
+]

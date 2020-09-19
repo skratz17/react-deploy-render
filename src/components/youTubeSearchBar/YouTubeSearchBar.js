@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { defineMessages, injectIntl } from 'react-intl';
 
 import './YouTubeSearchBar.css';
+
+defineMessages({
+  youtubeSearchBarPlaceholder: {
+    id: 'youtubeSearchBar.placeholder',
+    defaultMessage: 'Enter a YouTube video URL or video ID'
+  }
+});
 
 const YouTubeSearchBar = props => {
   const { value, onChange } = props;
@@ -20,7 +28,7 @@ const YouTubeSearchBar = props => {
     <div className="youTubeSearchBarWrapper">
       <input type="text" 
         className="youTubeSearchBar"
-        placeholder="Enter a YouTube video URL or video ID"
+        placeholder={props.intl.formatMessage({ id: 'youtubeSearchBar.placeholder' })}
         value={value}
         onChange={handleChange} />
     </div>
@@ -32,4 +40,4 @@ YouTubeSearchBar.propTypes = {
   onChange: PropTypes.func
 };
 
-export default YouTubeSearchBar;
+export default injectIntl(YouTubeSearchBar);

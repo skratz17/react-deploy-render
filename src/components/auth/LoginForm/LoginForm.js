@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { UserContext } from '../../user/UserProvider';
 import Form from '../../form/Form';
 import { useFormConfig, useIsFormValid } from '../../form/formCustomHooks';
-import loginFormConfig from './loginFormConfig';
+import loginFormConfig, { FORM_ID } from './loginFormConfig';
 import './LoginForm.css';
 
 const LoginForm = props => {
@@ -32,9 +33,16 @@ const LoginForm = props => {
 
   return <>
     <div className="loginForm">
-      { didLoginFail && <p className="loginForm__invalidCredentialsWarning text--warning">A user with the supplied credentials was not found. Please try again.</p> }
-      <Form formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
-        <button disabled={!isFormValid} type="submit" className="loginForm__loginButton btn btn--action">Log In</button>
+      { didLoginFail && 
+        <p className="loginForm__invalidCredentialsWarning text--warning">
+          <FormattedMessage id="loginForm.invalidCredentialsWarning"
+            defaultMessage="A user with the supplied credentials was not found. Please try again." />
+        </p> 
+      }
+      <Form id={FORM_ID} formConfig={formConfig} onChange={handleChange} onSubmit={handleLoginSubmit}>
+        <button disabled={!isFormValid} type="submit" className="loginForm__loginButton btn btn--action">
+          <FormattedMessage id="loginForm.logInButton" defaultMessage="Log In" />
+        </button>
       </Form>
     </div>
     <div className="line line--75"></div>

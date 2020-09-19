@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import './WelcomeBanner.css';
 
@@ -80,7 +81,10 @@ const WelcomeBanner = () => {
   return (
     <div className="welcomeBanner">
       <h2 className="welcomeBanner__header" ref={welcomeHeader} style={{ opacity: 1 }}>{WELCOME_MESSAGES[welcomeMessageIndex]}</h2>
-      <p className="welcomeBanner__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloribus unde reprehenderit voluptates eveniet aliquam sapiente, quos quisquam expedita ipsum nemo repudiandae autem sed quidem, nam iste? Maxime, alias commodi!</p>
+      <p className="welcomeBanner__text">
+        <FormattedMessage id="welcomeBanner.text"
+          defaultMessage="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloribus unde reprehenderit voluptates eveniet aliquam sapiente, quos quisquam expedita ipsum nemo repudiandae autem sed quidem, nam iste? Maxime, alias commodi!" />
+      </p>
     </div>
   );
 };

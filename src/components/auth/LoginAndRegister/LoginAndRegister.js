@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -14,7 +15,12 @@ const LoginAndRegister = props => {
       </div>
 
       <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--back'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
-        { isLoginMode ? 'Create Account' : 'Back to Login' }
+        { isLoginMode ? 
+          <FormattedMessage id="loginAndRegister.createAccountButton"
+            defaultMessage="Create Account" /> : 
+          <FormattedMessage id="loginAndRegister.backToLoginButton"
+            defaultMessage="Back to Login" />
+        }
       </button>
       
       <div className="registerFormWrapper">

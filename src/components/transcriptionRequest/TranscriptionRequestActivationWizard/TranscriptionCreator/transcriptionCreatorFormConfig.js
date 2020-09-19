@@ -1,9 +1,19 @@
+import { defineMessages } from 'react-intl';
+
+export const FORM_ID = 'transcriptionCreatorForm';
+
+const messages = defineMessages({
+  transcription: {
+    id: `${FORM_ID}.transcriptionPlaceholder`,
+    defaultMessage: 'Write transcription here...'
+  }
+});
+
 export default {
   transcription: {
     inputType: 'textarea',
     elementConfig: {
-      placeholder: 'Write transcription here...',
-      name: 'transcription'
+      placeholder: messages.transcription
     },
     value: '',
     validation: {

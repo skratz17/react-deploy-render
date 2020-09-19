@@ -1,0 +1,10 @@
+[
+  {
+    "id": "loginForm.emailPlaceholder",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "loginForm.passwordPlaceholder",
+    "defaultMessage": "Password"
+  }
+]
