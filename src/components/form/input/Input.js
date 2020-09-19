@@ -9,7 +9,6 @@ import TimeInput from '../timeInput/TimeInput';
 const Input = props => {
   const { name, inputType, isTouched, isValid, label, elementConfig, value, onChange, items, formId } = props;
   const className = (isTouched && !isValid) ? 'invalid' : '';
-  debugger;
 
   let placeholderText = '';
   if(elementConfig.placeholder) {
