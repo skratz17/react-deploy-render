@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import YouTube from 'react-youtube';
 
 import Form from '../../../form/Form';
@@ -12,7 +13,8 @@ const TranscriptionCreator = props => {
   if(transcriptionRequest === false) {
     return (
       <div className="transcriptionCreator">
-        No transcription request was found for you to transcribe... you're set to go ahead and activate your transcription request!
+        <FormattedMessage id="transcriptionCreator.noTranscriptionFound"
+          defaultMessage="No transcription request was found for you to transcribe... you're set to go ahead and activate your transcription request!" />
       </div>
     );
   }

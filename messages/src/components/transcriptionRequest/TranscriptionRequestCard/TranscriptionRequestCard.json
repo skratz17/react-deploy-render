@@ -1,0 +1,22 @@
+[
+  {
+    "id": "transcriptionRequestCard.activateButton",
+    "defaultMessage": "Activate Now"
+  },
+  {
+    "id": "transcriptionRequestCard.activatedText",
+    "defaultMessage": "Activated - awaiting transcription."
+  },
+  {
+    "id": "transcriptionRequestCard.viewTranscriptionLink",
+    "defaultMessage": "View Transcription"
+  },
+  {
+    "id": "transcriptionRequestCard.startTimeLabel",
+    "defaultMessage": "Start Time:"
+  },
+  {
+    "id": "transcriptionRequestCard.endTimeLabel",
+    "defaultMessage": "End Time:"
+  }
+]
