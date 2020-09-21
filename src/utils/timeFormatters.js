@@ -20,6 +20,8 @@ export const convertSecondsToTimeString = seconds => {
  * @param {String} timeString A time string, possibly invalidly formatted, to format into M:SS.
  */
 export const formatToMSSTimeString = timeString => {
+  if(!timeString) return '0:00';
+
   const timeStringParts = timeString.split(':');
   while(timeStringParts.length < 2) {
     timeStringParts.unshift('0');
@@ -34,6 +36,8 @@ export const formatToMSSTimeString = timeString => {
     timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1) + timeStringParts[1];
     timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1) || '0';
   }
+
+  debugger;
 
   return timeStringParts.join(':');
 };
