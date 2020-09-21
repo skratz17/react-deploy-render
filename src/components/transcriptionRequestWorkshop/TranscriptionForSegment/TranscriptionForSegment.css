@@ -1,0 +1,12 @@
+.transcriptionForSegment {
+  transition: opacity 0.25s;
+}
+
+.transcriptionForSegment.hidden {
+  opacity: 0;
+}
+
+.transcriptionForSegment__header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
