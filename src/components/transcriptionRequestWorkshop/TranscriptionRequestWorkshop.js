@@ -7,6 +7,7 @@ import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
+import { convertSecondsToTimeString } from '../../utils/timeFormatters';
 import './TranscriptionRequestWorkshop.css';
 
 const TranscriptionRequestWorkshop = () => {
@@ -44,7 +45,8 @@ const TranscriptionRequestWorkshop = () => {
   }, [ transcriptionRequests, videoId ]);
 
   useEffect(() => {
-    if(isVideoPlaying) {
+    if(startTime && !currentPlayerTime) {
+      setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
       const intervalId = setInterval(() => {
         setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
       }, 1000);
@@ -54,7 +56,7 @@ const TranscriptionRequestWorkshop = () => {
     else {
       setCurrentPlayerTime(null);
     }
-  }, [ isVideoPlaying ]);
+  }, [ startTime ]);
 
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
@@ -111,7 +113,8 @@ const TranscriptionRequestWorkshop = () => {
         <p className="text--warning">
           <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
             defaultMessage="Your segment's end time must be after the your selected start time." />
-        </p> }
+        </p> 
+      }
 
       <TranscriptionRequestControl 
         isRequesting={startTime !== null} 
@@ -119,10 +122,10 @@ const TranscriptionRequestWorkshop = () => {
         onCancel={handleTranscriptionRequestControlCancel}
         onClick={handleTranscriptionRequestControlClick} />
 
-      {startTime !== null &&
+      { startTime !== null &&
         <>
-          <p>Start Time {startTime}</p>
-          <p>End Time {currentPlayerTime}</p>
+          <p>Start Time {convertSecondsToTimeString(startTime)}</p>
+          <p>End Time {convertSecondsToTimeString(currentPlayerTime)}</p>
         </>
       }
 
