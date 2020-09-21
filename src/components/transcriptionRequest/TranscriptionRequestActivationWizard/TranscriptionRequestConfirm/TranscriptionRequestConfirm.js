@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import YouTube from 'react-youtube';
 
+import YouTubePlayer from '../../../youtube/YouTubePlayer/YouTubePlayer';
 import Form from '../../../form/Form';
 import { FORM_ID } from './transcriptionRequestConfirmConfig';
 import './TranscriptionRequestConfirm.css';
@@ -29,9 +29,7 @@ const TranscriptionRequestConfirm = props => {
 
   return (
     <div className="transcriptionRequestConfirm">
-      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
-        <YouTube videoId={videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
-      </div>
+      <YouTubePlayer videoId={videoId} opts={{ ...youTubePlayerOpts, playerVars }} showResetButton={true} />
       <Form id={FORM_ID} formConfig={formConfig} onChange={onChange} />
     </div>
   );

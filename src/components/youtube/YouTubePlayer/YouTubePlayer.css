@@ -1,0 +1,10 @@
+.youTubePlayerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.youTubePlayer__restart {
+  margin: 0.5rem 0;
+}

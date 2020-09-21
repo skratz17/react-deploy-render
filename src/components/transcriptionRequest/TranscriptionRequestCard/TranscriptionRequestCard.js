@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import YouTube from 'react-youtube';
 
+import YouTubePlayer from '../../youtube/YouTubePlayer/YouTubePlayer';
 import { convertSecondsToTimeString } from '../../../utils/timeFormatters';
 import './TranscriptionRequestCard.css';
 
@@ -44,9 +44,7 @@ const TranscriptionRequestCard = props => {
   return (
     <div className="transcriptionRequest">
       { !shouldHideVideoPreview && 
-        <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
-          <YouTube videoId={videoId} opts={youTubePlayerOpts} /> 
-        </div>
+        <YouTubePlayer videoId={videoId} opts={youTubePlayerOpts} /> 
       }
       <div className="transcriptionRequest__timeInformationWrapper">
         <p className="transcriptionRequest__startTime">

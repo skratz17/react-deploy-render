@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FormattedMessage } from 'react-intl';
-import YouTube from 'react-youtube';
 
+import YouTubePlayer from '../../youtube/YouTubePlayer/YouTubePlayer';
 import { TranscriptionContext } from '../TranscriptionProvider';
 import './Transcription.css';
 
@@ -86,9 +86,7 @@ const Transcription = props => {
 
   return (
     <div className="transcription">
-      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
-        <YouTube videoId={transcription.transcriptionRequest.videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
-      </div>
+      <YouTubePlayer videoId={transcription.transcriptionRequest.videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
       <h2 className="transcription__header">
         <FormattedMessage id="transcription.header"
           defaultMessage="Transcription" />

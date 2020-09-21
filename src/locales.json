@@ -56,6 +56,7 @@
     "transcriptionRequestRecordingPreview.currentEndTimeLabel": "End Time",
     "transcriptionRequestWorkshop.invalidEndTimeWarning": "Your segment's end time must be after the your selected start time.",
     "welcomeBanner.text": "Welcome to UHHH WUT (Unselfish Humans Helping Humans with Unlimited Transcriptions). Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!",
+    "youTubePlayer.replayButton": "Replay Segment",
     "youtubeSearchBar.placeholder": "Enter a YouTube video URL or video ID"
   },
   "zh": {
@@ -103,6 +104,7 @@
     "transcriptionRequestDashboard.unactivatedTranscriptionRequestsHeader": "尚未啟動的標音請求",
     "transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader": "等待別人標音的請求",
     "transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader": "所有完成的標音請求",
+    "transcriptionForSegment.header": "播放中的內容的標音",
     "transcriptionRequestControl.startRequestAltText": "開始請求",
     "transcriptionRequestControl.stopRequestAltText": "結束請求",
     "transcriptionRequestControl.orText": "或者",
@@ -114,6 +116,7 @@
     "transcriptionRequestRecordingPreview.currentStartTimeLabel": "開始",
     "transcriptionRequestRecordingPreview.currentEndTimeLabel": "結束",
     "welcomeBanner.text": "歡迎來到UHHHWUT！一邊離你學會一個外語的夢想走更近一步，一邊幫學你的母語的人！",
+    "youTubePlayer.replayButton": "重播",
     "youtubeSearchBar.placeholder": "YouTube URL 或影片ID"
   }
 }
