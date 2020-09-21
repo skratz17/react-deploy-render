@@ -14,6 +14,7 @@ const TranscriptionRequestWorkshop = () => {
   const [ videoId, setVideoId ] = useState('');
   const [ isVideoPlaying, setIsVideoPlaying ] = useState(false);
   const [ startTime, setStartTime ] = useState(null);
+  const [ currentPlayerTime, setCurrentPlayerTime ] = useState(null);
   const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
@@ -41,6 +42,19 @@ const TranscriptionRequestWorkshop = () => {
       .sort((a, b) => a.startTime - b.startTime);
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
+
+  useEffect(() => {
+    if(isVideoPlaying) {
+      const intervalId = setInterval(() => {
+        setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+    else {
+      setCurrentPlayerTime(null);
+    }
+  }, [ isVideoPlaying ]);
 
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
@@ -104,6 +118,13 @@ const TranscriptionRequestWorkshop = () => {
         disabled={!isVideoPlaying}
         onCancel={handleTranscriptionRequestControlCancel}
         onClick={handleTranscriptionRequestControlClick} />
+
+      {startTime !== null &&
+        <>
+          <p>Start Time {startTime}</p>
+          <p>End Time {currentPlayerTime}</p>
+        </>
+      }
 
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
