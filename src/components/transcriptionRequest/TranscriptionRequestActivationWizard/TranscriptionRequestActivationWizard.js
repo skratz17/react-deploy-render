@@ -30,6 +30,7 @@ const TranscriptionRequestActivationWizard = props => {
   const [ currentStep, setCurrentStep ] = useState(WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM);
   const [ transcriptionRequestToConfirm, setTranscriptionRequestToConfirm ] = useState(null);
   const [ transcriptionRequestToFulfill, setTranscriptionRequestToFulfill ] = useState(null);
+  const [ shouldRenderBody, setShouldRenderBody ] = useState(false);
 
   const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig, resetTranscriptionRequestFormConfig ] = useFormConfig(initialTranscriptionRequestFormConfig);
   const isTranscriptionRequestFormValid = useIsFormValid(transciptionRequestFormConfig);
@@ -51,6 +52,7 @@ const TranscriptionRequestActivationWizard = props => {
     }
 
     if(transcriptionRequestId) {
+      setShouldRenderBody(true);
       resetTranscriptionRequestFormConfig();
       resetTranscriptionFormConfig();
       setCurrentStep(WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM);
@@ -58,6 +60,10 @@ const TranscriptionRequestActivationWizard = props => {
       getLanguages();
       _getTranscriptionRequestById(transcriptionRequestId);
       _getTranscriptionRequestToFulfill();
+    }
+    else {
+      const timeoutId = setTimeout(() => setShouldRenderBody(false), 1000);
+      return () => clearTimeout(timeoutId);
     }
   }, [ transcriptionRequestId ]);
 
@@ -150,7 +156,7 @@ const TranscriptionRequestActivationWizard = props => {
               defaultMessage="Activate Transcription Request" />
           </h2>
         </div>
-        { transcriptionRequestActivationWizardBody }
+        { shouldRenderBody && transcriptionRequestActivationWizardBody }
       </div>
     </Modal>
   );
