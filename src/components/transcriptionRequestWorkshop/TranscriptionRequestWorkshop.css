@@ -1,4 +1,6 @@
 .workshop {
+  max-width: 1250px;
+  margin: 0 auto;
   padding: 1rem;
   display: grid;
   grid-template-columns: 2fr 1fr;

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "transcriptionRequestRecordingPreview.header",
+    "defaultMessage": "Currently Recording Segment:"
+  },
+  {
+    "id": "transcriptionRequestRecordingPreview.currentStartTimeLabel",
+    "defaultMessage": "Start Time"
+  },
+  {
+    "id": "transcriptionRequestRecordingPreview.currentEndTimeLabel",
+    "defaultMessage": "End Time"
+  }
+]

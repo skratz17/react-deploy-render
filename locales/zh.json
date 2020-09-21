@@ -50,8 +50,9 @@
   "transcriptionRequestControl.startTranscriptionRequestPrompt": "開始請求",
   "transcriptionRequestControl.cancelTranscriptionRequestButton": "取消",
   "transcriptionRequestWorkshop.invalidEndTimeWarning": "結束的時候需要在開始的時候以前",
-  "transcriptionRequestWorkshop.currentStartTimeLabel": "開始",
-  "transcriptionRequestWorkshop.currentEndTimeLabel": "結束",
+"transcriptionRequestRecordingPreview.header": "關於錄影中的資料",
+  "transcriptionRequestRecordingPreview.currentStartTimeLabel": "開始",
+  "transcriptionRequestRecordingPreview.currentEndTimeLabel": "結束",
   "welcomeBanner.text": "歡迎來到UHHHWUT！一邊離你學會一個外語的夢想走更近一步，一邊幫學你的母語的人！",
   "youtubeSearchBar.placeholder": "YouTube URL 或影片ID"
 }
