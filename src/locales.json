@@ -44,6 +44,7 @@
     "transcriptionRequestDashboard.unactivatedTranscriptionRequestsHeader": "Unactivated Transcription Requests",
     "transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader": "Transcription Requests Awaiting Transcription",
     "transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader": "All Fulfilled Transcription Requests",
+    "transcriptionForSegment.header": "Transcription of Current Segment",
     "transcriptionRequestControl.startRequestAltText": "Start Request",
     "transcriptionRequestControl.stopRequestAltText": "Stop Request",
     "transcriptionRequestControl.stopTranscriptionRequestPrompt": "Stop Transcription Request",
