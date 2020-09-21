@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import YouTube from 'react-youtube';
 
+import YouTubePlayer from '../../../youtube/YouTubePlayer/YouTubePlayer';
 import Form from '../../../form/Form';
 import { FORM_ID } from './transcriptionCreatorFormConfig';
 import './TranscriptionCreator.css';
@@ -30,9 +30,7 @@ const TranscriptionCreator = props => {
 
   return (
     <div className="transcriptionCreator">
-      <div style={{ height: youTubePlayerOpts.height + 'px', width: youTubePlayerOpts.width + 'px' }}>
-        <YouTube videoId={transcriptionRequest.videoId} opts={youTubePlayerOpts} />
-      </div>
+      <YouTubePlayer videoId={transcriptionRequest.videoId} opts={youTubePlayerOpts} showResetButton={true} />
       <Form id={FORM_ID} formConfig={formConfig} onChange={onChange} />
     </div>
   );

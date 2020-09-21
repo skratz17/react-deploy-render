@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import YouTube from 'react-youtube';
 import { FormattedMessage } from 'react-intl';
+import YouTube from 'react-youtube';
 
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
-import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
+import YouTubeSearchBar from '../youtube/YouTubeSearchBar/YouTubeSearchBar';
+import YouTubePlayer from '../youtube/YouTubePlayer/YouTubePlayer';
 import TranscriptionForSegment from './TranscriptionForSegment/TranscriptionForSegment';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestRecordingPreview from './TranscriptionRequestRecordingPreview/TranscriptionRequestRecordingPreview';
@@ -120,13 +121,11 @@ const TranscriptionRequestWorkshop = () => {
       <div className="col--left">
         <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
 
-        <div style={{ height: youtubePlayerOpts.height + 'px', width: youtubePlayerOpts.width + 'px' }}>
-          <YouTube videoId={videoId} 
-            onReady={e => setPlayer(e.target)} 
-            onStateChange={handleYouTubeStateChange}
-            opts={youtubePlayerOpts}
-            />
-        </div>
+        <YouTubePlayer videoId={videoId} 
+          onReady={e => setPlayer(e.target)} 
+          onStateChange={handleYouTubeStateChange}
+          opts={youtubePlayerOpts}
+          />
 
         <TranscriptionForSegment transcription={transcriptionForSegment} />
       </div>
