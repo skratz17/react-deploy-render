@@ -27,6 +27,11 @@ export const formatToMSSTimeString = timeString => {
     timeStringParts.unshift('0');
   }
 
+  if(!timeStringParts[1]) {
+    timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1);
+    timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1);
+  }
+
   if(timeStringParts[1].length > 2) {
     timeStringParts[0] += timeStringParts[1].substring(0, timeStringParts[1].length - 2);
     if(parseInt(timeStringParts[0]) === 0) timeStringParts[0] = '0';
@@ -36,8 +41,6 @@ export const formatToMSSTimeString = timeString => {
     timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1) + timeStringParts[1];
     timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1) || '0';
   }
-
-  debugger;
 
   return timeStringParts.join(':');
 };
