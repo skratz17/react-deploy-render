@@ -30,7 +30,6 @@ const TranscriptionRequestActivationWizard = props => {
   const [ currentStep, setCurrentStep ] = useState(WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM);
   const [ transcriptionRequestToConfirm, setTranscriptionRequestToConfirm ] = useState(null);
   const [ transcriptionRequestToFulfill, setTranscriptionRequestToFulfill ] = useState(null);
-  const [ shouldRenderBody, setShouldRenderBody ] = useState(false);
 
   const [ transciptionRequestFormConfig, handleTranscriptionRequestChange, updateTranscriptionRequestFormConfig, resetTranscriptionRequestFormConfig ] = useFormConfig(initialTranscriptionRequestFormConfig);
   const isTranscriptionRequestFormValid = useIsFormValid(transciptionRequestFormConfig);
@@ -51,8 +50,8 @@ const TranscriptionRequestActivationWizard = props => {
       setTranscriptionRequestToFulfill(_transcriptionRequestToFulfill);
     }
 
+    // if a new transcription request id is coming in via props, reinitialize the form config states, perform the various async calls needed for the wizard to run, and set the current step to the first wizard step
     if(transcriptionRequestId) {
-      setShouldRenderBody(true);
       resetTranscriptionRequestFormConfig();
       resetTranscriptionFormConfig();
       setCurrentStep(WIZARD_STATES.TRANSCRIPTION_REQUEST_CONFIRM);
@@ -61,8 +60,10 @@ const TranscriptionRequestActivationWizard = props => {
       _getTranscriptionRequestById(transcriptionRequestId);
       _getTranscriptionRequestToFulfill();
     }
+
+    // otherwise if the transcription request id coming in is not an id (e.g., null), set wizard state to null to indicate not active
     else {
-      const timeoutId = setTimeout(() => setShouldRenderBody(false), 1000);
+      const timeoutId = setTimeout(() => setCurrentStep(null), 1000);
       return () => clearTimeout(timeoutId);
     }
   }, [ transcriptionRequestId ]);
@@ -144,7 +145,7 @@ const TranscriptionRequestActivationWizard = props => {
       </>;
       break;
     default:
-      throw new Error('Invalid state in TranscriptionRequestActivationWizard');
+      transcriptionRequestActivationWizardBody = null;
   }
 
   return (
@@ -156,7 +157,7 @@ const TranscriptionRequestActivationWizard = props => {
               defaultMessage="Activate Transcription Request" />
           </h2>
         </div>
-        { shouldRenderBody && transcriptionRequestActivationWizardBody }
+        { transcriptionRequestActivationWizardBody }
       </div>
     </Modal>
   );
