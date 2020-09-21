@@ -73,7 +73,7 @@ Input.propTypes = {
   formId: PropTypes.string,
   isTouched: PropTypes.bool,
   isValid: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([ PropTypes.string, PropTypes.object ]),
   value: PropTypes.string,
   onChange: PropTypes.func,
   items: PropTypes.array,

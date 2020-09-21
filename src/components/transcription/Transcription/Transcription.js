@@ -23,7 +23,7 @@ const Transcription = props => {
     };
 
     _getTranscriptionById(props.match.params.transcriptionId);
-  }, []);
+  }, [ props.match.params.transcriptionId ]);
 
   useEffect(() => {
     if(transcription) {

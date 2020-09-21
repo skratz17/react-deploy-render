@@ -8,15 +8,15 @@ const Form = props => {
 
   // for forms that can be pre-populated, we need to first manually trigger validation... this will run validation on any untouched field in a form when its data changes (an untouched change means the change is not coming from the user, but from some controlled data initially being set e.g. inital values for a field being populated by values of an object loaded from database)
   useEffect(() => {
-    const validiationChanges = Object.keys(formConfig)
+    const validationChanges = Object.keys(formConfig)
       .filter(fieldName => !formConfig[fieldName].isTouched && formConfig[fieldName].isValid !== validate(fieldName, formConfig[fieldName].value))
       .map(fieldName => ({
         name: fieldName,
         value: formConfig[fieldName].value,
         isValid: validate(fieldName, formConfig[fieldName].value)
       }));
-    if(validiationChanges.length) {
-      validiationChanges.forEach(onChange);
+    if(validationChanges.length) {
+      validationChanges.forEach(onChange);
     }
   }, [ formConfig ]);
 

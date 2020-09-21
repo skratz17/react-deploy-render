@@ -55,7 +55,7 @@ const TranscriptionRequestWorkshop = () => {
 
       return () => clearInterval(intervalId);
     }
-  }, [ isVideoPlaying ]);
+  }, [ isVideoPlaying, player ]);
 
   useEffect(() => {
     if(currentPlayerTime !== null) {
@@ -70,7 +70,7 @@ const TranscriptionRequestWorkshop = () => {
         setTranscriptionForSegment(null);
       }
     }
-  }, [ currentPlayerTime ]);
+  }, [ currentPlayerTime, transcriptionRequestsForVideo ]);
 
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
