@@ -16,7 +16,7 @@
   box-shadow: 1px 1px 5px #000;
   cursor: pointer;
   margin-top: 1rem;
-  transition: opacity 0.25s;
+  transition: all 0.25s;
 }
 
 .transcriptionRequestControl:disabled {
@@ -39,6 +39,10 @@
 .transcriptionRequestControl__icon {
   width: 100px;
   height: 100px;
+}
+
+.transcriptionRequestControl__icon.red {
+  filter: invert(13%) sepia(99%) saturate(6951%) hue-rotate(5deg) brightness(98%) contrast(115%);
 }
 
 .transcriptionRequestCancel__prompt {

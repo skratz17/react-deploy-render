@@ -32,7 +32,7 @@ const TranscriptionRequestControl = props => {
       </p>
       <div className="transcriptionRequestControl__buttonsWrapper">
         <button className="transcriptionRequestControl" disabled={disabled} onClick={onClick}>
-          <img className="transcriptionRequestControl__icon" 
+          <img className={`transcriptionRequestControl__icon ${!disabled && !isRequesting ? 'red' : ''}`} 
             src={isRequesting ? stopImage : recordImage} 
             alt={isRequesting ? 
               props.intl.formatMessage({ id: 'transcriptionRequestControl.stopRequestAltText' }) : 
