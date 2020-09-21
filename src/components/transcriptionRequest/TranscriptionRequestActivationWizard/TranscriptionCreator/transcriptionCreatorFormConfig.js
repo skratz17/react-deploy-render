@@ -18,8 +18,6 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   }
 };

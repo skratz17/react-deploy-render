@@ -23,9 +23,7 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   password: {
@@ -37,8 +35,6 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   }
 };
