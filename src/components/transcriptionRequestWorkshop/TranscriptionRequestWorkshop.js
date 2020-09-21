@@ -7,6 +7,7 @@ import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
+import { convertSecondsToTimeString } from '../../utils/timeFormatters';
 import './TranscriptionRequestWorkshop.css';
 
 const TranscriptionRequestWorkshop = () => {
@@ -14,6 +15,7 @@ const TranscriptionRequestWorkshop = () => {
   const [ videoId, setVideoId ] = useState('');
   const [ isVideoPlaying, setIsVideoPlaying ] = useState(false);
   const [ startTime, setStartTime ] = useState(null);
+  const [ currentPlayerTime, setCurrentPlayerTime ] = useState(null);
   const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
@@ -41,6 +43,20 @@ const TranscriptionRequestWorkshop = () => {
       .sort((a, b) => a.startTime - b.startTime);
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
+
+  useEffect(() => {
+    if(startTime && !currentPlayerTime) {
+      setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
+      const intervalId = setInterval(() => {
+        setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+    else {
+      setCurrentPlayerTime(null);
+    }
+  }, [ startTime ]);
 
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
@@ -97,13 +113,27 @@ const TranscriptionRequestWorkshop = () => {
         <p className="text--warning">
           <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
             defaultMessage="Your segment's end time must be after the your selected start time." />
-        </p> }
+        </p> 
+      }
 
       <TranscriptionRequestControl 
         isRequesting={startTime !== null} 
         disabled={!isVideoPlaying}
         onCancel={handleTranscriptionRequestControlCancel}
         onClick={handleTranscriptionRequestControlClick} />
+
+      { startTime !== null &&
+        <>
+          <p>
+            <FormattedMessage id="transcriptionRequestWorkshop.currentStartTimeLabel"
+              defaultMessage="Start Time" /> {convertSecondsToTimeString(startTime)}
+          </p>
+          <p>
+            <FormattedMessage id="transcriptionRequestWorkshop.currentEndTimeLabel"
+              defaultMessage="End Time" /> {convertSecondsToTimeString(currentPlayerTime)}
+          </p>
+        </>
+      }
 
       <TranscriptionRequestList 
         onActivate={setActivatingTranscriptionRequestId}
