@@ -19,6 +19,7 @@ const YouTubePlayer = props => {
     controls: showResetButton ? 0 : 1
   };
 
+  // hacky way to make the YouTube player replay only the start-end segment, quickly de-render and re-render it :|
   useEffect(() => {
     if(isRefreshing) {
       setIsAutoplay(true);
