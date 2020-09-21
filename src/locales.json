@@ -51,6 +51,8 @@
     "transcriptionRequestControl.orText": "OR",
     "transcriptionRequestControl.cancelTranscriptionRequestButton": "Cancel",
     "transcriptionRequestWorkshop.invalidEndTimeWarning": "Your segment's end time must be after the your selected start time.",
+    "transcriptionRequestWorkshop.currentStartTimeLabel": "Start Time",
+    "transcriptionRequestWorkshop.currentEndTimeLabel": "End Time",
     "welcomeBanner.text": "Welcome to UHHH WUT (Unselfish Humans Helping Humans with Unlimited Transcriptions). Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!",
     "youtubeSearchBar.placeholder": "Enter a YouTube video URL or video ID"
   },
@@ -106,6 +108,8 @@
     "transcriptionRequestControl.startTranscriptionRequestPrompt": "開始請求",
     "transcriptionRequestControl.cancelTranscriptionRequestButton": "取消",
     "transcriptionRequestWorkshop.invalidEndTimeWarning": "結束的時候需要在開始的時候以前",
+    "transcriptionRequestWorkshop.currentStartTimeLabel": "開始",
+    "transcriptionRequestWorkshop.currentEndTimeLabel": "結束",
     "welcomeBanner.text": "歡迎來到UHHHWUT！一邊離你學會一個外語的夢想走更近一步，一邊幫學你的母語的人！",
     "youtubeSearchBar.placeholder": "YouTube URL 或影片ID"
   }

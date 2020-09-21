@@ -2,5 +2,13 @@
   {
     "id": "transcriptionRequestWorkshop.invalidEndTimeWarning",
     "defaultMessage": "Your segment's end time must be after the your selected start time."
+  },
+  {
+    "id": "transcriptionRequestWorkshop.currentStartTimeLabel",
+    "defaultMessage": "Start Time"
+  },
+  {
+    "id": "transcriptionRequestWorkshop.currentEndTimeLabel",
+    "defaultMessage": "End Time"
   }
 ]

@@ -124,8 +124,14 @@ const TranscriptionRequestWorkshop = () => {
 
       { startTime !== null &&
         <>
-          <p>Start Time {convertSecondsToTimeString(startTime)}</p>
-          <p>End Time {convertSecondsToTimeString(currentPlayerTime)}</p>
+          <p>
+            <FormattedMessage id="transcriptionRequestWorkshop.currentStartTimeLabel"
+              defaultMessage="Start Time" /> {convertSecondsToTimeString(startTime)}
+          </p>
+          <p>
+            <FormattedMessage id="transcriptionRequestWorkshop.currentEndTimeLabel"
+              defaultMessage="End Time" /> {convertSecondsToTimeString(currentPlayerTime)}
+          </p>
         </>
       }
 
