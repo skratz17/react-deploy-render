@@ -5,9 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
 import YouTubeSearchBar from '../youTubeSearchBar/YouTubeSearchBar';
 import TranscriptionRequestControl from './TranscriptionRequestControl/TranscriptionRequestControl';
+import TranscriptionRequestRecordingPreview from './TranscriptionRequestRecordingPreview/TranscriptionRequestRecordingPreview';
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
-import { convertSecondsToTimeString } from '../../utils/timeFormatters';
 import './TranscriptionRequestWorkshop.css';
 
 const TranscriptionRequestWorkshop = () => {
@@ -99,47 +99,42 @@ const TranscriptionRequestWorkshop = () => {
 
   return <>
     <section className="workshop">
-      <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
+      <div className="col--left">
+        <YouTubeSearchBar value={videoId} onChange={handleYouTubeSearchBarChange} />
 
-      <div style={{ height: youtubePlayerOpts.height + 'px', width: youtubePlayerOpts.width + 'px' }}>
-        <YouTube videoId={videoId} 
-          onReady={e => setPlayer(e.target)} 
-          onStateChange={e => setIsVideoPlaying(e.data === YouTube.PlayerState.PLAYING)}
-          opts={youtubePlayerOpts}
-          />
+        <div style={{ height: youtubePlayerOpts.height + 'px', width: youtubePlayerOpts.width + 'px' }}>
+          <YouTube videoId={videoId} 
+            onReady={e => setPlayer(e.target)} 
+            onStateChange={e => setIsVideoPlaying(e.data === YouTube.PlayerState.PLAYING)}
+            opts={youtubePlayerOpts}
+            />
+        </div>
       </div>
 
-      { hasEndTimeError && 
-        <p className="text--warning">
-          <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
-            defaultMessage="Your segment's end time must be after the your selected start time." />
-        </p> 
-      }
+      <div className="col--right">
+        { hasEndTimeError && 
+          <p className="text--warning">
+            <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
+              defaultMessage="Your segment's end time must be after the your selected start time." />
+          </p> 
+        }
 
-      <TranscriptionRequestControl 
-        isRequesting={startTime !== null} 
-        disabled={!isVideoPlaying}
-        onCancel={handleTranscriptionRequestControlCancel}
-        onClick={handleTranscriptionRequestControlClick} />
+        <TranscriptionRequestControl 
+          isRequesting={startTime !== null} 
+          disabled={!isVideoPlaying}
+          onCancel={handleTranscriptionRequestControlCancel}
+          onClick={handleTranscriptionRequestControlClick} />
 
-      { startTime !== null &&
-        <>
-          <p>
-            <FormattedMessage id="transcriptionRequestWorkshop.currentStartTimeLabel"
-              defaultMessage="Start Time" /> {convertSecondsToTimeString(startTime)}
-          </p>
-          <p>
-            <FormattedMessage id="transcriptionRequestWorkshop.currentEndTimeLabel"
-              defaultMessage="End Time" /> {convertSecondsToTimeString(currentPlayerTime)}
-          </p>
-        </>
-      }
+        <TranscriptionRequestRecordingPreview
+          startTime={startTime}
+          endTime={currentPlayerTime} />
 
-      <TranscriptionRequestList 
-        onActivate={setActivatingTranscriptionRequestId}
-        transcriptionRequests={transcriptionRequestsForVideo} 
-        columns={1}
-        shouldHideVideoPreview={true} />
+        <TranscriptionRequestList 
+          onActivate={setActivatingTranscriptionRequestId}
+          transcriptionRequests={transcriptionRequestsForVideo} 
+          columns={1}
+          shouldHideVideoPreview={true} />
+      </div>
     </section>
 
     <TranscriptionRequestActivationWizard 

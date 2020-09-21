@@ -1,11 +1,29 @@
 .workshop {
+  max-width: 1250px;
+  margin: 0 auto;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 1rem;
   align-items: center;
   margin-top: 2rem;
 }
 
-.workshop > * {
-  margin: 1rem 0;
+.workshop .col--left,
+.workshop .col--right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.workshop .col--left > *,
+.workshop .col--right > * {
+  margin: 0.5rem 0;
+}
+
+.workshop .transcriptionRequestList {
+  max-height: 50vh;
+  overflow: scroll;
 }
