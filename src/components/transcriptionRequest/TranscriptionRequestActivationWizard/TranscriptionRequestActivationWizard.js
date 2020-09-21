@@ -50,6 +50,7 @@ const TranscriptionRequestActivationWizard = props => {
       setTranscriptionRequestToFulfill(_transcriptionRequestToFulfill);
     }
 
+    // if a new transcription request id is coming in via props, reinitialize the form config states, perform the various async calls needed for the wizard to run, and set the current step to the first wizard step
     if(transcriptionRequestId) {
       resetTranscriptionRequestFormConfig();
       resetTranscriptionFormConfig();
@@ -58,6 +59,12 @@ const TranscriptionRequestActivationWizard = props => {
       getLanguages();
       _getTranscriptionRequestById(transcriptionRequestId);
       _getTranscriptionRequestToFulfill();
+    }
+
+    // otherwise if the transcription request id coming in is not an id (e.g., null), set wizard state to null to indicate not active
+    else {
+      const timeoutId = setTimeout(() => setCurrentStep(null), 1000);
+      return () => clearTimeout(timeoutId);
     }
   }, [ transcriptionRequestId ]);
 
@@ -138,7 +145,7 @@ const TranscriptionRequestActivationWizard = props => {
       </>;
       break;
     default:
-      throw new Error('Invalid state in TranscriptionRequestActivationWizard');
+      transcriptionRequestActivationWizardBody = null;
   }
 
   return (

@@ -10,6 +10,7 @@ const YouTubePlayer = props => {
 
   const [ isRefreshing, setIsRefreshing ] = useState(false);
   const [ isAutoplay, setIsAutoplay ] = useState(false);
+  const [ hasPlayed, setHasPlayed ] = useState(false);
 
   const expandedOpts = { ...opts };
   if(!expandedOpts.playerVars) expandedOpts.playerVars = {};
@@ -28,13 +29,22 @@ const YouTubePlayer = props => {
     }
   }, [ isRefreshing ]);
 
+  const handleStateChange = e => {
+    if(e.data === YouTube.PlayerState.PLAYING) {
+      setHasPlayed(true);
+    }
+    if(props.onStateChange) {
+      props.onStateChange(e);
+    }
+  };
+
   return (
     <div className="youTubePlayerWrapper">
       <div style={{ height: opts.height + 'px', width: opts.width + 'px' }}>
-        { !isRefreshing && <YouTube {...props} opts={expandedOpts} /> }
+        { !isRefreshing && <YouTube {...props} opts={expandedOpts} onStateChange={handleStateChange} /> }
       </div>
       { showResetButton && 
-        <button className="btn btn--action youTubePlayer__restart" onClick={() => setIsRefreshing(true)}>
+        <button className={`btn btn--action youTubePlayer__restart ${hasPlayed ? '' : 'hidden'}`} onClick={() => setIsRefreshing(true)}>
           <FormattedMessage id="youTubePlayer.replayButton"
             defaultMessage="Replay Segment" />
         </button>

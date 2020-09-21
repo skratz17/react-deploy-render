@@ -7,4 +7,12 @@
 
 .youTubePlayer__restart {
   margin: 0.5rem 0;
+  transition: all 1s;
+  padding: 1rem;
+  opacity: 1;
+}
+
+.youTubePlayer__restart.hidden {
+  padding: 0;
+  opacity: 0;
 }
