@@ -42,9 +42,7 @@ export default {
       isRequired: true,
       mustBeNumeric: true,
       mustBeLessThan: 'endTime'
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   endTime: {
@@ -59,9 +57,7 @@ export default {
       isRequired: true,
       mustBeNumeric: true,
       mustBeGreaterThan: 'startTime'
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   languageId: {
@@ -74,8 +70,6 @@ export default {
     items: [],
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   }
 };

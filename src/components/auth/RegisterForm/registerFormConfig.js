@@ -39,9 +39,7 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   lastName: {
@@ -53,9 +51,7 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   email: {
@@ -67,9 +63,7 @@ export default {
     value: '',
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   password: {
@@ -83,9 +77,7 @@ export default {
       isRequired: true,
       mustMatch: 'confirmPassword',
       doesNotCausePairedTouch: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   confirmPassword: {
@@ -98,9 +90,7 @@ export default {
     validation: {
       isRequired: true,
       mustMatch: 'password'
-    },
-    isTouched: false,
-    isValid: false
+    }
   },
 
   nativeLanguageId: {
@@ -112,8 +102,6 @@ export default {
     items: [],
     validation: {
       isRequired: true
-    },
-    isTouched: false,
-    isValid: false
+    }
   }
 };

@@ -73,8 +73,8 @@ const Form = props => {
           value={value}
           items={items}
           onChange={handleChange}
-          isTouched={isTouched}
-          isValid={isValid} />;
+          isTouched={isTouched || false}
+          isValid={isValid || false} />;
       })}
       { props.children }
     </form>
