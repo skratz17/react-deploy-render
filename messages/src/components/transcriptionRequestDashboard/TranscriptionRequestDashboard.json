@@ -8,10 +8,6 @@
     "defaultMessage": "Unactivated Transcription Requests"
   },
   {
-    "id": "transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader",
-    "defaultMessage": "Transcription Requests Awaiting Transcription"
-  },
-  {
     "id": "transcriptionRequestDashboard.allTranscriptionRequestsHeader",
     "defaultMessage": "All Transcription Requests"
   }

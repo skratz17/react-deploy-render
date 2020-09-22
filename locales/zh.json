@@ -39,6 +39,7 @@
   "transcriptionRequestCard.viewTranscriptionLink": "看標音",
   "transcriptionRequestCard.startTimeLabel": "開始:",
   "transcriptionRequestCard.endTimeLabel": "結束:",
+  "transcriptionRequestList.loadMoreButton": "下載下一行",
   "transcriptionRequestDashboardData.transcriptionRequestsMade": "標音請求數量",
   "transcriptionRequestDashboardData.transcriptionsMade": "完成的標音數量",
   "transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated": "你的標音請求產生的標音好的內容一共有",

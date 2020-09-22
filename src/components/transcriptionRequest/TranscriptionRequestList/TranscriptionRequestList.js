@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 
 import TranscriptionRequestCard from '../TranscriptionRequestCard/TranscriptionRequestCard';
 import './TranscriptionRequestList.css';
@@ -30,7 +31,10 @@ const TranscriptionRequestList = props => {
       ))}
     </div>
     { shouldPaginate && renderedComponents.length < transcriptionRequests.length &&
-      <button onClick={loadNextRow} className="btn btn--action transcriptionRequestList__loadMoreButton">Load More</button>
+      <button onClick={loadNextRow} className="btn btn--action transcriptionRequestList__loadMoreButton">
+        <FormattedMessage id="transcriptionRequestList.loadMoreButton"
+          defaultMessage="Load More" />
+      </button>
     }
   </>;
 };
