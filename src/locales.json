@@ -46,7 +46,7 @@
     "transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader": "All Fulfilled Transcription Requests",
     "transcriptionRequestDashboardData.transcriptionRequestsMade": "Transcription Requests Made",
     "transcriptionRequestDashboardData.transcriptionsMade": "Transcriptions Completed",
-    "transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated": "Minutes of Transcripted Content Your Requests Have Generated",
+    "transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated": "Minutes of Transcribed Content Your Requests Have Generated",
     "transcriptionRequestDashboardData.minutesTranscribed": "Minutes of Content You Have Transcribed",
     "transcriptionRequestDashboardData.header": "My Activity",
     "transcriptionForSegment.header": "Transcription of Current Segment",

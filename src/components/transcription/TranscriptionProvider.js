@@ -8,6 +8,7 @@ export const TranscriptionProvider = props => {
   const getTranscriptions = async () => {
     const res = await fetch(`http://localhost:8088/transcriptions?_expand=transcriptionRequest`);
     const _transcriptions = await res.json();
+    debugger;
     setTranscriptions(_transcriptions);
   };
 
@@ -43,7 +44,7 @@ export const TranscriptionProvider = props => {
       body: JSON.stringify({ isAccepted: true })
     });
     await getTranscriptions();
-    return transcriptions.find(t => t.id === parseInt(id));
+    return await getTranscriptionById(id);
   };
 
   const deleteTranscription = async id => {

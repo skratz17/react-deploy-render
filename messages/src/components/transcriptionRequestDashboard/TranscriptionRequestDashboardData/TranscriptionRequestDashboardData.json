@@ -9,7 +9,7 @@
   },
   {
     "id": "transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated",
-    "defaultMessage": "Minutes of Transcripted Content Your Requests Have Generated"
+    "defaultMessage": "Minutes of Transcribed Content Your Requests Have Generated"
   },
   {
     "id": "transcriptionRequestDashboardData.minutesTranscribed",
