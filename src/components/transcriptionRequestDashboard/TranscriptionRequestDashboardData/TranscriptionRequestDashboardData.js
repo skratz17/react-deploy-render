@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 
-import { convertSecondsToTimeString } from '../../../utils/timeFormatters';
 import './TranscriptionRequestDashboardData.css';
 
 const TranscriptionRequestDashboardData = props => {
   const { transcriptionRequests, transcriptions } = props;
 
-  const calculateFullTimeDurationOfRequests = requests => {
+  const calculateFullTimeDurationOfRequestsInSeconds = requests => {
     return requests.reduce((sum, tR) => {
       return sum + (tR.endTime - tR.startTime);
     }, 0);
   };
 
-  const timeDurationOfTranscriptionsForMyRequests = calculateFullTimeDurationOfRequests(
+  const timeDurationOfTranscriptionsForMyRequests = calculateFullTimeDurationOfRequestsInSeconds(
     transcriptionRequests.filter(tR => tR.transcriptions && tR.transcriptions.length)
   );
 
-  const timeDurationOfMyTranscriptions = calculateFullTimeDurationOfRequests(
+  const timeDurationOfMyTranscriptions = calculateFullTimeDurationOfRequestsInSeconds(
     transcriptions.map(t => t.transcriptionRequest)
   );
 
@@ -36,12 +35,14 @@ const TranscriptionRequestDashboardData = props => {
     {
       description: <FormattedMessage id="transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated"
         defaultMessage="Minutes of Transcribed Content Your Requests Have Generated" />,
-      value: convertSecondsToTimeString(timeDurationOfTranscriptionsForMyRequests)
+      value: <FormattedNumber value={timeDurationOfTranscriptionsForMyRequests / 60} 
+        maximumFractionDigits={2} />
     },
     {
       description: <FormattedMessage id="transcriptionRequestDashboardData.minutesTranscribed"
         defaultMessage="Minutes of Content You Have Transcribed" />,
-      value: convertSecondsToTimeString(timeDurationOfMyTranscriptions)
+      value: <FormattedNumber value={timeDurationOfMyTranscriptions / 60} 
+        maximumFractionDigits={2} />
     }
   ];
 
