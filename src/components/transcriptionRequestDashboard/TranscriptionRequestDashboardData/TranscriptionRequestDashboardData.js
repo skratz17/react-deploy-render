@@ -35,7 +35,7 @@ const TranscriptionRequestDashboardData = props => {
     },
     {
       description: <FormattedMessage id="transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated"
-        defaultMessage="Minutes of Transcripted Content Your Requests Have Generated" />,
+        defaultMessage="Minutes of Transcribed Content Your Requests Have Generated" />,
       value: convertSecondsToTimeString(timeDurationOfTranscriptionsForMyRequests)
     },
     {
