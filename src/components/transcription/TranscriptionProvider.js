@@ -1,8 +1,16 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const TranscriptionContext = createContext();
 
 export const TranscriptionProvider = props => {
+  const [ transcriptions, setTranscriptions ] = useState([]);
+
+  const getTranscriptions = async () => {
+    const res = await fetch(`http://localhost:8088/transcriptions?_expand=transcriptionRequest`);
+    const _transcriptions = await res.json();
+    setTranscriptions(_transcriptions);
+  };
+
   const getTranscriptionById = async id => {
     const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest`);
     const transcription = await res.json();
@@ -12,6 +20,7 @@ export const TranscriptionProvider = props => {
   const saveTranscription = async transcriptionData => {
     transcriptionData.timestamp = Date.now();
     transcriptionData.isAccepted = false;
+    transcriptionData.userId = parseInt(localStorage.getItem('current_user'));
 
     const res = await fetch('http://localhost:8088/transcriptions', {
       method: 'POST',
@@ -21,6 +30,7 @@ export const TranscriptionProvider = props => {
       body: JSON.stringify(transcriptionData)
     });
     const transcription = await res.json();
+    await getTranscriptions();
     return transcription;
   };
 
@@ -32,18 +42,20 @@ export const TranscriptionProvider = props => {
       },
       body: JSON.stringify({ isAccepted: true })
     });
-    return await getTranscriptionById(id);
+    await getTranscriptions();
+    return transcriptions.find(t => t.id === parseInt(id));
   };
 
   const deleteTranscription = async id => {
-    return await fetch(`http://localhost:8088/transcriptions/${id}`, {
+    await fetch(`http://localhost:8088/transcriptions/${id}`, {
       method: 'DELETE'
     });
+    return await getTranscriptions();
   };
 
   return (
     <TranscriptionContext.Provider value={{
-      getTranscriptionById, saveTranscription, acceptTranscription, deleteTranscription
+      transcriptions, getTranscriptionById, saveTranscription, acceptTranscription, deleteTranscription, getTranscriptions
     }}>{props.children}</TranscriptionContext.Provider>
   );
 };

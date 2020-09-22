@@ -5,21 +5,19 @@ import { TranscriptionRequestContext } from '../transcriptionRequest/Transcripti
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
 import './TranscriptionRequestDashboard.css';
+import { TranscriptionContext } from '../transcription/TranscriptionProvider';
+import TranscriptionRequestDashboardData from './TranscriptionRequestDashboardData/TranscriptionRequestDashboardData';
 
 const TranscriptionRequestDashboard = () => {
-  const [ transcriptionRequestsForUser, setTranscriptionRequestsForUser ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
   const { transcriptionRequests, getTranscriptionRequests } = useContext(TranscriptionRequestContext);
+  const { transcriptions, getTranscriptions } = useContext(TranscriptionContext);
 
   useEffect(() => {
     getTranscriptionRequests();
+    getTranscriptions();
   }, []);
-
-  useEffect(() => {
-    const _transcriptionRequestsForUser = transcriptionRequests.filter(tR => tR.userId === parseInt(localStorage.getItem('current_user')));
-    setTranscriptionRequestsForUser(_transcriptionRequestsForUser);
-  }, [ transcriptionRequests ]);
 
   const dashboardConfig = [
     { 
@@ -40,18 +38,25 @@ const TranscriptionRequestDashboard = () => {
     }
   ];
 
+  const transcriptionRequestsForUser = transcriptionRequests.filter(tR => tR.userId === parseInt(localStorage.getItem('current_user')));
+  const transcriptionsForUser = transcriptions.filter(t => t.userId === parseInt(localStorage.getItem('current_user')));
+
   return <>
     <div className="transcriptionRequestDashboard">
-      {
-        dashboardConfig.map(({ header, filterFunction }, index) => (
-          <div key={index} className="transcriptionRequestDashboard__listWrapper">
-            <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
-            <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
-              columns={3}
-              onActivate={setActivatingTranscriptionRequestId} />
-          </div>
-        ))
-      }
+      <TranscriptionRequestDashboardData transcriptionRequests={transcriptionRequestsForUser}
+        transcriptions={transcriptionsForUser} />
+      <div className="transcriptionRequestDashboard__lists">
+        {
+          dashboardConfig.map(({ header, filterFunction }, index) => (
+            <div key={index} className="transcriptionRequestDashboard__listWrapper">
+              <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
+              <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
+                columns={3}
+                onActivate={setActivatingTranscriptionRequestId} />
+            </div>
+          ))
+        }
+      </div>
 
     </div>
     <TranscriptionRequestActivationWizard 

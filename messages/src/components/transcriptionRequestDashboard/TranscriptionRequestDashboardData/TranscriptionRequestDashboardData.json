@@ -1,0 +1,22 @@
+[
+  {
+    "id": "transcriptionRequestDashboardData.transcriptionRequestsMade",
+    "defaultMessage": "Transcription Requests Made"
+  },
+  {
+    "id": "transcriptionRequestDashboardData.transcriptionsMade",
+    "defaultMessage": "Transcriptions Completed"
+  },
+  {
+    "id": "transcriptionRequestDashboardData.minutesOfTranscriptionsGenerated",
+    "defaultMessage": "Minutes of Transcripted Content Your Requests Have Generated"
+  },
+  {
+    "id": "transcriptionRequestDashboardData.minutesTranscribed",
+    "defaultMessage": "Minutes of Content You Have Transcribed"
+  },
+  {
+    "id": "transcriptionRequestDashboardData.header",
+    "defaultMessage": "My Activity"
+  }
+]
