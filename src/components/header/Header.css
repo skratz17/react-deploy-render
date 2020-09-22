@@ -2,22 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000;
   height: 6rem;
-  padding: 0 2rem;
+  padding: 0 3rem;
+  background-color: var(--primary-color);
 }
 
-.header > * {
-  flex-basis: 4rem;
-}
-
-.header::after {
-  content: '';
-  flex-basis: 4rem;
-}
-
-.header > .siteName {
-  flex: 1;
+.siteName__link {
+  color: #000;
+  text-decoration: none;
 }
 
 .logo {

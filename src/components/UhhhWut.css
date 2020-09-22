@@ -5,26 +5,20 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  transition: opacity 0.25s;
 }
 
 .btn:disabled {
   cursor: auto;
+  opacity: 0.7;
 }
 
 .btn--action {
-  background-color: #69b8f8;
-}
-
-.btn--action:disabled {
-  background-color: #aed8fa;
+  background-color: var(--secondary-color);
 }
 
 .btn--create {
-  background-color: #0ee20e;
-}
-
-.btn--create:disabled {
-  background-color: #78e978;
+  background-color: var(--success-color);
 }
 
 .btn--back {
@@ -32,11 +26,7 @@
 }
 
 .btn--delete {
-  background-color: #f00;
-}
-
-.btn--delete:disabled {
-  background-color: #ff6868;
+  background-color: var(--danger-color);
 }
 
 .text--warning {

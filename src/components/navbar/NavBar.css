@@ -1,12 +1,15 @@
 .navBar {
-  padding: 1rem 3rem;
-  border-bottom: 1px solid #000;
+  background-color: var(--primary-color);
+  padding-bottom: 0.5rem;
   font-size: 1.1rem;
 }
 
 .navBar__links {
   list-style-type: none;
   display: flex;
+  justify-content: flex-end;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .navBar__linksListItem {
@@ -15,12 +18,8 @@
   padding: 0.5rem;
 }
 
-.navBar__linksListItem:last-child {
-  margin-left: auto;
-}
-
 .navBar__link {
-  color: #000;
+  color: #ef2d56;
   text-decoration: none;
 }
 
