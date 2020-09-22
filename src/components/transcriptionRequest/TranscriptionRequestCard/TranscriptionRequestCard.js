@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 
+import { TranscriptionRequestContext } from '../TranscriptionRequestProvider';
 import YouTubePlayer from '../../youtube/YouTubePlayer/YouTubePlayer';
 import { convertSecondsToTimeString } from '../../../utils/timeFormatters';
 import './TranscriptionRequestCard.css';
@@ -11,6 +12,8 @@ const TranscriptionRequestCard = props => {
   const { transcriptionRequest, onActivate, shouldHideVideoPreview } = props;
 
   const { videoId, startTime, endTime } = transcriptionRequest;
+
+  const { deleteTranscriptionRequest } = useContext(TranscriptionRequestContext);
 
   const youTubePlayerOpts = {
     width: '300',
@@ -24,7 +27,7 @@ const TranscriptionRequestCard = props => {
   let transcriptionRequestActionContent;
   if(!transcriptionRequest.isActivated) {
     transcriptionRequestActionContent = <>
-      <button className="btn btn--delete transcriptionRequest__deleteButton">
+      <button className="btn btn--delete transcriptionRequest__deleteButton" onClick={() => deleteTranscriptionRequest(transcriptionRequest.id)}>
         <i className="material-icons">delete</i>
       </button>
       <button className="btn btn--create" onClick={() => onActivate(transcriptionRequest.id)}>
