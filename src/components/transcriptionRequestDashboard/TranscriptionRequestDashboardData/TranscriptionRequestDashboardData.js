@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 
 import { convertSecondsToTimeString } from '../../../utils/timeFormatters';
+import './TranscriptionRequestDashboardData.css';
 
 const TranscriptionRequestDashboardData = props => {
   const { transcriptionRequests, transcriptions } = props;
@@ -51,12 +52,15 @@ const TranscriptionRequestDashboardData = props => {
     </h2>
     <div className="transcriptionRequestDashboardData">
       {
-        dataPoints.map(({ description, value }) => (
+        dataPoints.map(({ description, value }, index) => <>
           <div className="dataPoint">
             <p className="dataPoint__value">{value}</p>
             <p className="dataPoint__description">{description}</p>
           </div>
-        ))
+          { index !== dataPoints.length - 1 && 
+            <div className="line line--50 line--y"></div>
+          }
+        </>)
       }
     </div>
   </>;

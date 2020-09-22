@@ -54,3 +54,22 @@
 .line--75::after {
   width: 75%;
 }
+
+.line--50::after {
+  width: 50%;
+}
+
+.line--y::after {
+  width: 1px;
+  margin: 0 1rem;
+}
+
+.line--y.line--50::after {
+  height: 50%;
+  transform: translateY(50%);
+}
+
+.line--y.line--75::after {
+  height: 75%;
+  transform: translateY(25%);
+}
