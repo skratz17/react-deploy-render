@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { FormattedMessage } from 'react-intl';
 import YouTube from 'react-youtube';
 
 import { TranscriptionRequestContext } from '../transcriptionRequest/TranscriptionRequestProvider';
@@ -18,9 +17,7 @@ const TranscriptionRequestWorkshop = () => {
   const [ isVideoPlaying, setIsVideoPlaying ] = useState(false);
   const [ startTime, setStartTime ] = useState(null);
   const [ currentPlayerTime, setCurrentPlayerTime ] = useState(null);
-  const [ hasEndTimeError, setHasEndTimeError ] = useState(false);
   const [ transcriptionRequestsForVideo, setTranscriptionRequestsForVideo ] = useState([]);
-  const [ transcriptionForSegment, setTranscriptionForSegment ] = useState(null);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
   const { transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest } = useContext(TranscriptionRequestContext);
@@ -28,15 +25,6 @@ const TranscriptionRequestWorkshop = () => {
   useEffect(() => {
     getTranscriptionRequests();
   }, []);
-
-  useEffect(() => {
-    let timeoutId;
-    if(hasEndTimeError) {
-      timeoutId = setTimeout(() => setHasEndTimeError(false), 5000);
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [ hasEndTimeError ]);
 
   useEffect(() => {
     const _transcriptionRequestsForVideo = transcriptionRequests
@@ -51,26 +39,11 @@ const TranscriptionRequestWorkshop = () => {
     if(isVideoPlaying) {
       const intervalId = setInterval(() => {
         setCurrentPlayerTime(Math.ceil(player.getCurrentTime()));
-      }, 1000);
+      }, 500);
 
       return () => clearInterval(intervalId);
     }
   }, [ isVideoPlaying, player ]);
-
-  useEffect(() => {
-    if(currentPlayerTime !== null) {
-      const transcriptionRequestForSegment = transcriptionRequestsForVideo.find(
-        tR => currentPlayerTime >= tR.startTime && currentPlayerTime <= tR.endTime
-      );
-
-      if(transcriptionRequestForSegment && transcriptionRequestForSegment.transcriptions && transcriptionRequestForSegment.transcriptions.length) {
-        setTranscriptionForSegment(transcriptionRequestForSegment.transcriptions[0]);
-      }
-      else {
-        setTranscriptionForSegment(null);
-      }
-    }
-  }, [ currentPlayerTime, transcriptionRequestsForVideo ]);
 
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
@@ -89,12 +62,7 @@ const TranscriptionRequestWorkshop = () => {
     if(startTime === null) {
       setStartTime(roundedTime);
     }
-    else if(roundedTime <= startTime) {
-      setHasEndTimeError(true);
-    }
     else {
-      setHasEndTimeError(false);
-
       const transcriptionRequestData = {
         videoId,
         startTime: startTime,
@@ -106,15 +74,14 @@ const TranscriptionRequestWorkshop = () => {
     }
   };
 
-  const handleTranscriptionRequestControlCancel = () => {
-    setStartTime(null);
-    setHasEndTimeError(false);
-  };
-
   const youtubePlayerOpts = { 
     height: '390',
     width: '640'
   };
+
+  const transcriptionRequestForSegment = transcriptionRequestsForVideo.find(tR =>
+    tR.startTime <= currentPlayerTime && tR.endTime >= currentPlayerTime
+  ) || { transcriptions: [] };
 
   return <>
     <section className="workshop">
@@ -127,21 +94,16 @@ const TranscriptionRequestWorkshop = () => {
           opts={youtubePlayerOpts}
           />
 
-        <TranscriptionForSegment transcription={transcriptionForSegment} />
+        <TranscriptionForSegment 
+          transcription={transcriptionRequestForSegment.transcriptions[0]} 
+        />
       </div>
 
       <div className="col--right">
-        { hasEndTimeError && 
-          <p className="text--warning">
-            <FormattedMessage id="transcriptionRequestWorkshop.invalidEndTimeWarning"
-              defaultMessage="Your segment's end time must be after the your selected start time." />
-          </p> 
-        }
-
         <TranscriptionRequestControl 
           isRequesting={startTime !== null} 
-          disabled={!isVideoPlaying}
-          onCancel={handleTranscriptionRequestControlCancel}
+          disabled={!isVideoPlaying || startTime >= currentPlayerTime}
+          onCancel={() => setStartTime(null)}
           onClick={handleTranscriptionRequestControlClick} />
 
         <TranscriptionRequestRecordingPreview
