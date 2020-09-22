@@ -6,3 +6,7 @@
 .transcriptionRequestList--1 { grid-template-columns: minmax(350px, 1fr); }
 .transcriptionRequestList--2 { grid-template-columns: repeat( 2, minmax(325px, 1fr) ); }
 .transcriptionRequestList--3 { grid-template-columns: repeat( 3, minmax(325px, 1fr) ); }
+
+.transcriptionRequestList__loadMoreButton {
+  margin: 1rem auto;
+}

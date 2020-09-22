@@ -29,12 +29,8 @@ const TranscriptionRequestDashboard = () => {
       filterFunction: tR => !tR.isActivated 
     },
     { 
-      header: <FormattedMessage id="transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader" defaultMessage="Transcription Requests Awaiting Transcription" />, 
-      filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 
-    },
-    { 
-      header: <FormattedMessage id="transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader" defaultMessage="All Fulfilled Transcription Requests" />, 
-      filterFunction: tR => tR.transcriptions.length 
+      header: <FormattedMessage id="transcriptionRequestDashboard.allTranscriptionRequestsHeader" defaultMessage="All Transcription Requests" />, 
+      filterFunction: () => true
     }
   ];
 
@@ -47,14 +43,21 @@ const TranscriptionRequestDashboard = () => {
         transcriptions={transcriptionsForUser} />
       <div className="transcriptionRequestDashboard__lists">
         {
-          dashboardConfig.map(({ header, filterFunction }, index) => (
-            <div key={index} className="transcriptionRequestDashboard__listWrapper">
-              <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
-              <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
-                columns={3}
-                onActivate={setActivatingTranscriptionRequestId} />
-            </div>
-          ))
+          dashboardConfig.map(({ header, filterFunction }, index) => {
+            const filteredTranscriptionRequests = transcriptionRequestsForUser.filter(filterFunction);
+            if(!filteredTranscriptionRequests.length) {
+              return null;
+            }
+            return (
+              <div key={index} className="transcriptionRequestDashboard__listWrapper">
+                <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
+                <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
+                  columns={3}
+                  onActivate={setActivatingTranscriptionRequestId} 
+                  shouldPaginate={true} />
+              </div>
+            );
+          })
         }
       </div>
 
