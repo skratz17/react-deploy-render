@@ -1,6 +1,7 @@
 .navBar {
   background-color: var(--primary-color);
   padding-bottom: 0.5rem;
+  height: 100%;
   font-size: 1.1rem;
 }
 
@@ -8,6 +9,8 @@
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
   max-width: 1250px;
   margin: 0 auto;
 }
@@ -19,14 +22,17 @@
 }
 
 .navBar__link {
-  color: #ef2d56;
+  color: #fff;
+  font-size: 1.2rem;
   text-decoration: none;
+  transition: all 0.25s;
 }
 
 .navBar__link:hover {
-  color: #333;
+  color: #eee;
+  transform: scale(2);
 }
 
 .navBar__linksListItem.current {
-  text-decoration: underline;
+  font-weight: bold;
 }
