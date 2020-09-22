@@ -8,7 +8,6 @@ export const TranscriptionProvider = props => {
   const getTranscriptions = async () => {
     const res = await fetch(`http://localhost:8088/transcriptions?_expand=transcriptionRequest`);
     const _transcriptions = await res.json();
-    debugger;
     setTranscriptions(_transcriptions);
   };
 

@@ -23,10 +23,15 @@ const TranscriptionRequestCard = props => {
 
   let transcriptionRequestActionContent;
   if(!transcriptionRequest.isActivated) {
-    transcriptionRequestActionContent = <button className="btn btn--create" onClick={() => onActivate(transcriptionRequest.id)}>
-      <FormattedMessage id="transcriptionRequestCard.activateButton"
-        defaultMessage="Activate Now" />
-    </button>;
+    transcriptionRequestActionContent = <>
+      <button className="btn btn--delete transcriptionRequest__deleteButton">
+        <i className="material-icons">delete</i>
+      </button>
+      <button className="btn btn--create" onClick={() => onActivate(transcriptionRequest.id)}>
+        <FormattedMessage id="transcriptionRequestCard.activateButton"
+          defaultMessage="Activate Now" />
+      </button>
+    </>;
   }
   else if(!transcriptionRequest.transcriptions.length) {
     transcriptionRequestActionContent = <p>
