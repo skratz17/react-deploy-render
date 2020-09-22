@@ -57,9 +57,16 @@ export const TranscriptionRequestProvider = props => {
     await updateTranscriptionRequest(id, transcriptionRequestData);
   };
 
+  const deleteTranscriptionRequest = async id => {
+    await fetch(`http://localhost:8088/transcriptionRequests/${id}`, {
+      method: 'DELETE'
+    });
+    await getTranscriptionRequests();
+  };
+
   return (
     <TranscriptionRequestContext.Provider value={{
-      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById, updateTranscriptionRequest, getTranscriptionRequestToFulfillForLanguage, activateTranscriptionRequest
+      transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest, getTranscriptionRequestById, updateTranscriptionRequest, getTranscriptionRequestToFulfillForLanguage, activateTranscriptionRequest, deleteTranscriptionRequest
     }}>{props.children}</TranscriptionRequestContext.Provider>
   );
 };
