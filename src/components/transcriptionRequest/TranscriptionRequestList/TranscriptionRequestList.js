@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
@@ -8,30 +8,18 @@ import './TranscriptionRequestList.css';
 const TranscriptionRequestList = props => {
   const { transcriptionRequests, shouldHideVideoPreview, shouldPaginate, onActivate, columns } = props;
 
-  const [ renderedComponents, setRenderedComponents ] = useState(shouldPaginate ? transcriptionRequests.slice(0, columns) : transcriptionRequests);
-
-  useEffect(() => {
-    if(!shouldPaginate) setRenderedComponents(transcriptionRequests);
-    else setRenderedComponents(transcriptionRequests.slice(0, renderedComponents.length));
-  }, [ transcriptionRequests ]);
-
-  const loadNextRow = () => {
-    const updatedRenderedComponents = [ ...renderedComponents ];
-    const startIndex = renderedComponents.length;
-    for(let i = renderedComponents.length; i < transcriptionRequests.length && (i - startIndex) < columns; i++) {
-      updatedRenderedComponents.push(transcriptionRequests[i]);
-    }
-    setRenderedComponents(updatedRenderedComponents);
-  };
+  const [ displayedRows, setDisplayedRows ] = useState(shouldPaginate ? 1 : null);
 
   return <>
     <div className={`transcriptionRequestList transcriptionRequestList--${columns || 1}`}>
-      { renderedComponents.map(tR => (
-        <TranscriptionRequestCard key={tR.id} transcriptionRequest={tR} shouldHideVideoPreview={shouldHideVideoPreview} onActivate={onActivate} />
+      { transcriptionRequests
+        .slice(0, displayedRows !== null ? displayedRows * columns : transcriptionRequests.length)
+        .map(tR => (
+          <TranscriptionRequestCard key={tR.id} transcriptionRequest={tR} shouldHideVideoPreview={shouldHideVideoPreview} onActivate={onActivate} />
       ))}
     </div>
-    { shouldPaginate && renderedComponents.length < transcriptionRequests.length &&
-      <button onClick={loadNextRow} className="btn btn--action transcriptionRequestList__loadMoreButton">
+    { shouldPaginate && (displayedRows * columns) < transcriptionRequests.length &&
+      <button onClick={() => setDisplayedRows(displayedRows => displayedRows + 1)} className="btn btn--action transcriptionRequestList__loadMoreButton">
         <FormattedMessage id="transcriptionRequestList.loadMoreButton"
           defaultMessage="Load More" />
       </button>
