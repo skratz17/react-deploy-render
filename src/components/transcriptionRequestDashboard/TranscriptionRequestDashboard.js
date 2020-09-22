@@ -7,7 +7,6 @@ import TranscriptionRequestActivationWizard from '../transcriptionRequest/Transc
 import './TranscriptionRequestDashboard.css';
 
 const TranscriptionRequestDashboard = () => {
-  const [ transcriptionRequestsForUser, setTranscriptionRequestsForUser ] = useState([]);
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
   const { transcriptionRequests, getTranscriptionRequests } = useContext(TranscriptionRequestContext);
@@ -15,11 +14,6 @@ const TranscriptionRequestDashboard = () => {
   useEffect(() => {
     getTranscriptionRequests();
   }, []);
-
-  useEffect(() => {
-    const _transcriptionRequestsForUser = transcriptionRequests.filter(tR => tR.userId === parseInt(localStorage.getItem('current_user')));
-    setTranscriptionRequestsForUser(_transcriptionRequestsForUser);
-  }, [ transcriptionRequests ]);
 
   const dashboardConfig = [
     { 
@@ -39,6 +33,8 @@ const TranscriptionRequestDashboard = () => {
       filterFunction: tR => tR.transcriptions.length 
     }
   ];
+
+  const transcriptionRequestsForUser = transcriptionRequests.filter(tR => tR.userId === parseInt(localStorage.getItem('current_user')));
 
   return <>
     <div className="transcriptionRequestDashboard">
