@@ -29,10 +29,6 @@ const TranscriptionRequestDashboard = () => {
       filterFunction: tR => !tR.isActivated 
     },
     { 
-      header: <FormattedMessage id="transcriptionRequestDashboard.transcriptionRequestsAwaitingTranscriptionHeader" defaultMessage="Transcription Requests Awaiting Transcription" />, 
-      filterFunction: tR => tR.isActivated && tR.transcriptions.length === 0 
-    },
-    { 
       header: <FormattedMessage id="transcriptionRequestDashboard.allTranscriptionRequestsHeader" defaultMessage="All Transcription Requests" />, 
       filterFunction: () => true
     }
