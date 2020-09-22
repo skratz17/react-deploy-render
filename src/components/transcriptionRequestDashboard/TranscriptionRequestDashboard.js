@@ -53,7 +53,8 @@ const TranscriptionRequestDashboard = () => {
                 <h2 className="transcriptionRequestDashboard__listHeader">{header}</h2>
                 <TranscriptionRequestList transcriptionRequests={transcriptionRequestsForUser.filter(filterFunction)} 
                   columns={3}
-                  onActivate={setActivatingTranscriptionRequestId} />
+                  onActivate={setActivatingTranscriptionRequestId} 
+                  shouldPaginate={true} />
               </div>
             );
           })
