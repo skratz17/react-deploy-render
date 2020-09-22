@@ -22,7 +22,7 @@ const TranscriptionRequestRecordingPreview = props => {
       </p>
       <p className="transcriptionRequestRecordingPreview__endTime">
         <FormattedMessage id="transcriptionRequestRecordingPreview.currentEndTimeLabel"
-          defaultMessage="End Time" />: <span className="transcriptionRequestRecordingPreview__timeValue">{convertSecondsToTimeString(endTime)}</span>
+          defaultMessage="End Time" />: <span className={`transcriptionRequestRecordingPreview__timeValue ${endTime <= startTime ? 'invalid' : ''}`}>{convertSecondsToTimeString(endTime)}</span>
       </p>
     </div>
   </>;

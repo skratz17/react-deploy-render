@@ -13,3 +13,7 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.transcriptionRequestRecordingPreview__timeValue.invalid {
+  color: #f00;
+}
