@@ -17,8 +17,11 @@ const TranscriptionForSegment = props => {
         <>
           <p className="transcriptionForSegment__author">
             <FormattedMessage id="transcriptionForSegment.authorLabel"
-              defaultMessage="Transcribed by: " /> 
-            {transcription.user.firstName}
+              defaultMessage="Transcribed by: {name}" 
+              values={{
+                name: transcription.user.firstName,
+              }} 
+            />
           </p>
           <p className="transcriptionForSegment__text">{transcription.transcription}</p>
         </>

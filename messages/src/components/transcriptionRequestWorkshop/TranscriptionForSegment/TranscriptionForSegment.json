@@ -5,6 +5,6 @@
   },
   {
     "id": "transcriptionForSegment.authorLabel",
-    "defaultMessage": "Transcribed by:"
+    "defaultMessage": "Transcribed by: {name}"
   }
 ]

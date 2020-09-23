@@ -89,11 +89,7 @@ const WelcomeBanner = () => {
       </h2>
       <p className="welcomeBanner__text">
         <FormattedMessage id="welcomeBanner.text"
-          defaultMessage="Welcome to your new home for language immersion via YouTube videos. Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!" 
-          values={{
-            logo: () => <i className="material-icons">question_answer</i>
-          }}
-          />
+          defaultMessage="Welcome to your new home for language immersion via YouTube videos. Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!" />
       </p>
     </div>
   );

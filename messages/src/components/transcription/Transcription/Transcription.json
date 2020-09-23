@@ -21,6 +21,6 @@
   },
   {
     "id": "transcription.authorLabel",
-    "defaultMessage": "Transcribed by:"
+    "defaultMessage": "Transcribed by: {name}"
   }
 ]
