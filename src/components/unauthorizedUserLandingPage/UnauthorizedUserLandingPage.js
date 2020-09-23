@@ -5,14 +5,23 @@ import LoginAndRegister from '../auth/LoginAndRegister/LoginAndRegister';
 import './UnauthorizedUserLandingPage.css';
 
 const UnauthorizedUserLandingPage = props => <>
-  <div className="unauthorizedUserLandingPageHeader">
-    <h1 className="unauthorizedUserLandingPageHeader__siteName">UHHHWUT</h1>
-    <i className="material-icons">question_answer</i>
-  </div>
   <div className="unauthorizedUserLandingPage">
-    <WelcomeBanner />
-    <LoginAndRegister {...props} />
-  </div>
+    <div className="col--left">  
+      <WelcomeBanner />
+      <div className="unauthorizedUserLandingPage__acronym">
+        <p><span className="text--primary">U</span>nselfish</p>
+        <p><span className="text--primary">H</span>umans</p>
+        <p><span className="text--primary">H</span>elping</p>
+        <p><span className="text--primary">H</span>umans</p>
+        <p><span className="text--primary">W</span>ith</p>
+        <p><span className="text--primary">U</span>nlimited</p>
+        <p><span className="text--primary">T</span>ranscriptions</p>
+      </div>
+    </div>
+    <div className="col--right">
+      <LoginAndRegister {...props} />
+    </div>
+  </div> 
 </>;
 
 export default UnauthorizedUserLandingPage;
