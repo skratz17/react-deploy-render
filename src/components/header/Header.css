@@ -1,22 +1,33 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  height: 6rem;
+  height: 8rem;
   padding: 0 3rem;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 
-.siteName__link {
-  color: #fff;
+.header > *:last-child {
+  margin-left: auto;
+}
+
+.header__homeLink {
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  width: 4rem;
-  height: 4rem;
+  margin-right: 2rem;
+}
+
+.logo .material-icons {
+  font-size: 5rem;
+  color: var(--primary-color);
 }
 
 .siteName {
-  text-align: center;
+  color: #f9f9f9;
 }

@@ -14,11 +14,13 @@
 }
 
 .btn--action {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
 .btn--create {
   background-color: var(--success-color);
+  color: #fff;
 }
 
 .btn--neutral {
@@ -62,4 +64,12 @@
 .line--y.line--75::after {
   height: 75%;
   transform: translateY(25%);
+}
+
+.text--primary {
+  color: var(--primary-color);
+}
+
+.text--secondary {
+  color: var(--secondary-color);
 }

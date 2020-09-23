@@ -44,7 +44,7 @@ const YouTubePlayer = props => {
         { !isRefreshing && <YouTube {...props} opts={expandedOpts} onStateChange={handleStateChange} /> }
       </div>
       { showResetButton && 
-        <button className={`btn btn--action youTubePlayer__restart ${hasPlayed ? '' : 'hidden'}`} onClick={() => setIsRefreshing(true)}>
+        <button className={`btn btn--neutral youTubePlayer__restart ${hasPlayed ? '' : 'hidden'}`} onClick={() => setIsRefreshing(true)}>
           <FormattedMessage id="youTubePlayer.replayButton"
             defaultMessage="Replay Segment" />
         </button>

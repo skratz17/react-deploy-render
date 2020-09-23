@@ -4,6 +4,8 @@
   background-color: #fff;
   transition: height 1s;
   box-shadow: 2px 3px 4px #000;
+  min-width: 425px;
+  max-width: 525px;
 }
 
 .loginAndRegister.loginMode {

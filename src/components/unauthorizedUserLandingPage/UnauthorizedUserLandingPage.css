@@ -1,8 +1,8 @@
 .unauthorizedUserLandingPage {
   display: flex;
-  min-height: 80vh;
-  align-items: center;
+  align-items: flex-start;
   padding: 3rem;
+  padding-top: 5rem;
 }
 
 .unauthorizedUserLandingPage > *:first-child {
@@ -11,4 +11,21 @@
 
 .unauthorizedUserLandingPage > *:last-child {
   flex: 2;
+}
+
+.unauthorizedUserLandingPageHeader {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.unauthorizedUserLandingPageHeader__siteName {
+  margin: 0 1rem;
+}
+
+.unauthorizedUserLandingPageHeader .material-icons {
+  font-size: 5rem;
+  color: var(--primary-color);
 }

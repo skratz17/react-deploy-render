@@ -11,6 +11,6 @@
 .transcriptionRequestList--3 { grid-template-columns: repeat( 3, minmax(325px, 1fr) ); }
 
 button.transcriptionRequestList__loadMoreButton {
-  margin: 1rem auto;
-  background-color: #fff;
+  margin: 0.5rem auto;
+  background-color: #ddd;
 }

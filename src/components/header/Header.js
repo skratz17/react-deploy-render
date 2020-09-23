@@ -15,10 +15,14 @@ defineMessages({
 
 const Header = props => (
   <header className="header">
-    <img className="logo" src={logo} alt={props.intl.formatMessage({ id: 'header.logoAltText' })} />
-    <h1 className="siteName">
-      <Link className="siteName__link" to="/">uhhh wut</Link>
-    </h1>
+    <div className="logo">
+      <Link className="header__homeLink" to="/">
+        <i className="material-icons">question_answer</i>
+        <h1 className="siteName">
+          uhhh wut
+        </h1>
+      </Link>
+    </div>
     <NavBar />
   </header>
 );
