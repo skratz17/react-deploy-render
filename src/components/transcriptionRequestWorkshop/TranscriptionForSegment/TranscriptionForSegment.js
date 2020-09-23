@@ -14,7 +14,14 @@ const TranscriptionForSegment = props => {
           defaultMessage="Transcription of Current Segment" />
       </h3>
       { transcription && 
-        <p className="transcriptionForSegment__text">{transcription.transcription}</p>
+        <>
+          <p className="transcriptionForSegment__author">
+            <FormattedMessage id="transcriptionForSegment.authorLabel"
+              defaultMessage="Transcribed by: " /> 
+            {transcription.user.firstName}
+          </p>
+          <p className="transcriptionForSegment__text">{transcription.transcription}</p>
+        </>
       }
     </div>
   );

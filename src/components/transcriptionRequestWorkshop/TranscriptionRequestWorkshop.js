@@ -10,6 +10,7 @@ import TranscriptionRequestRecordingPreview from './TranscriptionRequestRecordin
 import TranscriptionRequestList from '../transcriptionRequest/TranscriptionRequestList/TranscriptionRequestList';
 import TranscriptionRequestActivationWizard from '../transcriptionRequest/TranscriptionRequestActivationWizard/TranscriptionRequestActivationWizard';
 import './TranscriptionRequestWorkshop.css';
+import { UserContext } from '../user/UserProvider';
 
 const TranscriptionRequestWorkshop = () => {
   const [ player, setPlayer ] = useState(null);
@@ -21,9 +22,11 @@ const TranscriptionRequestWorkshop = () => {
   const [ activatingTranscriptionRequestId, setActivatingTranscriptionRequestId ] = useState(null);
 
   const { transcriptionRequests, getTranscriptionRequests, saveTranscriptionRequest } = useContext(TranscriptionRequestContext);
+  const { users, getUsers } = useContext(UserContext);
 
   useEffect(() => {
     getTranscriptionRequests();
+    getUsers();
   }, []);
 
   useEffect(() => {
@@ -77,9 +80,20 @@ const TranscriptionRequestWorkshop = () => {
     width: '640'
   };
 
-  const transcriptionRequestForSegment = transcriptionRequestsForVideo.find(tR =>
-    tR.startTime <= currentPlayerTime && tR.endTime >= currentPlayerTime
-  ) || { transcriptions: [] };
+  const getTranscriptionForSegment = () => {
+    const transcriptionRequestForSegment = transcriptionRequestsForVideo.find(tR =>
+      tR.startTime <= currentPlayerTime && tR.endTime >= currentPlayerTime
+    );
+
+    if(transcriptionRequestForSegment && transcriptionRequestForSegment.transcriptions && transcriptionRequestForSegment.transcriptions.length) {
+      const transcription = { ...transcriptionRequestForSegment.transcriptions[0] };
+      transcription.user = users.find(u => u.id === transcription.userId);
+      return transcription;
+    }
+    else {
+      return null;
+    }
+  };
 
   return <>
     <section className="workshop">
@@ -93,7 +107,7 @@ const TranscriptionRequestWorkshop = () => {
           />
 
         <TranscriptionForSegment 
-          transcription={transcriptionRequestForSegment.transcriptions[0]} 
+          transcription={getTranscriptionForSegment()} 
         />
       </div>
 
