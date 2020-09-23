@@ -43,7 +43,7 @@ const TranscriptionRequestCard = props => {
     </p>;
   }
   else {
-    transcriptionRequestActionContent = <Link className="btn btn--action" to={`/transcriptions/${transcriptionRequest.transcriptions[0].id}`}>
+    transcriptionRequestActionContent = <Link className="" to={`/transcriptions/${transcriptionRequest.transcriptions[0].id}`}>
       <FormattedMessage id="transcriptionRequestCard.viewTranscriptionLink"
         defaultMessage="View Transcription" />
     </Link>;

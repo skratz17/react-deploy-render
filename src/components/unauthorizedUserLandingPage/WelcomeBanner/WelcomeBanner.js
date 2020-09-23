@@ -5,10 +5,10 @@ import './WelcomeBanner.css';
 
 // The welcome messages to animate between for the component.
 const WELCOME_MESSAGES = [
-  'Welcome to UHHHWUT',
-  'Bienvenue à UHHHWUT',
-  'UHHHWUT へようこそ',
-  '歡迎來到 UHHHWUT'
+  'Welcome to |UHHHWUT',
+  'Bienvenue à |UHHHWUT',
+  'UHHHWUT| へようこそ',
+  '歡迎來到 |UHHHWUT'
 ];
 
 /*
@@ -78,12 +78,22 @@ const WelcomeBanner = () => {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
+  const welcomeMessage = WELCOME_MESSAGES[welcomeMessageIndex];
+
   return (
     <div className="welcomeBanner">
-      <h2 className="welcomeBanner__header" ref={welcomeHeader} style={{ opacity: 1 }}>{WELCOME_MESSAGES[welcomeMessageIndex]}</h2>
+      <h2 className="welcomeBanner__header" ref={welcomeHeader} style={{ opacity: 1 }}>
+        { welcomeMessage.split('|').map(part => 
+          part === 'UHHHWUT' ? <span className="welcomeBanner__siteName"><span>{part}</span><i className="material-icons">question_answer</i></span> : <span>{part}</span>
+        )}
+      </h2>
       <p className="welcomeBanner__text">
         <FormattedMessage id="welcomeBanner.text"
-          defaultMessage="Welcome to UHHH WUT (Unselfish Humans Helping Humans with Unlimited Transcriptions). Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!" />
+          defaultMessage="Welcome to your new home for language immersion via YouTube videos. Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!" 
+          values={{
+            logo: () => <i className="material-icons">question_answer</i>
+          }}
+          />
       </p>
     </div>
   );

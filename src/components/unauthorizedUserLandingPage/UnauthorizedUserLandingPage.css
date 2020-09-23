@@ -1,14 +1,29 @@
 .unauthorizedUserLandingPage {
   display: flex;
-  min-height: 80vh;
-  align-items: center;
+  align-items: flex-start;
   padding: 3rem;
+  padding-top: 8%;
 }
 
-.unauthorizedUserLandingPage > *:first-child {
+.unauthorizedUserLandingPage > .col--left {
   flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.unauthorizedUserLandingPage > *:last-child {
+.unauthorizedUserLandingPage > .col--right {
   flex: 2;
+}
+
+.unauthorizedUserLandingPage__acronym {
+  font-size: 2rem;
+  padding: 0 2rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.unauthorizedUserLandingPage__acronym span {
+  font-weight: bold;
+  font-size: 2.25rem;
 }

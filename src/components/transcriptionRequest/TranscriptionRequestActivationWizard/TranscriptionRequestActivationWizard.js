@@ -133,11 +133,11 @@ const TranscriptionRequestActivationWizard = props => {
             formConfig={transcriptionFormConfig}
             onChange={handleTranscriptionChange} />
           <div className="wizardActionsWrapper">
-            <button className="btn btn--back" onClick={() => setCurrentStep(currentStep => currentStep - 1)}>
+            <button className="btn btn--neutral" onClick={() => setCurrentStep(currentStep => currentStep - 1)}>
               <FormattedMessage id="transcriptionRequestActivationWizard.backButton"
                 defaultMessage="Back" />
             </button>
-            <button className="btn btn--create" onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>
+            <button className="btn btn--action" onClick={submitTranscription} disabled={transcriptionRequestToFulfill !== false && !isTranscriptionFormValid}>
               <FormattedMessage id="transcriptionRequestActivationWizard.activateTranscriptionRequestButton"
                 defaultMessage="Activate Transcription Request" />
             </button>

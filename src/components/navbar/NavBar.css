@@ -1,12 +1,18 @@
 .navBar {
-  padding: 1rem 3rem;
-  border-bottom: 1px solid #000;
+  background-color: var(--secondary-color);
+  padding-bottom: 0.5rem;
+  height: 100%;
   font-size: 1.1rem;
 }
 
 .navBar__links {
   list-style-type: none;
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .navBar__linksListItem {
@@ -15,19 +21,21 @@
   padding: 0.5rem;
 }
 
-.navBar__linksListItem:last-child {
-  margin-left: auto;
-}
-
 .navBar__link {
-  color: #000;
+  color: #fff;
+  font-size: 1.2rem;
   text-decoration: none;
+  transition: all 0.15s;
 }
 
 .navBar__link:hover {
-  color: #333;
+  color: var(--primary-color);
 }
 
 .navBar__linksListItem.current {
-  text-decoration: underline;
+  font-weight: bold;
+}
+
+.navBar__linksListItem.current .navBar__link {
+  color: var(--primary-color);
 }

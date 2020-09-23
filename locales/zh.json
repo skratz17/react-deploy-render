@@ -16,7 +16,7 @@
   "registrationForm.passwordPlaceholder": "密碼",
   "registrationForm.confirmPasswordPlaceholder": "確定密碼",
   "registrationForm.nativeLanguageIdPlaceholder": "選母語",
-  "header.logoAltText": "Uhhh Wut 標誌",
+  "header.logoTitle": "不自私的人幫別人把無限的影片標音出來",
   "transcription.invalidUserWarning": "不行，存取禁止",
   "transcription.loadingMessage": "下載中",
   "transcription.rejectTranscriptionButton": "拒絕",
@@ -61,7 +61,7 @@
   "transcriptionRequestRecordingPreview.header": "關於錄影中的資料",
   "transcriptionRequestRecordingPreview.currentStartTimeLabel": "開始",
   "transcriptionRequestRecordingPreview.currentEndTimeLabel": "結束",
-  "welcomeBanner.text": "歡迎來到UHHHWUT！一邊離你學會一個外語的夢想走更近一步，一邊幫學你的母語的人！",
+  "welcomeBanner.text": "歡迎來到<span>UHHHWUT</span>！一邊離你學會一個外語的夢想走更近一步，一邊幫學你的母語的人！",
   "youTubePlayer.replayButton": "重播",
   "youtubeSearchBar.placeholder": "YouTube URL 或影片ID"
 }

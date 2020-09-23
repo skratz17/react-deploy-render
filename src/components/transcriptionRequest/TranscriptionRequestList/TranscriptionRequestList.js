@@ -19,7 +19,7 @@ const TranscriptionRequestList = props => {
       ))}
     </div>
     { shouldPaginate && (displayedRows * columns) < transcriptionRequests.length &&
-      <button onClick={() => setDisplayedRows(displayedRows => displayedRows + 1)} className="btn btn--action transcriptionRequestList__loadMoreButton">
+      <button onClick={() => setDisplayedRows(displayedRows => displayedRows + 1)} className="btn transcriptionRequestList__loadMoreButton">
         <FormattedMessage id="transcriptionRequestList.loadMoreButton"
           defaultMessage="Load More" />
       </button>

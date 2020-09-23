@@ -1,9 +1,11 @@
 .loginAndRegister {
   position: relative;
-  border: 1px solid #0006;
   padding: 2rem;
-  background-color: #ddd;
+  background-color: #fff;
   transition: height 1s;
+  box-shadow: 2px 3px 4px #000;
+  min-width: 425px;
+  max-width: 525px;
 }
 
 .loginAndRegister.loginMode {
@@ -18,7 +20,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  transition: all 1s;
+  transition: all 1s !important;
 }
 
 .loginAndRegister.loginMode .loginAndRegister__loginModeToggleButton {

@@ -63,7 +63,7 @@ const RegisterForm = props => {
         </p> 
       }
       <Form id={FORM_ID} formConfig={formConfig} onChange={handleChange} onSubmit={handleSubmit}>
-        <button className="registerForm__registerButton btn btn--create" disabled={!isFormValid} type="submit">
+        <button className="registerForm__registerButton btn btn--action" disabled={!isFormValid} type="submit">
           <FormattedMessage id={`registrationForm.registerButton`} defaultMessage="Register" />
         </button>
       </Form>
