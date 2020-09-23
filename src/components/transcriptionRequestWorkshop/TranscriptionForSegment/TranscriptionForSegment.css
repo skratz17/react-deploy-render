@@ -1,5 +1,6 @@
 .transcriptionForSegment {
   transition: opacity 0.25s;
+  text-align: center;
 }
 
 .transcriptionForSegment.hidden {
@@ -7,6 +8,13 @@
 }
 
 .transcriptionForSegment__header {
-  text-align: center;
+  font-size: 1.2rem;
+}
+
+.transcriptionForSegment__author {
   margin-bottom: 1rem;
+}
+
+.transcriptionForSegment__text {
+  font-size: 1.2rem;
 }

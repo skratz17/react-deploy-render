@@ -12,7 +12,7 @@ export const TranscriptionProvider = props => {
   };
 
   const getTranscriptionById = async id => {
-    const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest`);
+    const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest&_expand=user`);
     const transcription = await res.json();
     return transcription;
   };

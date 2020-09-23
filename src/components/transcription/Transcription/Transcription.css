@@ -5,8 +5,16 @@
   align-items: center;
 }
 
-.transcription > * {
+.transcription__header {
+  margin-top: 1rem;
+}
+
+.transcription__author {
   margin-bottom: 1rem;
+}
+
+.transcription__text {
+  font-size: 1.2rem;
 }
 
 .transcription__actionButtonsWrapper {

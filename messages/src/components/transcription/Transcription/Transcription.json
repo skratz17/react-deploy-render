@@ -18,5 +18,9 @@
   {
     "id": "transcription.header",
     "defaultMessage": "Transcription"
+  },
+  {
+    "id": "transcription.authorLabel",
+    "defaultMessage": "Transcribed by: {name}"
   }
 ]
