@@ -91,6 +91,11 @@ const Transcription = props => {
         <FormattedMessage id="transcription.header"
           defaultMessage="Transcription" />
       </h2>
+      <p className="transcription__author">
+        <FormattedMessage id="transcription.authorLabel"
+          defaultMessage="Transcribed by: " /> 
+          {transcription.user.firstName}
+      </p>
       <p className="transcription__text">{transcription.transcription}</p>
       { actionButtons }
     </div>
