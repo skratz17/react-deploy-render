@@ -15,34 +15,16 @@ export const convertSecondsToTimeString = seconds => {
 };
 
 /**
- * Given a time string, format it so that it will always be in the M:SS format. Does not care about if the returned time string represents a valid time, just that it is formatted to M:SS. If a string is supplied with more than two digits on the right side of a colon delimiter, will remove leading digits from right side of delimiter value until it is two digits in length, and will append the removed digits to the end of the value on the first side of the delimiter.
+ * Given a time string, format it so that it will always be in the M:SS format. Does not care about if the returned time string represents a valid time, just that it is formatted to M:SS. Will remove all non-numeric characters from the input and return it such that there is a colon before the final two characters, with left-padding of 0's to reach a minimally 3-digit time string.
  * Examples: '' -> 0:00, '3:32' -> '3:32', ':52' -> '0:52', '3:324' -> '33:24'
  * @param {String} timeString A time string, possibly invalidly formatted, to format into M:SS.
  */
 export const formatToMSSTimeString = timeString => {
-  if(!timeString) return '0:00';
-
-  const timeStringParts = timeString.split(':');
-  while(timeStringParts.length < 2) {
-    timeStringParts.unshift('0');
+  timeString = timeString.replace(/[^0-9]/g, '');
+  while(timeString.length < 3) {
+    timeString = '0' + timeString;
   }
-
-  if(!timeStringParts[1]) {
-    timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1);
-    timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1);
-  }
-
-  if(timeStringParts[1].length > 2) {
-    timeStringParts[0] += timeStringParts[1].substring(0, timeStringParts[1].length - 2);
-    if(parseInt(timeStringParts[0]) === 0) timeStringParts[0] = '0';
-    timeStringParts[1] = timeStringParts[1].substring(timeStringParts[1].length - 2);
-  }
-  else if(timeStringParts[1].length === 1 && timeStringParts[0]) {
-    timeStringParts[1] = timeStringParts[0].charAt(timeStringParts[0].length - 1) + timeStringParts[1];
-    timeStringParts[0] = timeStringParts[0].substring(0, timeStringParts[0].length - 1) || '0';
-  }
-
-  return timeStringParts.join(':');
+  return timeString.substring(0, timeString.length - 2) + ':' + timeString.substring(timeString.length - 2)
 };
 
 /**
