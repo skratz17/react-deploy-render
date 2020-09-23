@@ -14,7 +14,7 @@ const LoginAndRegister = props => {
         { isLoginMode && <LoginForm {...props} /> }
       </div>
 
-      <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--back'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
+      <button className={`loginAndRegister__loginModeToggleButton btn ${isLoginMode ? 'btn--create' : 'btn--neutral'}`} onClick={() => setIsLoginMode(!isLoginMode)}>
         { isLoginMode ? 
           <FormattedMessage id="loginAndRegister.createAccountButton"
             defaultMessage="Create Account" /> : 
