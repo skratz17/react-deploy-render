@@ -17,9 +17,14 @@
   justify-content: space-evenly;
 }
 
-.transcriptionRequest a {
-  color: #000;
+.transcriptionRequestCard__transcriptionLink {
   text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.transcriptionRequestCard__transcriptionLink:hover {
+  filter: brightness(80%);
 }
 
 .transcriptionRequest__actionWrapper {
