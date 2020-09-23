@@ -28,9 +28,7 @@ const TranscriptionRequestWorkshop = () => {
 
   useEffect(() => {
     const _transcriptionRequestsForVideo = transcriptionRequests
-      .filter(tR => 
-        tR.videoId === videoId && tR.userId === parseInt(localStorage.getItem('current_user'))
-      )
+      .filter(tR => tR.videoId === videoId)
       .sort((a, b) => a.startTime - b.startTime);
     setTranscriptionRequestsForVideo(_transcriptionRequestsForVideo);
   }, [ transcriptionRequests, videoId ]);
@@ -112,7 +110,7 @@ const TranscriptionRequestWorkshop = () => {
 
         <TranscriptionRequestList 
           onActivate={setActivatingTranscriptionRequestId}
-          transcriptionRequests={transcriptionRequestsForVideo} 
+          transcriptionRequests={transcriptionRequestsForVideo.filter(tR => tR.userId === parseInt(localStorage.getItem('current_user')))} 
           columns={1}
           shouldHideVideoPreview={true} />
       </div>
