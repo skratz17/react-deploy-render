@@ -5,12 +5,22 @@
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: opacity 0.25s;
+  transition: all 0.25s;
+}
+
+.btn:hover {
+  filter: brightness(120%);
+}
+
+.btn--neutral:hover {
+  filter: brightness(110%);
 }
 
 .btn:disabled {
   cursor: auto;
-  opacity: 0.6;
+  opacity: 0.7;
+  background-color: #ccc;
+  filter: none;
 }
 
 .btn--action {
@@ -24,7 +34,7 @@
 }
 
 .btn--neutral {
-  background-color: #eee;
+  background-color: #ccc;
 }
 
 .btn--delete {
