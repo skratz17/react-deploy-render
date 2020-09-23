@@ -60,7 +60,7 @@
     "transcriptionRequestRecordingPreview.currentStartTimeLabel": "Start Time",
     "transcriptionRequestRecordingPreview.currentEndTimeLabel": "End Time",
     "transcriptionRequestWorkshop.invalidEndTimeWarning": "Your segment's end time must be after the your selected start time.",
-    "welcomeBanner.text": "Welcome to UHHHWUT <logo></logo> (Unselfish Humans Helping Humans with Unlimited Transcriptions). Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!",
+    "welcomeBanner.text": "Welcome to your new home for language immersion via YouTube videos. Get closer to proficiency in your target language of study, while simultaneously helping out learners of your native language on their language learning journey!",
     "youTubePlayer.replayButton": "Replay Segment",
     "youtubeSearchBar.placeholder": "Enter a YouTube video URL or video ID"
   },

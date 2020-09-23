@@ -25,14 +25,17 @@
   color: #fff;
   font-size: 1.2rem;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: all 0.15s;
 }
 
 .navBar__link:hover {
-  color: #eee;
-  transform: scale(2);
+  color: var(--primary-color);
 }
 
 .navBar__linksListItem.current {
   font-weight: bold;
+}
+
+.navBar__linksListItem.current .navBar__link {
+  color: var(--primary-color);
 }
