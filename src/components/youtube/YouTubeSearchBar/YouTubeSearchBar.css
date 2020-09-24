@@ -9,3 +9,12 @@
   background-position: 98% 50%;
   background-size: 2rem;
 }
+
+@media(max-width: 768px) {
+  .youTubeSearchBar {
+    width: 300px;
+    font-size: 0.9rem;
+    background-size: 1.25rem;
+    padding: 0.75rem;
+  }
+}
