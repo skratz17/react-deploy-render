@@ -19,3 +19,11 @@ button.transcriptionRequestList__loadMoreButton {
 button.btn.transcriptionRequestList__loadMoreButton:hover {
   filter: brightness(150%);
 }
+
+@media(max-width: 768px) {
+  .transcriptionRequestList--1,
+  .transcriptionRequestList--2,
+  .transcriptionRequestList--3 {
+    grid-template-columns: 350px;
+  }
+}
