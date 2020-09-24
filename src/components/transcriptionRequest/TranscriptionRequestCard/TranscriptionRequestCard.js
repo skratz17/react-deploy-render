@@ -16,8 +16,6 @@ const TranscriptionRequestCard = props => {
   const { deleteTranscriptionRequest } = useContext(TranscriptionRequestContext);
 
   const youTubePlayerOpts = {
-    width: '300',
-    height: '183',
     playerVars: {
       start: startTime,
       end: endTime
@@ -52,7 +50,7 @@ const TranscriptionRequestCard = props => {
   return (
     <div className="transcriptionRequest">
       { !shouldHideVideoPreview && 
-        <YouTubePlayer videoId={videoId} opts={youTubePlayerOpts} /> 
+        <YouTubePlayer videoId={videoId} size="small" opts={youTubePlayerOpts} /> 
       }
       <div className="transcriptionRequest__timeInformationWrapper">
         <p className="transcriptionRequest__startTime">

@@ -1,5 +1,7 @@
 .transcriptionRequestActivationWizard {
   padding: 1rem;
+  max-height: 85vh;
+  overflow: scroll;
 }
 
 .transcriptionRequestActivationWizard__headerWrapper {
@@ -18,4 +20,24 @@
 
 .wizardActionsWrapper > *:last-child {
   margin-left: auto;
+}
+
+@media(max-width: 768px) {
+  .transcriptionRequestActivationWizard {
+    max-height: 75vh;
+    width: 80vw;
+    padding: 0.5rem;
+  }
+
+  .wizardActionsWrapper {
+    flex-flow: column-reverse;
+  }
+
+  .wizardActionsWrapper > * {
+    margin-bottom: 0.75rem;
+  }
+
+  .wizardActionsWrapper > *:last-child {
+    margin-left: 0;
+  }
 }

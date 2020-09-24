@@ -75,11 +75,6 @@ const TranscriptionRequestWorkshop = () => {
     }
   };
 
-  const youtubePlayerOpts = { 
-    height: '390',
-    width: '640'
-  };
-
   const getTranscriptionForSegment = () => {
     const transcriptionRequestForSegment = transcriptionRequestsForVideo.find(tR =>
       tR.startTime <= currentPlayerTime && tR.endTime >= currentPlayerTime
@@ -103,8 +98,7 @@ const TranscriptionRequestWorkshop = () => {
         <YouTubePlayer videoId={videoId} 
           onReady={e => setPlayer(e.target)} 
           onStateChange={handleYouTubeStateChange}
-          opts={youtubePlayerOpts}
-          />
+          size="large" />
 
         <TranscriptionForSegment 
           transcription={getTranscriptionForSegment()} 

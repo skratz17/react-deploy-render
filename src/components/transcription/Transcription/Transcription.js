@@ -79,14 +79,9 @@ const Transcription = props => {
     );
   }
 
-  const youTubePlayerOpts = {
-    height: '390',
-    width: '640'
-  };
-
   return (
     <div className="transcription">
-      <YouTubePlayer videoId={transcription.transcriptionRequest.videoId} opts={{ ...youTubePlayerOpts, playerVars }} />
+      <YouTubePlayer videoId={transcription.transcriptionRequest.videoId} size="large" opts={{ playerVars }} />
       <h2 className="transcription__header">
         <FormattedMessage id="transcription.header"
           defaultMessage="Transcription" />
