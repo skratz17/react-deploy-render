@@ -6,6 +6,7 @@
   box-shadow: 2px 3px 4px #000;
   min-width: 425px;
   max-width: 525px;
+  margin: 0 auto;
 }
 
 .loginAndRegister.loginMode {
@@ -59,7 +60,6 @@
   .loginAndRegister {
     min-width: 350px;
     max-width: 350px;
-    margin: 0 auto;
   }
 
   .loginAndRegister__loginModeToggleButton {

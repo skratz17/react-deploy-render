@@ -31,11 +31,14 @@
 @media(max-width: 768px) {
   .header {
     flex-direction: column;
+    align-items: space-between;
     padding: 0.5rem;
+    height: 100%;
   }
 
   .logo {
     margin-right: 0;
+    margin-bottom: 1rem;
   }
 
   .logo .material-icons {

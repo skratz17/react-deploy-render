@@ -31,10 +31,17 @@
   font-size: 2.25rem;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1000px) {
   .unauthorizedUserLandingPage {
     padding: 0.5rem;
-    flex-flow: column-reverse;
+    flex-flow: column;
+  }
+
+  .unauthorizedUserLandingPage > .col--right,
+  .unauthorizedUserLandingPage > .col--left {
+    flex: none;
+    width: 100%;
+    padding-top: 0;
   }
 
   .unauthorizedUserLandingPage__acronym {
