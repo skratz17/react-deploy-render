@@ -41,3 +41,22 @@
 .welcomeBanner__text .material-icons {
   color: var(--primary-color);
 }
+
+@media(max-width: 768px) {
+  .welcomeBanner {
+    padding: 1rem 0;
+  }
+  
+  .welcomeBanner__header {
+    font-size: 1.2rem;
+    min-height: 6rem;
+  }
+
+  .welcomeBanner__siteName .material-icons {
+    font-size: 2rem;
+  }
+  
+  .welcomeBanner__siteName {
+    font-size: 2rem;
+  }
+}

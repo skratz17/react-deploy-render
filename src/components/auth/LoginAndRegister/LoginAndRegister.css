@@ -54,3 +54,15 @@
 .loginAndRegister.loginMode .registerFormWrapper {
   transform: translateY(200px);
 }
+
+@media(max-width: 768px) {
+  .loginAndRegister {
+    min-width: 350px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .loginAndRegister__loginModeToggleButton {
+    width: 250px;
+  }
+}
