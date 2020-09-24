@@ -25,6 +25,7 @@ server.use(jsonServer.rewriter({
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
     const isApiRoute = req.originalUrl.includes('/api/');
+    console.log(req.originalUrl)
     console.log(isApiRoute)
     if (isApiRoute) return next();
 
