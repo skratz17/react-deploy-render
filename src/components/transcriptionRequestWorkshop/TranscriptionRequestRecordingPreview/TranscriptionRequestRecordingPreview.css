@@ -1,0 +1,19 @@
+.transcriptionRequestRecordingPreview {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.transcriptionRequestRecordingPreview__header {
+  font-size: 1.2rem;
+}
+
+.transcriptionRequestRecordingPreview__timeValue {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.transcriptionRequestRecordingPreview__timeValue.invalid {
+  color: #f00;
+}

@@ -1,0 +1,43 @@
+.welcomeBanner {
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.welcomeBanner__header {
+  font-size: 3rem;
+  min-height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.welcomeBanner__siteName,
+.welcomeBanner__text-siteName {
+  font-weight: bold;
+}
+
+.welcomeBanner__siteName {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.welcomeBanner__siteName .material-icons {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.welcomeBanner__siteName {
+  font-size: 4rem;
+}
+
+.welcomeBanner__text {
+  width: 75%;
+  margin: 1rem auto;
+  line-height: 1.4;
+}
+
+.welcomeBanner__text .material-icons {
+  color: var(--primary-color);
+}

@@ -1,0 +1,32 @@
+.unauthorizedUserLandingPage {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  padding-top: 1rem;
+  min-height: 100vh;
+}
+
+.unauthorizedUserLandingPage > .col--left {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unauthorizedUserLandingPage > .col--right {
+  padding-top: 3rem;
+  align-self: flex-start;
+  flex: 2;
+}
+
+.unauthorizedUserLandingPage__acronym {
+  font-size: 2rem;
+  padding: 0 2rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.unauthorizedUserLandingPage__acronym span {
+  font-weight: bold;
+  font-size: 2.25rem;
+}

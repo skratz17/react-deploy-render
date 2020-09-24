@@ -1,5 +1,5 @@
-const initialDbPath = './api/db.json';
-const dbPath = '/var/data/db.json';
+const initialDbPath = './api/database.json';
+const dbPath = '/var/data/database.json';
 
 const fs = require('fs');
 if (!fs.existsSync(dbPath)) {

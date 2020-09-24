@@ -1,0 +1,56 @@
+.loginAndRegister {
+  position: relative;
+  padding: 2rem;
+  background-color: #fff;
+  transition: height 1s;
+  box-shadow: 2px 3px 4px #000;
+  min-width: 425px;
+  max-width: 525px;
+}
+
+.loginAndRegister.loginMode {
+  height: 315px;
+}
+
+.loginAndRegister.registerMode {
+  height: 575px;
+}
+
+.loginAndRegister__loginModeToggleButton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 1s !important;
+}
+
+.loginAndRegister.loginMode .loginAndRegister__loginModeToggleButton {
+  bottom: 2rem;
+}
+
+.loginAndRegister.registerMode .loginAndRegister__loginModeToggleButton {
+  bottom: 510px;
+}
+
+.loginFormWrapper,
+.registerFormWrapper {
+  transition: all 1s;
+}
+
+.loginAndRegister.registerMode .registerFormWrapper {
+  margin-top: 60px;
+}
+
+.loginAndRegister.registerMode .loginFormWrapper,
+.loginAndRegister.loginMode .registerFormWrapper {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.loginAndRegister.registerMode .loginFormWrapper {
+  transform: translateY(-200px);
+}
+
+.loginAndRegister.loginMode .registerFormWrapper {
+  transform: translateY(200px);
+}

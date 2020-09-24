@@ -1,0 +1,13 @@
+.transcriptionRequestDashboard {
+  padding: 1rem;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.transcriptionRequestDashboard__listWrapper {
+  margin-bottom: 2rem;
+}
+
+.transcriptionRequestDashboard__listHeader {
+  margin-bottom: 0.5rem;
+}

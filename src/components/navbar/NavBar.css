@@ -1,0 +1,41 @@
+.navBar {
+  background-color: var(--secondary-color);
+  padding-bottom: 0.5rem;
+  height: 100%;
+  font-size: 1.1rem;
+}
+
+.navBar__links {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.navBar__linksListItem {
+  display: inline-block;
+  margin-right: 2rem;
+  padding: 0.5rem;
+}
+
+.navBar__link {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.navBar__link:hover {
+  color: var(--primary-color);
+}
+
+.navBar__linksListItem.current {
+  font-weight: bold;
+}
+
+.navBar__linksListItem.current .navBar__link {
+  color: var(--primary-color);
+}

@@ -1,0 +1,21 @@
+.transcriptionRequestList {
+  display: grid;
+  justify-content: center;
+  grid-gap: 1rem;
+  min-width: 375px;
+  padding-bottom: 1rem;
+}
+
+.transcriptionRequestList--1 { grid-template-columns: 350px; }
+.transcriptionRequestList--2 { grid-template-columns: repeat( 2, minmax(325px, 1fr) ); }
+.transcriptionRequestList--3 { grid-template-columns: repeat( 3, minmax(325px, 1fr) ); }
+
+button.transcriptionRequestList__loadMoreButton {
+  margin: 0.5rem auto;
+  background-color: #fbfbfb;
+  box-shadow: 1px 1px 2px #000;
+}
+
+button.btn.transcriptionRequestList__loadMoreButton:hover {
+  filter: brightness(150%);
+}

@@ -1,0 +1,21 @@
+.registerForm__registerButton {
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 1rem;
+}
+
+.registerForm__duplicateEmailWarning {
+  text-align: center;
+  width: 75%;
+  margin: 1rem auto;
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  transform: translateX(-50%);
+  background-color: #000
+}
+
+.registerForm input[name="password"].invalid {
+  outline: none;
+  border: none;
+}

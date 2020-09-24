@@ -1,0 +1,367 @@
+{
+  "users": [
+    {
+      "firstName": "Jacob",
+      "lastName": "Eckert",
+      "email": "jweckert17@gmail.com",
+      "password": "test",
+      "nativeLanguageId": 1,
+      "id": 1
+    },
+    {
+      "firstName": "鵬",
+      "lastName": "賈",
+      "email": "jia@peng.com",
+      "password": "test",
+      "nativeLanguageId": 2,
+      "id": 2
+    },
+    {
+      "firstName": "Gib",
+      "lastName": "Jeffries",
+      "email": "g@g.com",
+      "password": "g",
+      "nativeLanguageId": 1,
+      "id": 3
+    },
+    {
+      "firstName": "Another",
+      "lastName": "American",
+      "email": "test@test.com",
+      "password": "test",
+      "nativeLanguageId": 1,
+      "id": 4
+    },
+    {
+      "firstName": "Brent",
+      "lastName": "Cheatham",
+      "email": "13rent@gmail.com",
+      "password": "test",
+      "nativeLanguageId": 1,
+      "id": 5
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "English"
+    },
+    {
+      "id": 2,
+      "name": "中文"
+    },
+    {
+      "id": 3,
+      "name": "Español"
+    },
+    {
+      "id": 4,
+      "name": "Français"
+    }
+  ],
+  "transcriptionRequests": [
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 1163,
+      "endTime": 1167,
+      "userId": 1,
+      "isActivated": true,
+      "id": 1,
+      "languageId": 2,
+      "timestamp": 1600785222906
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 1169,
+      "endTime": 1174,
+      "userId": 1,
+      "isActivated": true,
+      "id": 2,
+      "languageId": 2,
+      "timestamp": 1600789516778
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 1,
+      "endTime": 5,
+      "userId": 2,
+      "isActivated": true,
+      "id": 3,
+      "languageId": 1,
+      "timestamp": 1600785302794
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 8,
+      "endTime": 16,
+      "userId": 2,
+      "isActivated": true,
+      "id": 4,
+      "languageId": 1,
+      "timestamp": 1600785408594
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 24,
+      "endTime": 29,
+      "userId": 2,
+      "isActivated": true,
+      "id": 5,
+      "languageId": 1,
+      "timestamp": 1600798716208
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 1148,
+      "endTime": 1155,
+      "userId": 1,
+      "isActivated": true,
+      "id": 6,
+      "languageId": 2,
+      "timestamp": 1600798780928
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 1716,
+      "endTime": 1719,
+      "userId": 1,
+      "isActivated": true,
+      "id": 12,
+      "languageId": 2,
+      "timestamp": 1600802960849
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 2089,
+      "endTime": 2095,
+      "userId": 1,
+      "isActivated": true,
+      "id": 13,
+      "languageId": 2,
+      "timestamp": 1600803885108
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 408,
+      "endTime": 416,
+      "userId": 1,
+      "isActivated": true,
+      "id": 15,
+      "languageId": 2,
+      "timestamp": 1600803157444
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 31,
+      "endTime": 38,
+      "userId": 2,
+      "isActivated": true,
+      "id": 16,
+      "languageId": 1,
+      "timestamp": 1600804907864
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 43,
+      "endTime": 60,
+      "userId": 2,
+      "isActivated": true,
+      "id": 17,
+      "languageId": 1,
+      "timestamp": 1600804865138
+    },
+    {
+      "videoId": "FDoH15ylAeo",
+      "startTime": 60,
+      "endTime": 64,
+      "userId": 2,
+      "isActivated": true,
+      "id": 18,
+      "languageId": 1,
+      "timestamp": 1600805767485
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 1672,
+      "endTime": 1680,
+      "userId": 1,
+      "isActivated": true,
+      "id": 19,
+      "languageId": 2,
+      "timestamp": 1600958157213
+    },
+    {
+      "videoId": "TbKIMqJdFMY",
+      "startTime": 983,
+      "endTime": 989,
+      "userId": 1,
+      "isActivated": false,
+      "id": 20,
+      "languageId": 2
+    },
+    {
+      "videoId": "3VHXJqsJMvk",
+      "startTime": 1734,
+      "endTime": 1745,
+      "userId": 1,
+      "isActivated": false,
+      "id": 21,
+      "languageId": 2
+    },
+    {
+      "videoId": "3VHXJqsJMvk",
+      "startTime": 1057,
+      "endTime": 1063,
+      "userId": 1,
+      "isActivated": false,
+      "id": 22,
+      "languageId": 2
+    },
+    {
+      "videoId": "_jKylhJtPmI",
+      "startTime": 36,
+      "endTime": 48,
+      "userId": 3,
+      "isActivated": true,
+      "id": 23,
+      "languageId": 1,
+      "timestamp": 1600891459039
+    },
+    {
+      "videoId": "_jKylhJtPmI",
+      "startTime": 49,
+      "endTime": 53,
+      "userId": 3,
+      "isActivated": true,
+      "id": 24,
+      "languageId": 1,
+      "timestamp": 1600891386860
+    },
+    {
+      "videoId": "_jKylhJtPmI",
+      "startTime": 57,
+      "endTime": 60,
+      "userId": 3,
+      "isActivated": false,
+      "id": 25
+    },
+    {
+      "videoId": "3VHXJqsJMvk",
+      "startTime": 1096,
+      "endTime": 1101,
+      "userId": 4,
+      "isActivated": true,
+      "id": 26,
+      "languageId": 2,
+      "timestamp": 1600893110618
+    },
+    {
+      "videoId": "OPfo6ftRC00",
+      "startTime": 633,
+      "endTime": 638,
+      "userId": 1,
+      "isActivated": true,
+      "id": 27,
+      "languageId": 2,
+      "timestamp": 1600909078757
+    }
+  ],
+  "transcriptions": [
+    {
+      "transcription": "You know, one of the things we pride ourselves on here...",
+      "transcriptionRequestId": 3,
+      "timestamp": 1600789516737,
+      "isAccepted": true,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "transcription": "你可以擁有我悲慘的王國",
+      "transcriptionRequestId": 1,
+      "timestamp": 1600798716174,
+      "isAccepted": true,
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "transcription": "Resolving conflicts between people peacefully... could you tell me about a time you did that with a teammate?",
+      "transcriptionRequestId": 4,
+      "timestamp": 1600798780898,
+      "isAccepted": true,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "transcription": "This was right around when Windows ME had just been released",
+      "transcriptionRequestId": 5,
+      "timestamp": 1600802960788,
+      "isAccepted": true,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "transcription": "如你所願的留在這裡，凝視我的雙眼",
+      "transcriptionRequestId": 2,
+      "timestamp": 1600804865087,
+      "isAccepted": true,
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "transcription": "一些工廠在地平線上，它們看起來被廢棄了。",
+      "transcriptionRequestId": 6,
+      "timestamp": 1600804907806,
+      "isAccepted": true,
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "transcription": "一具舊衣櫃",
+      "transcriptionRequestId": 12,
+      "timestamp": 1600805767436,
+      "isAccepted": true,
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "transcription": "words",
+      "transcriptionRequestId": 17,
+      "timestamp": 1600891386825,
+      "isAccepted": false,
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "transcription": "More words",
+      "transcriptionRequestId": 16,
+      "timestamp": 1600891458974,
+      "isAccepted": false,
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "transcription": "And he said, you get your ass back in the lab.",
+      "transcriptionRequestId": 18,
+      "timestamp": 1600893110585,
+      "isAccepted": false,
+      "userId": 4,
+      "id": 11
+    },
+    {
+      "transcription": "websites, and these - these need to be hooked up to databases",
+      "transcriptionRequestId": 24,
+      "timestamp": 1600909078724,
+      "isAccepted": false,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "transcription": "near english into it and you'll get results back in your database, and this has existed for years and years and years, and that was all fine until the web came along, and now people",
+      "transcriptionRequestId": 23,
+      "timestamp": 1600958157145,
+      "isAccepted": false,
+      "userId": 1,
+      "id": 13
+    }
+  ]
+}
