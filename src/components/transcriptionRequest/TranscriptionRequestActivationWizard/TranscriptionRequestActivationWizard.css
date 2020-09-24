@@ -35,4 +35,8 @@
   .wizardActionsWrapper > * {
     margin-bottom: 0.75rem;
   }
+
+  .wizardActionsWrapper > *:last-child {
+    margin-left: 0;
+  }
 }
