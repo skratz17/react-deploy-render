@@ -17,7 +17,8 @@ const YouTubePlayer = props => {
   expandedOpts.playerVars = {
     ...expandedOpts.playerVars,
     autoplay: isAutoplay ? 1 : 0,
-    controls: showResetButton ? 0 : 1
+    controls: showResetButton ? 0 : 1,
+    playsinline: 1
   };
 
   // hacky way to make the YouTube player replay only the start-end segment, quickly de-render and re-render it :|
