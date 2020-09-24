@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
-const API_URL = 'https://sounds-fishy.onrender.com/api/';
+const API_URL = 'https://sounds-fishy.onrender.com/api';
 
 export const ApiContext = createContext();
 
