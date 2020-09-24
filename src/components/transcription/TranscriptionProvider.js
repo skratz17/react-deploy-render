@@ -1,18 +1,22 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+
+import { ApiContext } from '../../ApiProvider';
 
 export const TranscriptionContext = createContext();
 
 export const TranscriptionProvider = props => {
   const [ transcriptions, setTranscriptions ] = useState([]);
 
+  const API_URL = useContext(ApiContext);
+
   const getTranscriptions = async () => {
-    const res = await fetch(`http://localhost:8088/transcriptions?_expand=transcriptionRequest`);
+    const res = await fetch(`${API_URL}/transcriptions?_expand=transcriptionRequest`);
     const _transcriptions = await res.json();
     setTranscriptions(_transcriptions);
   };
 
   const getTranscriptionById = async id => {
-    const res = await fetch(`http://localhost:8088/transcriptions/${id}?_expand=transcriptionRequest&_expand=user`);
+    const res = await fetch(`${API_URL}/transcriptions/${id}?_expand=transcriptionRequest&_expand=user`);
     const transcription = await res.json();
     return transcription;
   };
@@ -22,7 +26,7 @@ export const TranscriptionProvider = props => {
     transcriptionData.isAccepted = false;
     transcriptionData.userId = parseInt(localStorage.getItem('current_user'));
 
-    const res = await fetch('http://localhost:8088/transcriptions', {
+    const res = await fetch(`${API_URL}/transcriptions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +39,7 @@ export const TranscriptionProvider = props => {
   };
 
   const acceptTranscription = async id => {
-    await fetch(`http://localhost:8088/transcriptions/${id}`, {
+    await fetch(`${API_URL}/transcriptions/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -47,7 +51,7 @@ export const TranscriptionProvider = props => {
   };
 
   const deleteTranscription = async id => {
-    await fetch(`http://localhost:8088/transcriptions/${id}`, {
+    await fetch(`${API_URL}/transcriptions/${id}`, {
       method: 'DELETE'
     });
     return await getTranscriptions();

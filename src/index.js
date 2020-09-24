@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
 import UhhhWut from './components/UhhhWut';
+import { ApiProvider } from './ApiProvider';
 import localeData from './locales.json';
 import './index.css';
 
@@ -26,7 +27,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <IntlProvider locale={language} messages={messages}>
-        <UhhhWut />
+        <ApiProvider>
+          <UhhhWut />
+        </ApiProvider>
       </IntlProvider>
     </BrowserRouter>
   </React.StrictMode>,
