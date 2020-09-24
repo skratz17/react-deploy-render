@@ -30,9 +30,10 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'password',
-      placeholder: placeholderMessages.password
+      placeholder: placeholderMessages.password,
+      disabled: true
     },
-    value: '',
+    value: 'password',
     validation: {
       isRequired: true
     }

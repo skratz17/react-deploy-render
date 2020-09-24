@@ -70,9 +70,10 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'password',
-      placeholder: messages.password
+      placeholder: messages.password,
+      disabled: true
     },
-    value: '',
+    value: 'password',
     validation: {
       isRequired: true,
       mustMatch: 'confirmPassword',
@@ -84,9 +85,10 @@ export default {
     inputType: 'input',
     elementConfig: {
       type: 'password',
-      placeholder: messages.confirmPassword
+      placeholder: messages.confirmPassword,
+      disabled: true
     },
-    value: '',
+    value: 'password',
     validation: {
       isRequired: true,
       mustMatch: 'password'
