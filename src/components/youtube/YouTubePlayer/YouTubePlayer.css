@@ -37,6 +37,14 @@
 
 @media(max-width: 768px) {
   .youTubePlayerWrapper__player--large,
+  .youTubePlayerWrapper__player--large iframe {
+    height: 304px;
+    width: 500px;
+  }
+}
+
+@media(max-width: 600px) {
+  .youTubePlayerWrapper__player--large,
   .youTubePlayerWrapper__player--medium,
   .youTubePlayerWrapper__player--small,
   .youTubePlayerWrapper iframe {
