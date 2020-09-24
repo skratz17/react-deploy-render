@@ -25,7 +25,7 @@ server.use(jsonServer.rewriter({
 server.use((req, res, next) => {
     // use originalUrl since other middleware is likely reassigning req.url
     const isApiRoute = req.originalUrl.includes('/api/');
-
+    console.log(isApiRoute)
     if (isApiRoute) return next();
 
     return res.sendFile(path.join(__dirname, './build/index.html'));
