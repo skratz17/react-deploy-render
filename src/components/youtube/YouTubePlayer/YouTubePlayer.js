@@ -41,7 +41,6 @@ const YouTubePlayer = props => {
 
   return (
     <div className="youTubePlayerWrapper">
-      {/* <div style={{ height: opts.height + 'px', width: opts.width + 'px' }}> */}
       <div className={`youTubePlayerWrapper__player--${props.size}`}>
         { !isRefreshing && <YouTube {...props} opts={expandedOpts} onStateChange={handleStateChange} /> }
       </div>
