@@ -1,8 +1,9 @@
 .unauthorizedUserLandingPage {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: 3rem;
   padding-top: 1rem;
+  min-height: 100vh;
 }
 
 .unauthorizedUserLandingPage > .col--left {
@@ -14,6 +15,7 @@
 
 .unauthorizedUserLandingPage > .col--right {
   padding-top: 3rem;
+  align-self: flex-start;
   flex: 2;
 }
 
