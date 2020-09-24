@@ -25,3 +25,13 @@
   max-width: 70%;
   text-align: center;
 }
+
+@media(max-width: 768px) {
+  .transcriptionRequestDashboardData {
+    flex-direction: column;
+  }
+
+  .dataPoint {
+    margin-bottom: 0.5rem;
+  }
+}

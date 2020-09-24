@@ -12,7 +12,7 @@ const YouTubePlayer = props => {
   const [ isAutoplay, setIsAutoplay ] = useState(false);
   const [ hasPlayed, setHasPlayed ] = useState(false);
 
-  const expandedOpts = { ...opts };
+  const expandedOpts = { ...opts, height: '100%', width: '100%' };
   if(!expandedOpts.playerVars) expandedOpts.playerVars = {};
   expandedOpts.playerVars = {
     ...expandedOpts.playerVars,
@@ -41,7 +41,7 @@ const YouTubePlayer = props => {
 
   return (
     <div className="youTubePlayerWrapper">
-      <div style={{ height: opts.height + 'px', width: opts.width + 'px' }}>
+      <div className={`youTubePlayerWrapper__player--${props.size}`}>
         { !isRefreshing && <YouTube {...props} opts={expandedOpts} onStateChange={handleStateChange} /> }
       </div>
       { showResetButton && 

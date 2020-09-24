@@ -16,3 +16,39 @@
   padding: 0;
   opacity: 0;
 }
+
+.youTubePlayerWrapper__player--large,
+.youTubePlayerWrapper__player--large iframe {
+  height: 390px;
+  width: 640px;
+}
+
+.youTubePlayerWrapper__player--medium,
+.youTubePlayerWrapper__player--medium iframe {
+  height: 304px;
+  width: 500px;
+}
+
+.youTubePlayerWrapper__player--small, 
+.youTubePlayerWrapper__player--small iframe {
+  height: 183px;
+  width: 300px;
+}
+
+@media(max-width: 768px) {
+  .youTubePlayerWrapper__player--large,
+  .youTubePlayerWrapper__player--large iframe {
+    height: 304px;
+    width: 500px;
+  }
+}
+
+@media(max-width: 600px) {
+  .youTubePlayerWrapper__player--large,
+  .youTubePlayerWrapper__player--medium,
+  .youTubePlayerWrapper__player--small,
+  .youTubePlayerWrapper iframe {
+    height: 183px;
+    width: 300px;
+  }
+}

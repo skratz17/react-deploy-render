@@ -20,8 +20,6 @@ const TranscriptionCreator = props => {
   }
 
   const youTubePlayerOpts = {
-    height: '304',
-    width: '500', 
     playerVars: {
       start: transcriptionRequest.startTime,
       end: transcriptionRequest.endTime
@@ -30,7 +28,7 @@ const TranscriptionCreator = props => {
 
   return (
     <div className="transcriptionCreator">
-      <YouTubePlayer videoId={transcriptionRequest.videoId} opts={youTubePlayerOpts} showResetButton={true} />
+      <YouTubePlayer videoId={transcriptionRequest.videoId} size="medium" opts={youTubePlayerOpts} showResetButton={true} />
       <Form id={FORM_ID} formConfig={formConfig} onChange={onChange} />
     </div>
   );

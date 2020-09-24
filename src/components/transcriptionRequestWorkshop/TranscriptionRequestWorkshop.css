@@ -27,3 +27,12 @@
   max-height: 50vh;
   overflow: scroll;
 }
+
+@media(max-width: 1100px) {
+  .workshop {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}

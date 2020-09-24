@@ -5,7 +5,7 @@ import LoginAndRegister from '../auth/LoginAndRegister/LoginAndRegister';
 import './UnauthorizedUserLandingPage.css';
 
 const UnauthorizedUserLandingPage = props => <>
-  <p style={{ padding: '1rem', backgroundColor: '#000', fontWeight: 'bold' }} className="text--warning">WARNING! This is not a secure application! Both the Login and Register forms' password fields are deactivated, and their value is always set to just the word "password". You do not need to worry about providing any sort of value in these fields!</p>
+   <p style={{ padding: '1rem', backgroundColor: '#000', fontWeight: 'bold' }} className="text--warning">WARNING! This is not a secure application! Both the Login and Register forms' password fields are deactivated, and their value is always set to just the word "password". You do not need to worry about providing any sort of value in these fields!</p>
   <div className="unauthorizedUserLandingPage">
     <div className="col--left">  
       <WelcomeBanner />

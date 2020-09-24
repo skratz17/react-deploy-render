@@ -11,3 +11,12 @@
 .transcriptionRequestDashboard__listHeader {
   margin-bottom: 0.5rem;
 }
+
+@media(max-width: 768px) {
+  .transcriptionRequestDashboard__listWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+}
