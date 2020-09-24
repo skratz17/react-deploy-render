@@ -1,24 +1,28 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
+
+import { ApiContext } from '../../ApiProvider';
 
 export const TranscriptionRequestContext = createContext();
 
 export const TranscriptionRequestProvider = props => {
   const [ transcriptionRequests, setTranscriptionRequests ] = useState([]);
 
+  const API_URL = useContext(ApiContext);
+
   const getTranscriptionRequests = async () => {
-    const res = await fetch('http://localhost:8088/transcriptionRequests?_embed=transcriptions');
+    const res = await fetch(`${API_URL}/transcriptionRequests?_embed=transcriptions`);
     const _transcriptionRequests = await res.json();
     setTranscriptionRequests(_transcriptionRequests);
   };
 
   const getTranscriptionRequestById = async id => {
-    const res = await fetch(`http://localhost:8088/transcriptionRequests/${id}`);
+    const res = await fetch(`${API_URL}/transcriptionRequests/${id}`);
     const transcriptionRequest = await res.json();
     return transcriptionRequest;
   };
 
   const getTranscriptionRequestToFulfillForLanguage = async languageId => {
-    const res = await fetch(`http://localhost:8088/transcriptionRequests?_embed=transcriptions&languageId=${languageId}&userId_ne=${localStorage.getItem('current_user')}&_sort=timestamp&isActivated=true`);
+    const res = await fetch(`${API_URL}/transcriptionRequests?_embed=transcriptions&languageId=${languageId}&userId_ne=${localStorage.getItem('current_user')}&_sort=timestamp&isActivated=true`);
     const candidates = await res.json();
     return candidates.find(tR => tR.transcriptions.length === 0) || false;
   };
@@ -27,7 +31,7 @@ export const TranscriptionRequestProvider = props => {
     transcriptionRequest.userId = parseInt(localStorage.getItem('current_user'));
     transcriptionRequest.isActivated = false;
 
-    await fetch('http://localhost:8088/transcriptionRequests', {
+    await fetch(`${API_URL}/transcriptionRequests`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +42,7 @@ export const TranscriptionRequestProvider = props => {
   };
 
   const updateTranscriptionRequest = async (id, transcriptionRequestData) => {
-    await fetch(`http://localhost:8088/transcriptionRequests/${id}`, {
+    await fetch(`${API_URL}/transcriptionRequests/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +62,7 @@ export const TranscriptionRequestProvider = props => {
   };
 
   const deleteTranscriptionRequest = async id => {
-    await fetch(`http://localhost:8088/transcriptionRequests/${id}`, {
+    await fetch(`${API_URL}/transcriptionRequests/${id}`, {
       method: 'DELETE'
     });
     await getTranscriptionRequests();
