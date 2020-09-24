@@ -1,3 +1,5 @@
+const path = require('path')
+
 const initialDbPath = './api/database.json';
 const dbPath = '/var/data/database.json';
 
