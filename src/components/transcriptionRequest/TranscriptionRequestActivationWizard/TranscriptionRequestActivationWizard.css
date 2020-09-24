@@ -19,3 +19,20 @@
 .wizardActionsWrapper > *:last-child {
   margin-left: auto;
 }
+
+@media(max-width: 768px) {
+  .transcriptionRequestActivationWizard {
+    max-height: 75vh;
+    width: 80vw;
+    overflow: scroll;
+    padding: 0.5rem;
+  }
+
+  .wizardActionsWrapper {
+    flex-flow: column-reverse;
+  }
+
+  .wizardActionsWrapper > * {
+    margin-bottom: 0.75rem;
+  }
+}
