@@ -52,7 +52,7 @@ const WelcomeBanner = () => {
       welcomeHeader.current.style.opacity = 1;
     };
 
-    const animationCallback = timestamp => {
+    const animationCallback = () => {
       if(!start) start = Date.now();
       const elapsed = Date.now() - start;
 
