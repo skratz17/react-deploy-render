@@ -49,11 +49,13 @@ const WelcomeBanner = () => {
     const restartAnimationCycle = () => {
       start = null;
       hasResetWelcomeMessage = false;
+      welcomeHeader.current.style.opacity = 1;
     };
 
     const animationCallback = timestamp => {
-      if(!start) start = timestamp;
-      const elapsed = timestamp - start;
+      if(!start) start = Date.now();
+      const elapsed = Date.now() - start;
+      console.log(elapsed);
 
       // if the current point in the animation cycle indicates we should be either fading out or back in, update the opacity of the welcome banner header 
       if(elapsed >= FADE_OUT_POINT && elapsed <= ANIMATION_DURATION) {
