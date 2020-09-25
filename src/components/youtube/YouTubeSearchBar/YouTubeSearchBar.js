@@ -14,10 +14,26 @@ defineMessages({
 const YouTubeSearchBar = props => {
   const { value, onChange } = props;
 
+  const getVideoIdFromYouTubeURL = youTubeUrl => {
+    if(youTubeUrl.searchParams.has('v')) {
+      return youTubeUrl.searchParams.get('v');
+    }
+    else {
+      return youTubeUrl.pathname.substring(1);
+    }
+  };
+
   const handleChange = e => {
     try {
-      const youtubeURL = new URL(e.target.value);
-      onChange(youtubeURL.searchParams.get('v'));
+      const url = new URL(e.target.value);
+
+      if(url.hostname === 'youtube.com' || url.hostname === 'www.youtube.com' || url.hostname === 'youtu.be') {
+        const videoId = getVideoIdFromYouTubeURL(url);
+        onChange(videoId);
+      }
+      else {
+        onChange(e.target.value);
+      }
     }
     catch {
       onChange(e.target.value);
