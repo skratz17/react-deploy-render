@@ -25,8 +25,16 @@
 }
 
 .workshop .transcriptionRequestList {
-  max-height: 50vh;
+  max-height: 70vh;
   overflow: scroll;
+  border: 1px solid #0003;
+  box-shadow: inset 1px 1px 1px #0003;
+}
+
+.workshop .transcriptionRequestList::after,
+.workshop .transcriptionRequestList::before {
+  content: '';
+  height: 10px;
 }
 
 @media(max-width: 1100px) {
