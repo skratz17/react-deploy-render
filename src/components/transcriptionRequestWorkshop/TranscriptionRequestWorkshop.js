@@ -46,6 +46,12 @@ const TranscriptionRequestWorkshop = () => {
     }
   }, [ isVideoPlaying, player ]);
 
+  useEffect(() => {
+    if(activatingTranscriptionRequestId) {
+      player.pauseVideo();
+    }
+  }, [ activatingTranscriptionRequestId ]);
+
   const handleYouTubeSearchBarChange = videoId => {
     setVideoId(videoId);
     setStartTime(null);
