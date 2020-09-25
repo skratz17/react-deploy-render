@@ -10,6 +10,8 @@ const TranscriptionRequestList = props => {
 
   const [ displayedRows, setDisplayedRows ] = useState(shouldPaginate ? 1 : null);
 
+  if(!transcriptionRequests.length) return null;
+
   return <>
     <div className={`transcriptionRequestList transcriptionRequestList--${columns || 1}`}>
       { transcriptionRequests

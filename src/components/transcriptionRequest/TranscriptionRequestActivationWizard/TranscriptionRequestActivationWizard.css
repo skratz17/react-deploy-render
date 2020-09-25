@@ -1,6 +1,6 @@
 .transcriptionRequestActivationWizard {
-  padding: 1rem;
-  max-height: 85vh;
+  padding: 0.5rem;
+  max-height: 95vh;
   overflow: scroll;
 }
 
