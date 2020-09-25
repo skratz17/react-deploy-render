@@ -25,6 +25,10 @@ Okay, sure. [It's deployed here!](https://uhhhwut.onrender.com/)
 
 ## Screenshots
 
+| <img src="./readme_resources/watchingVideo.png"> |
+| :---: |
+| Watching a video |
+
 | <img src="./readme_resources/recordingTranscriptionRequest.png"> |
 | :---: |
 | Creating a transcription request |
@@ -42,6 +46,10 @@ Okay, sure. [It's deployed here!](https://uhhhwut.onrender.com/)
 | The transcription request dashboard |
 
 <details><summary>Click to see the same screenshots as above, but in the Chinese internationalized view!</summary>
+
+| <img src="./readme_resources/watchingVideo-ZH.png"> |
+| :---: |
+| Watching a video 
 
 | <img src="./readme_resources/recordingTranscriptionRequest-ZH.png"> |
 | :---: |
