@@ -53,7 +53,7 @@ const TranscriptionRequestDashboardData = props => {
     </h2>
     <div className="transcriptionRequestDashboardData">
       {
-        dataPoints.map(({ description, value }, index) => <>
+        dataPoints.map(({ description, value }, index) => <React.Fragment key={index}>
           <div className="dataPoint">
             <p className="dataPoint__value">{value}</p>
             <p className="dataPoint__description">{description}</p>
@@ -61,7 +61,7 @@ const TranscriptionRequestDashboardData = props => {
           { index !== dataPoints.length - 1 && 
             <div className="line line--50 line--y"></div>
           }
-        </>)
+        </React.Fragment>)
       }
     </div>
   </>;
