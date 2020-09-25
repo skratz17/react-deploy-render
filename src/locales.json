@@ -120,7 +120,7 @@
     "transcriptionRequestDashboard.allFulfilledTranscriptionRequestsHeader": "所有完成的標音請求",
     "transcriptionRequestDashboard.allTranscriptionRequestsHeader": "所有的標音請求",
     "transcriptionForSegment.header": "播放中的內容的標音",
-    "transcriptionForSegment.authorLabel": "標音者: {author}",
+    "transcriptionForSegment.authorLabel": "標音者: {name}",
     "transcriptionRequestControl.startRequestAltText": "開始請求",
     "transcriptionRequestControl.stopRequestAltText": "結束請求",
     "transcriptionRequestControl.orText": "或者",
