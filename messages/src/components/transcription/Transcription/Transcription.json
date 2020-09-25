@@ -1,0 +1,26 @@
+[
+  {
+    "id": "transcription.invalidUserWarning",
+    "defaultMessage": "Nuh uh you shouldn't be looking at that it belongs to another user"
+  },
+  {
+    "id": "transcription.loadingMessage",
+    "defaultMessage": "Loading..."
+  },
+  {
+    "id": "transcription.rejectTranscriptionButton",
+    "defaultMessage": "Reject Transcription"
+  },
+  {
+    "id": "transcription.acceptTranscriptionButton",
+    "defaultMessage": "Accept Transcription"
+  },
+  {
+    "id": "transcription.header",
+    "defaultMessage": "Transcription"
+  },
+  {
+    "id": "transcription.authorLabel",
+    "defaultMessage": "Transcribed by: {name}"
+  }
+]

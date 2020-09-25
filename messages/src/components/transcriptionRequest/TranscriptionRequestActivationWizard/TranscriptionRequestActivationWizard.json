@@ -1,0 +1,18 @@
+[
+  {
+    "id": "transcriptionRequestActivationWizard.saveAndConfirmButton",
+    "defaultMessage": "Save and Confirm"
+  },
+  {
+    "id": "transcriptionRequestActivationWizard.backButton",
+    "defaultMessage": "Back"
+  },
+  {
+    "id": "transcriptionRequestActivationWizard.activateTranscriptionRequestButton",
+    "defaultMessage": "Activate Transcription Request"
+  },
+  {
+    "id": "transcriptionRequestActivationWizard.header",
+    "defaultMessage": "Activate Transcription Request"
+  }
+]

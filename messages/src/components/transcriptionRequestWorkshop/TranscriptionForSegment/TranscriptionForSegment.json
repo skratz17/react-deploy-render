@@ -1,0 +1,10 @@
+[
+  {
+    "id": "transcriptionForSegment.header",
+    "defaultMessage": "Transcription of Current Segment"
+  },
+  {
+    "id": "transcriptionForSegment.authorLabel",
+    "defaultMessage": "Transcribed by: {name}"
+  }
+]
