@@ -15,15 +15,21 @@ const YouTubeSearchBar = props => {
   const { value, onChange } = props;
 
   const getVideoIdFromYouTubeURL = youTubeUrl => {
+
+    // url of the form www.youtube.com/watch?v=VIDEO_ID
     if(youTubeUrl.searchParams.has('v')) {
       return youTubeUrl.searchParams.get('v');
     }
+
+    // shortened url of the form youtu.be/VIDEO_ID
     else {
       return youTubeUrl.pathname.substring(1);
     }
   };
 
   const handleChange = e => {
+
+    // try to parse the input as a URL
     try {
       const url = new URL(e.target.value);
 
@@ -35,6 +41,8 @@ const YouTubeSearchBar = props => {
         onChange(e.target.value);
       }
     }
+
+    // URL constructor throws an error if supplied string is not a valid URL - just send up the user input in this case
     catch {
       onChange(e.target.value);
     }
