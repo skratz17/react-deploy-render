@@ -1,68 +1,96 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [uhhhwut](https://uhhhwut.onrender.com/ "Unselfish Humans Helping Humans With Unlimited Transcriptions")
 
-## Available Scripts
+> Unselfish Humans Helping Humans With Unlimited Transcriptions
 
-In the project directory, you can run:
+## The Concept
 
-### `npm start`
+uhhhwut is a single-page web application that crowdsources transcriptions of YouTube videos, and is targeted at learners of foreign languages who watch YouTube videos to immerse in their target language.  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Example
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For instance, if I am an English speaker studying Japanese, and while watching a Japanese YouTube video I encounter some segment of the video I did not understand, I can create a **transcription request** for that segment of the video, and later on, a Japanese user of the site will transcribe that segment of the video for me. The catch, however, is that to actually enact this request I must first transcribe another user's transcription request for an English video!
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Embedded YouTube player so that users can easily watch videos within the app.
+* Transcription Request creation and activation process that is intuitive, easy-to-use, and minimally disruptive to the user's immersion in their video of choice.
+* Responsive design so that the site remains not only functional, but also a joy to use regardless of the user's screen size.
+* Internationalization! The app is all set up and ready to be translated into any language spoken on this Earth! There is already a full translation set for Chinese set up in the app (albeit surely with wild grammatical and vocabulary inaccuracies since I, a very much non-fluent Chinese speaker, made it).
+    * The app makes its choice on what locale the user is in based on the user's primary browser language. To see the Chinese version of the site, you must change your browser's language to Chinese!
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Can I check it out?
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Okay, sure. [It's deployed here!](https://uhhhwut.onrender.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+| <img src="./readme_resources/recordingTranscriptionRequest.png"> |
+| :---: |
+| Creating a transcription request |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| <img src="./readme_resources/confirmingTranscriptionRequest.png"> |
+| :---: |
+| Confirming a transcription request |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| <img src="./readme_resources/transcribing.png"> |
+| :---: |
+| Transcribing another user's request |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| <img src="./readme_resources/dashboard.png"> |
+| :---: |
+| The transcription request dashboard |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details><summary>Click to see the same screenshots as above, but in the Chinese internationalized view!</summary>
 
-## Learn More
+| <img src="./readme_resources/recordingTranscriptionRequest-ZH.png"> |
+| :---: |
+| Creating a transcription request |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| <img src="./readme_resources/confirmingTranscriptionRequest-ZH.png"> |
+| :---: |
+| Confirming a transcription request |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| <img src="./readme_resources/transcribing-ZH.png"> |
+| :---: |
+| Transcribing another user's request |
 
-### Code Splitting
+| <img src="./readme_resources/dashboard-ZH.png"> |
+| :---: |
+| The transcription request dashboard |
+</details>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## A guided workflow, if it so interests you
 
-### Analyzing the Bundle Size
+1. Register a new account. **Do not use any sensitive credentials. This is not a secure application!** 
+    * The deployed version actually disables and pre-fills all password fields to the string 'password'... sooo basically just don't manually re-enable these fields in dev tools and then change their value 😅
+1. Decide which YouTube video you want to watch in the workshop, then copy and paste its URL into the search bar.
+1. Start watching the video.
+1. Click the large "Record" button when you encounter the start of a segment you would like to request transcription for. Click the large "Stop" button when the player hits the end of the segment you want transcribed.
+1. Click the "Activate" button on the transcription request you have just created, which should appear to the right of the player.
+1. Go through the activation process! Feel free to double-check that the segment presented to you in step one of the activation process is indeed what you requested, and specify the language of this segment, then "Save and Confirm".
+1. If there is an untranscribed request in your native language, you will now see it presented to you in step two of the activation process. Play the video and transcribe it to help out another user and activate your request!
+    * And if there isn't an untranscribed request in your native language, you are free to activate your request right away!
+1. When another user eventually transcribes the request you just activated, it will appear at the top of your dashboard, in a list titled "New Transcriptions".
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Technologies Used
 
-### Making a Progressive Web App
+This application was built using the [React](https://github.com/) JavaScript library, and was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app). The only packages used in the production site outside of those provided by create-react-app are [react-youtube](https://www.npmjs.com/package/react-youtube), [react-intl](https://www.npmjs.com/package/react-intl), and [react-router-dom](https://www.npmjs.com/package/react-router-dom).  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+A couple additional Babel-related packages were used as development dependencies, all of which were used in conjunction for the process of extracting the messages marked for internationalization throughout the source code.  
 
-### Advanced Configuration
+The API server is powered by [json-server](https://www.npmjs.com/package/json-server).  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+All styling was accomplished with vanilla CSS3 written by me.
 
-### Deployment
+## Planning Resources
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Below are the planning documents and resources I created before I began implementing this project. These resources all proved to be invaluable during development as they constantly gave me a roadmap of what needed to happen and in what order, and the completed project did not wind up straying far from any of these plans.
 
-### `npm run build` fails to minify
+* [ERD](https://dbdiagram.io/d/5f597e0d88d052352cb69c4e)
+* [Figma Wireframe](https://www.figma.com/file/D3tHMbdYUBncNy8yKm5ZWV/Front-End-Capstone?node-id=0%3A1)
+* [React Component Planning and Specification](https://drive.google.com/file/d/1AhZ4Q1Usssi593gdG7K-x0rGvAuPzbhs/view?usp=sharing)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Author
+
+Jacob Eckert - [GitHub](https://github.com/skratz17), [LinkedIn](https://www.linkedin.com/in/jacob-w-eckert/) 
