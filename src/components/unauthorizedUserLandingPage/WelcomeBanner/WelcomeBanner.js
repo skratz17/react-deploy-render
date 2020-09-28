@@ -85,7 +85,7 @@ const WelcomeBanner = () => {
     <div className="welcomeBanner">
       <h2 className="welcomeBanner__header" ref={welcomeHeader} style={{ opacity: 1 }}>
         { welcomeMessage.split('|').map(part => 
-          part === 'UHHHWUT' ? <span className="welcomeBanner__siteName"><span>{part}</span><i className="material-icons">question_answer</i></span> : <span>{part}</span>
+          part === 'UHHHWUT' ? <span key={part} className="welcomeBanner__siteName"><span>{part}</span><i className="material-icons">question_answer</i></span> : <span key={part}>{part}</span>
         )}
       </h2>
       <p className="welcomeBanner__text">
